@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Shippori Mincho';
+    src: url('ShipporiMincho-Bold.eot');
+    src: local('Shippori Mincho Bold'), local('ShipporiMincho-Bold'),
+        url('ShipporiMincho-Bold.eot?#iefix') format('embedded-opentype'),
+        url('ShipporiMincho-Bold.woff2') format('woff2'),
+        url('ShipporiMincho-Bold.woff') format('woff'),
+        url('ShipporiMincho-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shippori Mincho';
+    src: url('ShipporiMincho-Medium.eot');
+    src: local('Shippori Mincho Medium'), local('ShipporiMincho-Medium'),
+        url('ShipporiMincho-Medium.eot?#iefix') format('embedded-opentype'),
+        url('ShipporiMincho-Medium.woff2') format('woff2'),
+        url('ShipporiMincho-Medium.woff') format('woff'),
+        url('ShipporiMincho-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shippori Mincho';
+    src: url('ShipporiMincho-ExtraBold.eot');
+    src: local('Shippori Mincho ExtraBold'), local('ShipporiMincho-ExtraBold'),
+        url('ShipporiMincho-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('ShipporiMincho-ExtraBold.woff2') format('woff2'),
+        url('ShipporiMincho-ExtraBold.woff') format('woff'),
+        url('ShipporiMincho-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shippori Mincho';
+    src: url('ShipporiMincho-Regular.eot');
+    src: local('Shippori Mincho Regular'), local('ShipporiMincho-Regular'),
+        url('ShipporiMincho-Regular.eot?#iefix') format('embedded-opentype'),
+        url('ShipporiMincho-Regular.woff2') format('woff2'),
+        url('ShipporiMincho-Regular.woff') format('woff'),
+        url('ShipporiMincho-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shippori Mincho';
+    src: url('ShipporiMincho-SemiBold.eot');
+    src: local('Shippori Mincho SemiBold'), local('ShipporiMincho-SemiBold'),
+        url('ShipporiMincho-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('ShipporiMincho-SemiBold.woff2') format('woff2'),
+        url('ShipporiMincho-SemiBold.woff') format('woff'),
+        url('ShipporiMincho-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,21 @@
+{
+  "name": "palettes-showcase",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/builder/builder.js",
+    "build:prod": "NODE_ENV=production node tools/builder/builder.js",
+    "serve:only": "node tools/dev/serve.js",
+    "serve": "npm run build && npm run serve:only",
+    "dev": "node tools/dev/dev-serve.js",
+    "generate": "node tools/generator/generator.js"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "esbuild": "^0.25.12",
+    "html-minifier-terser": "^7.2.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.89.0",
+    "typescript": "^5.8.3"
+  }
+}

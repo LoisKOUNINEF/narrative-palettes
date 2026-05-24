@@ -1,0 +1,15 @@
+// Libraries styles (snackbar, popover).
+@use "core";
+
+// built-in classes
+@use "utilities";
+
+// global styles
+@use "styles";
+
+// custom classes
+@use "custom-classes";
+// components styles
+@use "components";
+// views styles
+@use "views";

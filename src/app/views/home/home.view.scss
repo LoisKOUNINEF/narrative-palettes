@@ -1,0 +1,13 @@
+.home__wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 0;
+}
+
+.home__themes-catalog {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}

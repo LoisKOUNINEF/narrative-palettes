@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "variables" as *;
+@use "mixins";
+
+.app-snackbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mixins.flex-center;
+  background: $snack-default;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  gap: 1rem;
+  animation: fade-in 0.3s ease;
+  @include mixins.respond-to(medium) {
+    min-width: 80%;
+  }
+}
+
+.app-snackbar--bottom { bottom: 1rem; }
+.app-snackbar--top { top: 1rem; }
+
+.app-snackbar--success { background: $snack-success; }
+.app-snackbar--error { background: $snack-error; }
+.app-snackbar--info { background: $snack-info; }
+
+.app-snackbar button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
