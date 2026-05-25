@@ -18,7 +18,7 @@ export class HomeView extends View {
     })
     // return [{
     //   selector: 'home-theme-showcase',
-    //   factory: (el) => new ThemeShowcaseComponent(el, eightiesLight)
+    //   factory: (el) => new ThemeShowcaseComponent(el, themes[0]!)
     // }]
   }
 }

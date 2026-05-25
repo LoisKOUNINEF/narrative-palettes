@@ -286,7 +286,6 @@
   --overlay: rgba(14 12 8 / 0.85);
 }
 
-
 // hogwarts
 [class*="theme-hogwarts"] {
   --primary-font: 'Lora', Arial, sans-serif;
@@ -332,4 +331,820 @@
   --border: rgb(28 22 18); // #1C1612
   --border-strong: rgb(56 52 64); // #383440
   --overlay: rgba(10 8 6 / 0.85);
+}
+
+// iznik
+[class*="theme-iznik"] {
+  --primary-font: 'Gentium Plus', Arial, sans-serif;
+  --secondary-font: 'Scheherazade New', Arial, sans-serif;
+}
+
+.theme-iznik-light {
+  --background: rgb(245 242 234); // #F5F2EA
+  --surface: rgb(234 229 216); // #EAE5D8
+  --text: rgb(13 11 8); // #0D0B08
+  --text-muted: rgb(82 72 56); // #524838
+  --primary: rgb(28 58 120); // #1C3A78
+  --primary-hover: rgb(16 36 88); // #102458
+  --secondary: rgb(168 40 32); // #A82820
+  --secondary-hover: rgb(120 24 16); // #781810
+  --accent: rgb(26 123 110); // #1A7B6E
+  --bg-disabled: rgb(221 216 204); // #DDD8CC
+  --text-disabled: rgb(156 148 136); // #9C9488
+  --success: rgb(48 104 72); // #306848
+  --error: rgb(192 32 24); // #C02018
+  --warning: rgb(168 120 32); // #A87820
+  --info: rgb(32 136 144); // #208890
+  --border: rgb(220 214 200); // #DCD6C8
+  --border-strong: rgb(172 164 148); // #ACA494
+  --overlay: rgba(13 11 8 / 0.50);
+}
+
+.theme-iznik-dark {
+  --background: rgb(10 16 32); // #0A1020
+  --surface: rgb(18 26 48); // #121A30
+  --text: rgb(240 237 228); // #F0EDE4
+  --text-muted: rgb(136 152 184); // #8898B8
+  --primary: rgb(224 104 88); // #E06858
+  --primary-hover: rgb(240 136 120); // #F08878
+  --secondary: rgb(74 188 172); // #4ABCAC
+  --secondary-hover: rgb(104 216 200); // #68D8C8
+  --accent: rgb(232 200 96); // #E8C860
+  --bg-disabled: rgb(26 34 56); // #1A2238
+  --text-disabled: rgb(60 74 98); // #3C4A62
+  --success: rgb(72 168 128); // #48A880
+  --error: rgb(176 48 56); // #B03038
+  --warning: rgb(208 160 56); // #D0A038
+  --info: rgb(112 136 192); // #7088C0
+  --border: rgb(18 26 52); // #121A34
+  --border-strong: rgb(40 56 88); // #283858
+  --overlay: rgba(10 16 32 / 0.85);
+}
+
+// iznik
+[class*="theme-kaamos"] {
+  --primary-font: 'Newsreader', Arial, sans-serif;
+  --secondary-font: 'Figtree', Arial, sans-serif;
+}
+
+.theme-kaamos-light {
+  --background: rgb(244 240 234); // #F4F0EA
+  --surface: rgb(234 228 220); // #EAE4DC
+  --text: rgb(17 12 8); // #110C08
+  --text-muted: rgb(92 82 72); // #5C5248
+  --primary: rgb(176 96 48); // #B06030
+  --primary-hover: rgb(144 68 24); // #904418
+  --secondary: rgb(74 104 120); // #4A6878
+  --secondary-hover: rgb(48 72 88); // #304858
+  --accent: rgb(154 92 40); // #9A5C28
+  --bg-disabled: rgb(216 210 202); // #D8D2CA
+  --text-disabled: rgb(154 148 144); // #9A9490
+  --success: rgb(96 112 88); // #607058
+  --error: rgb(152 64 48); // #984030
+  --warning: rgb(168 104 40); // #A86828
+  --info: rgb(112 144 160); // #7090A0
+  --border: rgb(220 214 206); // #DCD6CE
+  --border-strong: rgb(168 156 144); // #A89C90
+  --overlay: rgba(17 12 8 / 0.50);
+}
+
+.theme-kaamos-dark {
+  --background: rgb(10 14 20); // #0A0E14
+  --surface: rgb(18 24 32); // #121820
+  --text: rgb(237 230 218); // #EDE6DA
+  --text-muted: rgb(138 136 128); // #8A8880
+  --primary: rgb(200 120 72); // #C87848
+  --primary-hover: rgb(220 148 96); // #DC9460
+  --secondary: rgb(104 152 176); // #6898B0
+  --secondary-hover: rgb(136 184 208); // #88B8D0
+  --accent: rgb(192 104 48); // #C06830
+  --bg-disabled: rgb(24 30 40); // #181E28
+  --text-disabled: rgb(64 72 80); // #404850
+  --success: rgb(88 112 96); // #587060
+  --error: rgb(168 72 64); // #A84840
+  --warning: rgb(208 128 56); // #D08038
+  --info: rgb(80 120 160); // #5078A0
+  --border: rgb(20 28 40); // #141C28
+  --border-strong: rgb(40 48 56); // #283038
+  --overlay: rgba(10 14 20 / 0.85);
+}
+
+// kaibab
+[class*="theme-kaibab"] {
+  --primary-font: Bitter, Arial, sans-serif;
+  --secondary-font: Teko, Arial, sans-serif;
+}
+
+.theme-kaibab-light {
+  --background: rgb(242 238 224); // #F2EEE0
+  --surface: rgb(234 228 212); // #EAE4D4
+  --text: rgb(22 14 8); // #160E08
+  --text-muted: rgb(106 90 72); // #6A5A48
+  --primary: rgb(122 56 72); // #7A3848
+  --primary-hover: rgb(88 32 48); // #582030
+  --secondary: rgb(74 104 88); // #4A6858
+  --secondary-hover: rgb(48 72 60); // #30483C
+  --accent: rgb(184 92 32); // #B85C20
+  --bg-disabled: rgb(216 210 192); // #D8D2C0
+  --text-disabled: rgb(154 144 128); // #9A9080
+  --success: rgb(80 112 72); // #507048
+  --error: rgb(152 48 32); // #983020
+  --warning: rgb(192 104 32); // #C06820
+  --info: rgb(80 120 160); // #5078A0
+  --border: rgb(222 216 200); // #DED8C8
+  --border-strong: rgb(176 164 144); // #B0A490
+  --overlay: rgba(22 14 8 / 0.50);
+}
+
+.theme-kaibab-dark {
+  --background: rgb(12 9 6); // #0C0906
+  --surface: rgb(24 18 16); // #181210
+  --text: rgb(234 226 208); // #EAE2D0
+  --text-muted: rgb(154 142 120); // #9A8E78
+  --primary: rgb(168 88 104); // #A85868
+  --primary-hover: rgb(200 112 132); // #C87084
+  --secondary: rgb(96 136 120); // #608878
+  --secondary-hover: rgb(120 168 148); // #78A894
+  --accent: rgb(200 112 48); // #C87030
+  --bg-disabled: rgb(32 26 20); // #201A14
+  --text-disabled: rgb(80 68 56); // #504438
+  --success: rgb(72 104 88); // #486858
+  --error: rgb(144 48 40); // #903028
+  --warning: rgb(216 136 56); // #D88838
+  --info: rgb(64 96 136); // #406088
+  --border: rgb(28 20 16); // #1C1410
+  --border-strong: rgb(56 44 36); // #382C24
+  --overlay: rgba(12 9 6 / 0.85);
+}
+
+// lotr
+[class*="theme-lotr"] {
+  --primary-font: 'GFS Didot', Arial, sans-serif;
+  --secondary-font: UnifrakturMaguntia, Arial, sans-serif;
+}
+
+.theme-lotr-light {
+  --background: rgb(245 240 224); // #F5F0E0
+  --surface: rgb(236 230 208); // #ECE6D0
+  --text: rgb(22 14 8); // #160E08
+  --text-muted: rgb(96 88 60); // #60583C
+  --primary: rgb(56 88 120); // #385878
+  --primary-hover: rgb(32 60 96); // #203C60
+  --secondary: rgb(90 120 48); // #5A7830
+  --secondary-hover: rgb(60 88 28); // #3C581C
+  --accent: rgb(136 40 56); // #882838
+  --bg-disabled: rgb(221 216 192); // #DDD8C0
+  --text-disabled: rgb(154 148 120); // #9A9478
+  --success: rgb(72 104 56); // #486838
+  --error: rgb(160 32 48); // #A02030
+  --warning: rgb(168 120 32); // #A87820
+  --info: rgb(88 128 168); // #5880A8
+  --border: rgb(224 218 196); // #E0DAC4
+  --border-strong: rgb(180 172 144); // #B4AC90
+  --overlay: rgba(22 14 8 / 0.50);
+}
+
+.theme-lotr-dark {
+  --background: rgb(12 10 8); // #0C0A08
+  --surface: rgb(24 20 16); // #181410
+  --text: rgb(234 226 204); // #EAE2CC
+  --text-muted: rgb(144 128 112); // #908070
+  --primary: rgb(104 144 176); // #6890B0
+  --primary-hover: rgb(136 176 208); // #88B0D0
+  --secondary: rgb(176 56 56); // #B03838
+  --secondary-hover: rgb(208 80 72); // #D05048
+  --accent: rgb(192 152 12); // #C0980C
+  --bg-disabled: rgb(32 28 24); // #201C18
+  --text-disabled: rgb(80 72 64); // #504840
+  --success: rgb(72 104 88); // #486858
+  --error: rgb(136 32 32); // #882020
+  --warning: rgb(208 168 40); // #D0A828
+  --info: rgb(80 112 144); // #507090
+  --border: rgb(28 24 18); // #1C1812
+  --border-strong: rgb(56 48 40); // #383028
+  --overlay: rgba(12 10 8 / 0.85);
+}
+
+// murano
+[class*="theme-murano"] {
+  --primary-font: Spectral, Arial, sans-serif;
+  --secondary-font: 'Cormorant Garamond', Arial, sans-serif;
+}
+
+.theme-murano-light {
+  --background: rgb(246 244 240); // #F6F4F0
+  --surface: rgb(235 231 224); // #EBE7E0
+  --text: rgb(14 12 10); // #0E0C0A
+  --text-muted: rgb(78 72 64); // #4E4840
+  --primary: rgb(26 92 88); // #1A5C58
+  --primary-hover: rgb(14 64 60); // #0E403C
+  --secondary: rgb(160 92 16); // #A05C10
+  --secondary-hover: rgb(120 64 8); // #784008
+  --accent: rgb(42 124 140); // #2A7C8C
+  --bg-disabled: rgb(221 217 210); // #DDD9D2
+  --text-disabled: rgb(158 154 146); // #9E9A92
+  --success: rgb(72 136 104); // #488868
+  --error: rgb(176 56 48); // #B03830
+  --warning: rgb(176 128 32); // #B08020
+  --info: rgb(56 144 160); // #3890A0
+  --border: rgb(220 216 208); // #DCD8D0
+  --border-strong: rgb(172 166 156); // #ACA69C
+  --overlay: rgba(14 12 10 / 0.50);
+}
+
+.theme-murano-dark {
+  --background: rgb(12 9 6); // #0C0906
+  --surface: rgb(24 18 16); // #181210
+  --text: rgb(240 232 216); // #F0E8D8
+  --text-muted: rgb(160 144 120); // #A09078
+  --primary: rgb(56 184 160); // #38B8A0
+  --primary-hover: rgb(80 216 192); // #50D8C0
+  --secondary: rgb(212 136 42); // #D4882A
+  --secondary-hover: rgb(232 164 72); // #E8A448
+  --accent: rgb(72 184 204); // #48B8CC
+  --bg-disabled: rgb(32 26 24); // #201A18
+  --text-disabled: rgb(80 72 68); // #504844
+  --success: rgb(48 144 112); // #309070
+  --error: rgb(176 64 40); // #B04028
+  --warning: rgb(200 144 56); // #C89038
+  --info: rgb(56 160 184); // #38A0B8
+  --border: rgb(28 22 18); // #1C1612
+  --border-strong: rgb(56 44 36); // #382C24
+  --overlay: rgba(12 9 6 / 0.85);
+}
+
+// nostromo
+[class*="theme-nostromo"] {
+  --primary-font: 'IBM Plex Sans', Arial, sans-serif;
+  --secondary-font: 'Share Tech', Arial, sans-serif;
+}
+
+.theme-nostromo-light {
+  --background: rgb(238 236 234); // #EEECEA
+  --surface: rgb(226 224 220); // #E2E0DC
+  --text: rgb(16 14 12); // #100E0C
+  --text-muted: rgb(88 84 80); // #585450
+  --primary: rgb(58 122 64); // #3A7A40
+  --primary-hover: rgb(36 92 42); // #245C2A
+  --secondary: rgb(160 120 32); // #A07820
+  --secondary-hover: rgb(128 88 16); // #805810
+  --accent: rgb(42 88 136); // #2A5888
+  --bg-disabled: rgb(212 210 206); // #D4D2CE
+  --text-disabled: rgb(152 148 144); // #989490
+  --success: rgb(64 128 72); // #408048
+  --error: rgb(144 48 32); // #903020
+  --warning: rgb(176 128 24); // #B08018
+  --info: rgb(56 104 160); // #3868A0
+  --border: rgb(214 212 208); // #D6D4D0
+  --border-strong: rgb(168 164 158); // #A8A49E
+  --overlay: rgba(16 14 12 / 0.50);
+}
+
+.theme-nostromo-dark {
+  --background: rgb(12 12 10); // #0C0C0A
+  --surface: rgb(22 22 20); // #161614
+  --text: rgb(136 200 112); // #88C870
+  --text-muted: rgb(80 128 72); // #508048
+  --primary: rgb(112 192 96); // #70C060
+  --primary-hover: rgb(144 216 128); // #90D880
+  --secondary: rgb(200 152 48); // #C89830
+  --secondary-hover: rgb(224 176 72); // #E0B048
+  --accent: rgb(72 136 192); // #4888C0
+  --bg-disabled: rgb(30 30 28); // #1E1E1C
+  --text-disabled: rgb(56 72 56); // #384838
+  --success: rgb(96 168 80); // #60A850
+  --error: rgb(168 56 40); // #A83828
+  --warning: rgb(208 160 56); // #D0A038
+  --info: rgb(80 144 200); // #5090C8
+  --border: rgb(28 28 26); // #1C1C1A
+  --border-strong: rgb(52 52 48); // #343430
+  --overlay: rgba(12 12 10 / 0.85);
+}
+
+// pentelic
+[class*="theme-pentelic"] {
+  --primary-font: Cardo, Arial, sans-serif;
+  --secondary-font: 'GFS Neohellenic', Arial, sans-serif;
+}
+
+.theme-pentelic-light {
+  --background: rgb(245 240 224); // #F5F0E0
+  --surface: rgb(237 230 208); // #EDE6D0
+  --text: rgb(14 12 8); // #0E0C08
+  --text-muted: rgb(88 80 60); // #58503C
+  --primary: rgb(30 72 120); // #1E4878
+  --primary-hover: rgb(16 48 96); // #103060
+  --secondary: rgb(158 48 32); // #9E3020
+  --secondary-hover: rgb(120 28 16); // #781C10
+  --accent: rgb(168 124 0); // #A87C00
+  --bg-disabled: rgb(221 216 196); // #DDD8C4
+  --text-disabled: rgb(154 148 128); // #9A9480
+  --success: rgb(48 96 64); // #306040
+  --error: rgb(184 40 24); // #B82818
+  --warning: rgb(176 128 8); // #B08008
+  --info: rgb(64 120 176); // #4078B0
+  --border: rgb(224 218 200); // #E0DAC8
+  --border-strong: rgb(176 168 144); // #B0A890
+  --overlay: rgba(14 12 8 / 0.50);
+}
+
+.theme-pentelic-dark {
+  --background: rgb(12 10 6); // #0C0A06
+  --surface: rgb(24 20 16); // #181410
+  --text: rgb(238 228 204); // #EEE4CC
+  --text-muted: rgb(154 144 112); // #9A9070
+  --primary: rgb(56 120 168); // #3878A8
+  --primary-hover: rgb(48 144 136); // #309088
+  --secondary: rgb(200 72 48); // #C84830
+  --secondary-hover: rgb(224 104 72); // #E06848
+  --accent: rgb(192 152 16); // #C09810
+  --bg-disabled: rgb(32 28 20); // #201C14
+  --text-disabled: rgb(80 72 64); // #504840
+  --success: rgb(64 104 56); // #406838
+  --error: rgb(152 40 24); // #982818
+  --warning: rgb(208 168 32); // #D0A820
+  --info: rgb(72 104 144); // #486890
+  --border: rgb(28 24 16); // #1C1810
+  --border-strong: rgb(60 52 40); // #3C3428
+  --overlay: rgba(12 10 6 / 0.85);
+}
+
+// pompeian
+[class*="theme-pompeian"] {
+  --primary-font: Cardo, Arial, sans-serif;
+  --secondary-font: Cinzel, Arial, sans-serif;
+}
+
+.theme-pompeian-light {
+  --background: rgb(240 234 216); // #F0EAD8
+  --surface: rgb(229 220 202); // #E5DCCA
+  --text: rgb(18 13 6); // #120D06
+  --text-muted: rgb(90 72 48); // #5A4830
+  --primary: rgb(140 40 24); // #8C2818
+  --primary-hover: rgb(104 22 10); // #68160A
+  --secondary: rgb(30 72 112); // #1E4870
+  --secondary-hover: rgb(16 48 88); // #103058
+  --accent: rgb(140 100 0); // #8C6400
+  --bg-disabled: rgb(216 208 188); // #D8D0BC
+  --text-disabled: rgb(154 144 128); // #9A9080
+  --success: rgb(56 96 64); // #386040
+  --error: rgb(168 40 20); // #A82814
+  --warning: rgb(160 120 8); // #A07808
+  --info: rgb(56 112 168); // #3870A8
+  --border: rgb(220 212 192); // #DCD4C0
+  --border-strong: rgb(172 160 136); // #ACA088
+  --overlay: rgba(18 13 6 / 0.50);
+}
+
+.theme-pompeian-dark {
+  --background: rgb(16 12 8); // #100C08
+  --surface: rgb(28 22 16); // #1C1610
+  --text: rgb(237 229 212); // #EDE5D4
+  --text-muted: rgb(160 144 112); // #A09070
+  --primary: rgb(216 112 80); // #D87050
+  --primary-hover: rgb(232 144 112); // #E89070
+  --secondary: rgb(88 152 204); // #5898CC
+  --secondary-hover: rgb(120 184 224); // #78B8E0
+  --accent: rgb(200 168 48); // #C8A830
+  --bg-disabled: rgb(38 30 22); // #261E16
+  --text-disabled: rgb(82 68 56); // #524438
+  --success: rgb(72 112 64); // #487040
+  --error: rgb(160 56 32); // #A03820
+  --warning: rgb(216 184 64); // #D8B840
+  --info: rgb(72 120 168); // #4878A8
+  --border: rgb(32 26 18); // #201A12
+  --border-strong: rgb(64 52 40); // #403428
+  --overlay: rgba(16 12 8 / 0.85);
+}
+
+// sheffield-steel
+[class*="theme-sheffield-steel"] {
+  --primary-font: 'Source Sans 3', Arial, sans-serif;
+  --secondary-font: 'Barlow Condensed', Arial, sans-serif;
+}
+
+.theme-sheffield-steel-light {
+  --background: rgb(242 240 236); // #F2F0EC
+  --surface: rgb(228 224 218); // #E4E0DA
+  --text: rgb(16 14 12); // #100E0C
+  --text-muted: rgb(90 86 80); // #5A5650
+  --primary: rgb(46 74 106); // #2E4A6A
+  --primary-hover: rgb(28 52 84); // #1C3454
+  --secondary: rgb(184 92 24); // #B85C18
+  --secondary-hover: rgb(148 64 12); // #94400C
+  --accent: rgb(196 150 12); // #C4960C
+  --bg-disabled: rgb(216 212 206); // #D8D4CE
+  --text-disabled: rgb(154 150 144); // #9A9690
+  --success: rgb(72 104 80); // #486850
+  --error: rgb(152 48 28); // #98301C
+  --warning: rgb(184 136 16); // #B88810
+  --info: rgb(72 112 152); // #487098
+  --border: rgb(222 218 212); // #DEDAD4
+  --border-strong: rgb(172 168 160); // #ACA8A0
+  --overlay: rgba(16 14 12 / 0.50);
+}
+
+.theme-sheffield-steel-dark {
+  --background: rgb(16 12 8); // #100C08
+  --surface: rgb(28 22 16); // #1C1610
+  --text: rgb(238 232 220); // #EEE8DC
+  --text-muted: rgb(144 136 128); // #908880
+  --primary: rgb(88 136 192); // #5888C0
+  --primary-hover: rgb(120 168 216); // #78A8D8
+  --secondary: rgb(224 120 40); // #E07828
+  --secondary-hover: rgb(240 152 72); // #F09848
+  --accent: rgb(212 168 24); // #D4A818
+  --bg-disabled: rgb(34 28 22); // #221C16
+  --text-disabled: rgb(80 72 64); // #504840
+  --success: rgb(64 112 96); // #407060
+  --error: rgb(160 56 32); // #A03820
+  --warning: rgb(224 184 40); // #E0B828
+  --info: rgb(120 152 184); // #7898B8
+  --border: rgb(32 26 18); // #201A12
+  --border-strong: rgb(60 48 36); // #3C3024
+  --overlay: rgba(16 12 8 / 0.85);
+}
+
+// star-wars
+[class*="theme-star-wars"] {
+  --primary-font: 'Nunito', Arial, sans-serif;
+  --secondary-font: 'Orbitron', Arial, sans-serif;
+}
+
+.theme-star-wars-light {
+  --background: rgb(240 232 212); // #F0E8D4
+  --surface: rgb(228 218 204); // #E4DACC
+  --text: rgb(16 12 8); // #100C08
+  --text-muted: rgb(92 84 72); // #5C5448
+  --primary: rgb(42 88 136); // #2A5888
+  --primary-hover: rgb(24 64 112); // #184070
+  --secondary: rgb(74 104 88); // #4A6858
+  --secondary-hover: rgb(48 76 60); // #304C3C
+  --accent: rgb(176 88 32); // #B05820
+  --bg-disabled: rgb(212 204 192); // #D4CCC0
+  --text-disabled: rgb(154 146 136); // #9A9288
+  --success: rgb(80 120 64); // #507840
+  --error: rgb(144 48 28); // #90301C
+  --warning: rgb(192 112 24); // #C07018
+  --info: rgb(72 128 184); // #4880B8
+  --border: rgb(220 212 196); // #DCD4C4
+  --border-strong: rgb(172 160 144); // #ACA090
+  --overlay: rgba(16 12 8 / 0.50);
+}
+
+.theme-star-wars-dark {
+  --background: rgb(8 10 16); // #080A10
+  --surface: rgb(16 20 28); // #10141C
+  --text: rgb(216 228 240); // #D8E4F0
+  --text-muted: rgb(120 136 168); // #7888A8
+  --primary: rgb(88 144 208); // #5890D0
+  --primary-hover: rgb(128 184 232); // #80B8E8
+  --secondary: rgb(160 40 56); // #A02838
+  --secondary-hover: rgb(192 64 80); // #C04050
+  --accent: rgb(88 168 64); // #58A840
+  --bg-disabled: rgb(20 24 32); // #141820
+  --text-disabled: rgb(56 64 80); // #384050
+  --success: rgb(56 128 120); // #388078
+  --error: rgb(120 24 40); // #781828
+  --warning: rgb(112 200 80); // #70C850
+  --info: rgb(80 112 160); // #5070A0
+  --border: rgb(16 20 32); // #101420
+  --border-strong: rgb(40 48 64); // #283040
+  --overlay: rgba(8 10 16 / 0.85);
+}
+
+// theban-tomb
+[class*="theme-theban-tomb"] {
+  --primary-font: 'Cardo', Arial, sans-serif;
+  --secondary-font: 'Cinzel', Arial, sans-serif;
+}
+
+.theme-theban-tomb-light {
+  --background: rgb(242 237 216); // #F2EDD8
+  --surface: rgb(232 224 196); // #E8E0C4
+  --text: rgb(16 12 6); // #100C06
+  --text-muted: rgb(92 80 56); // #5C5038
+  --primary: rgb(26 80 128); // #1A5080
+  --primary-hover: rgb(14 56 104); // #0E3868
+  --secondary: rgb(160 56 32); // #A03820
+  --secondary-hover: rgb(120 32 14); // #78200E
+  --accent: rgb(42 112 72); // #2A7048
+  --bg-disabled: rgb(216 208 184); // #D8D0B8
+  --text-disabled: rgb(154 146 120); // #9A9278
+  --success: rgb(72 128 64); // #488040
+  --error: rgb(184 48 24); // #B83018
+  --warning: rgb(168 128 24); // #A88018
+  --info: rgb(56 120 176); // #3878B0
+  --border: rgb(224 216 192); // #E0D8C0
+  --border-strong: rgb(176 164 136); // #B0A488
+  --overlay: rgba(16 12 6 / 0.50);
+}
+
+.theme-theban-tomb-dark {
+  --background: rgb(14 10 6); // #0E0A06
+  --surface: rgb(26 20 16); // #1A1410
+  --text: rgb(238 230 208); // #EEE6D0
+  --text-muted: rgb(160 144 104); // #A09068
+  --primary: rgb(40 136 160); // #2888A0
+  --primary-hover: rgb(56 168 136); // #38A888
+  --secondary: rgb(200 80 48); // #C85030
+  --secondary-hover: rgb(224 112 72); // #E07048
+  --accent: rgb(64 160 96); // #40A060
+  --bg-disabled: rgb(34 26 18); // #221A12
+  --text-disabled: rgb(82 68 56); // #524438
+  --success: rgb(56 144 80); // #389050
+  --error: rgb(152 48 24); // #983018
+  --warning: rgb(192 152 40); // #C09828
+  --info: rgb(48 112 136); // #307088
+  --border: rgb(28 20 14); // #1C140E
+  --border-strong: rgb(56 44 32); // #382C20
+  --overlay: rgba(14 10 6 / 0.85);
+}
+
+// tiznit-silver
+[class*="theme-tiznit-silver"] {
+  --primary-font: Lateef, Arial, sans-serif;
+  --secondary-font: 'Aref Ruqaa Ink', Arial, sans-serif;
+}
+
+.theme-tiznit-silver-light {
+  --background: rgb(245 240 228); // #F5F0E4
+  --surface: rgb(237 230 212); // #EDE6D4
+  --text: rgb(20 16 16); // #141010
+  --text-muted: rgb(80 72 68); // #504844
+  --primary: rgb(184 64 32); // #B84020
+  --primary-hover: rgb(144 40 16); // #902810
+  --secondary: rgb(58 104 88); // #3A6858
+  --secondary-hover: rgb(36 76 60); // #244C3C
+  --accent: rgb(176 120 32); // #B07820
+  --bg-disabled: rgb(221 216 200); // #DDD8C8
+  --text-disabled: rgb(154 148 136); // #9A9488
+  --success: rgb(72 120 72); // #487848
+  --error: rgb(152 40 20); // #982814
+  --warning: rgb(184 136 24); // #B88818
+  --info: rgb(56 112 128); // #387080
+  --border: rgb(224 218 204); // #E0DACC
+  --border-strong: rgb(172 162 144); // #ACA290
+  --overlay: rgba(20 16 16 / 0.50);
+}
+
+.theme-tiznit-silver-dark {
+  --background: rgb(12 8 6); // #0C0806
+  --surface: rgb(26 16 8); // #1A1008
+  --text: rgb(238 224 200); // #EEE0C8
+  --text-muted: rgb(154 136 104); // #9A8868
+  --primary: rgb(208 96 48); // #D06030
+  --primary-hover: rgb(232 128 72); // #E88048
+  --secondary: rgb(72 128 104); // #488068
+  --secondary-hover: rgb(96 152 128); // #609880
+  --accent: rgb(200 148 40); // #C89428
+  --bg-disabled: rgb(32 22 18); // #201612
+  --text-disabled: rgb(80 64 56); // #504038
+  --success: rgb(56 96 72); // #386048
+  --error: rgb(152 48 24); // #983018
+  --warning: rgb(216 160 48); // #D8A030
+  --info: rgb(56 96 112); // #386070
+  --border: rgb(24 16 12); // #18100C
+  --border-strong: rgb(56 36 24); // #382418
+  --overlay: rgba(12 8 6 / 0.85);
+}
+
+// tres-riches-heures
+[class*="theme-tres-riches-heures"] {
+  --primary-font: 'EB Garamond', Arial, sans-serif;
+  --secondary-font: 'MedievalSharp', Arial, sans-serif;
+}
+
+.theme-tres-riches-heures-light {
+  --background: rgb(245 238 216); // #F5EED8
+  --surface: rgb(237 228 196); // #EDE4C4
+  --text: rgb(20 16 10); // #14100A
+  --text-muted: rgb(90 80 64); // #5A5040
+  --primary: rgb(46 56 136); // #2E3888
+  --primary-hover: rgb(28 36 112); // #1C2470
+  --secondary: rgb(176 48 32); // #B03020
+  --secondary-hover: rgb(136 28 16); // #881C10
+  --accent: rgb(42 104 88); // #2A6858
+  --bg-disabled: rgb(221 214 188); // #DDD6BC
+  --text-disabled: rgb(154 146 128); // #9A9280
+  --success: rgb(64 104 64); // #406840
+  --error: rgb(200 40 24); // #C82818
+  --warning: rgb(168 128 16); // #A88010
+  --info: rgb(80 120 176); // #5078B0
+  --border: rgb(224 216 192); // #E0D8C0
+  --border-strong: rgb(176 166 144); // #B0A690
+  --overlay: rgba(20 16 10 / 0.50);
+}
+
+.theme-tres-riches-heures-dark {
+  --background: rgb(16 14 8); // #100E08
+  --surface: rgb(28 24 16); // #1C1810
+  --text: rgb(238 228 200); // #EEE4C8
+  --text-muted: rgb(160 144 112); // #A09070
+  --primary: rgb(72 88 176); // #4858B0
+  --primary-hover: rgb(96 112 200); // #6070C8
+  --secondary: rgb(208 72 40); // #D04828
+  --secondary-hover: rgb(232 104 64); // #E86840
+  --accent: rgb(200 168 24); // #C8A818
+  --bg-disabled: rgb(32 28 20); // #201C14
+  --text-disabled: rgb(80 72 64); // #504840
+  --success: rgb(64 96 56); // #406038
+  --error: rgb(160 48 28); // #A0301C
+  --warning: rgb(216 184 40); // #D8B828
+  --info: rgb(80 96 136); // #506088
+  --border: rgb(32 28 16); // #201C10
+  --border-strong: rgb(64 56 44); // #40382C
+  --overlay: rgba(16 14 8 / 0.85);
+}
+
+// ukiyo-e
+[class*="theme-ukiyo-e"] {
+  --primary-font: 'Shippori Antique', Arial, sans-serif;
+  --secondary-font: 'Dela Gothic One', Arial, sans-serif;
+}
+
+.theme-ukiyo-e-light {
+  --background: rgb(245 241 232); // #F5F1E8
+  --surface: rgb(235 229 216); // #EBE5D8
+  --text: rgb(12 10 7); // #0C0A07
+  --text-muted: rgb(84 72 58); // #54483A
+  --primary: rgb(31 58 110); // #1F3A6E
+  --primary-hover: rgb(16 36 88); // #102458
+  --secondary: rgb(184 48 64); // #B83040
+  --secondary-hover: rgb(144 24 40); // #901828
+  --accent: rgb(196 124 0); // #C47C00
+  --bg-disabled: rgb(221 216 206); // #DDD8CE
+  --text-disabled: rgb(158 148 136); // #9E9488
+  --success: rgb(56 96 64); // #386040
+  --error: rgb(200 32 48); // #C82030
+  --warning: rgb(192 136 8); // #C08808
+  --info: rgb(56 112 176); // #3870B0
+  --border: rgb(224 218 206); // #E0DACE
+  --border-strong: rgb(172 164 148); // #ACA494
+  --overlay: rgba(12 10 7 / 0.50);
+}
+
+.theme-ukiyo-e-dark {
+  --background: rgb(9 12 18); // #090C12
+  --surface: rgb(17 24 32); // #111820
+  --text: rgb(242 238 228); // #F2EEE4
+  --text-muted: rgb(138 154 172); // #8A9AAC
+  --primary: rgb(224 96 96); // #E06060
+  --primary-hover: rgb(240 128 120); // #F08078
+  --secondary: rgb(200 160 48); // #C8A030
+  --secondary-hover: rgb(224 184 72); // #E0B848
+  --accent: rgb(90 170 187); // #5AAABB
+  --bg-disabled: rgb(26 34 48); // #1A2230
+  --text-disabled: rgb(64 76 92); // #404C5C
+  --success: rgb(64 120 80); // #407850
+  --error: rgb(176 40 56); // #B02838
+  --warning: rgb(216 176 56); // #D8B038
+  --info: rgb(80 168 192); // #50A8C0
+  --border: rgb(16 22 34); // #101622
+  --border-strong: rgb(36 48 64); // #243040
+  --overlay: rgba(9 12 18 / 0.85);
+}
+
+// wari
+[class*="theme-wari"] {
+  --primary-font: 'Karma', Arial, sans-serif;
+  --secondary-font: 'Encode Sans Condensed', Arial, sans-serif;
+}
+
+.theme-wari-light {
+  --background: rgb(240 232 216); // #F0E8D8
+  --surface: rgb(228 216 196); // #E4D8C4
+  --text: rgb(18 12 6); // #120C06
+  --text-muted: rgb(92 76 56); // #5C4C38
+  --primary: rgb(140 40 56); // #8C2838
+  --primary-hover: rgb(104 20 36); // #681424
+  --secondary: rgb(42 72 112); // #2A4870
+  --secondary-hover: rgb(24 48 88); // #183058
+  --accent: rgb(168 124 16); // #A87C10
+  --bg-disabled: rgb(212 200 180); // #D4C8B4
+  --text-disabled: rgb(154 142 124); // #9A8E7C
+  --success: rgb(72 104 56); // #486838
+  --error: rgb(168 40 32); // #A82820
+  --warning: rgb(184 140 16); // #B88C10
+  --info: rgb(64 104 152); // #406898
+  --border: rgb(220 208 192); // #DCD0C0
+  --border-strong: rgb(168 152 128); // #A89880
+  --overlay: rgba(18 12 6 / 0.50);
+}
+
+.theme-wari-dark {
+  --background: rgb(14 9 6); // #0E0906
+  --surface: rgb(26 18 16); // #1A1210
+  --text: rgb(240 228 208); // #F0E4D0
+  --text-muted: rgb(160 136 104); // #A08868
+  --primary: rgb(196 72 72); // #C44848
+  --primary-hover: rgb(224 96 88); // #E06058
+  --secondary: rgb(72 112 168); // #4870A8
+  --secondary-hover: rgb(96 144 192); // #6090C0
+  --accent: rgb(200 154 40); // #C89A28
+  --bg-disabled: rgb(34 24 16); // #221810
+  --text-disabled: rgb(80 64 48); // #504030
+  --success: rgb(72 96 48); // #486030
+  --error: rgb(152 40 32); // #982820
+  --warning: rgb(216 168 48); // #D8A830
+  --info: rgb(72 104 152); // #486898
+  --border: rgb(28 18 12); // #1C120C
+  --border-strong: rgb(56 44 36); // #382C24
+  --overlay: rgba(14 9 6 / 0.85);
+}
+
+// washi
+[class*="theme-washi"] {
+  --primary-font: 'Shippori Antique', Arial, sans-serif;
+  --secondary-font: 'Dela Gothic One', Arial, sans-serif;
+}
+
+.theme-washi-light {
+  --background: rgb(247 244 238); // #F7F4EE
+  --surface: rgb(237 232 222); // #EDE8DE
+  --text: rgb(14 12 9); // #0E0C09
+  --text-muted: rgb(92 83 71); // #5C5347
+  --primary: rgb(27 58 92); // #1B3A5C
+  --primary-hover: rgb(14 36 68); // #0E2444
+  --secondary: rgb(196 82 40); // #C45228
+  --secondary-hover: rgb(152 56 20); // #983814
+  --accent: rgb(122 110 74); // #7A6E4A
+  --bg-disabled: rgb(227 221 211); // #E3DDD3
+  --text-disabled: rgb(168 159 146); // #A89F92
+  --success: rgb(72 104 72); // #486848
+  --error: rgb(160 48 28); // #A0301C
+  --warning: rgb(168 128 32); // #A88020
+  --info: rgb(64 104 160); // #4068A0
+  --border: rgb(224 220 210); // #E0DCD2
+  --border-strong: rgb(176 168 152); // #B0A898
+  --overlay: rgba(14 12 9 / 0.50);
+}
+
+.theme-washi-dark {
+  --background: rgb(14 11 8); // #0E0B08
+  --surface: rgb(26 21 16); // #1A1510
+  --text: rgb(245 241 232); // #F5F1E8
+  --text-muted: rgb(168 152 128); // #A89880
+  --primary: rgb(122 156 216); // #7A9CD8
+  --primary-hover: rgb(152 184 232); // #98B8E8
+  --secondary: rgb(216 88 88); // #D85858
+  --secondary-hover: rgb(240 120 112); // #F07870
+  --accent: rgb(200 160 64); // #C8A040
+  --bg-disabled: rgb(37 32 24); // #252018
+  --text-disabled: rgb(90 82 72); // #5A5248
+  --success: rgb(72 128 96); // #488060
+  --error: rgb(168 48 48); // #A83030
+  --warning: rgb(216 176 72); // #D8B048
+  --info: rgb(96 128 184); // #6080B8
+  --border: rgb(28 22 16); // #1C1610
+  --border-strong: rgb(56 48 36); // #383024
+  --overlay: rgba(14 11 8 / 0.85);
+}
+
+// yosemite
+[class*="theme-yosemite"] {
+  --primary-font: 'Merriweather', Arial, sans-serif;
+  --secondary-font: 'Fjalla One', Arial, sans-serif;
+}
+
+.theme-yosemite-light {
+  --background: rgb(240 234 224); // #F0EAE0
+  --surface: rgb(228 220 208); // #E4DCD0
+  --text: rgb(18 14 10); // #120E0A
+  --text-muted: rgb(96 86 80); // #605650
+  --primary: rgb(42 80 128); // #2A5080
+  --primary-hover: rgb(24 56 104); // #183868
+  --secondary: rgb(144 78 32); // #904E20
+  --secondary-hover: rgb(112 52 12); // #70340C
+  --accent: rgb(74 112 96); // #4A7060
+  --bg-disabled: rgb(212 206 196); // #D4CEC4
+  --text-disabled: rgb(154 148 144); // #9A9490
+  --success: rgb(80 112 56); // #507038
+  --error: rgb(152 64 40); // #984028
+  --warning: rgb(168 120 32); // #A87820
+  --info: rgb(64 120 160); // #4078A0
+  --border: rgb(220 212 200); // #DCD4C8
+  --border-strong: rgb(168 160 148); // #A8A094
+  --overlay: rgba(18 14 10 / 0.50);
+}
+
+.theme-yosemite-dark {
+  --background: rgb(8 12 20); // #080C14
+  --surface: rgb(16 24 32); // #101820
+  --text: rgb(234 228 216); // #EAE4D8
+  --text-muted: rgb(138 144 152); // #8A9098
+  --primary: rgb(56 104 168); // #3868A8
+  --primary-hover: rgb(72 136 200); // #4888C8
+  --secondary: rgb(176 104 40); // #B06828
+  --secondary-hover: rgb(208 136 64); // #D08840
+  --accent: rgb(80 136 120); // #508878
+  --bg-disabled: rgb(20 28 40); // #141C28
+  --text-disabled: rgb(56 64 72); // #384048
+  --success: rgb(64 104 72); // #406848
+  --error: rgb(136 56 40); // #883828
+  --warning: rgb(192 128 48); // #C08030
+  --info: rgb(72 128 160); // #4880A0
+  --border: rgb(16 24 36); // #101824
+  --border-strong: rgb(40 52 64); // #283440
+  --overlay: rgba(8 12 20 / 0.85);
 }
