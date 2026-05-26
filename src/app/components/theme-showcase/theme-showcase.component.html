@@ -5,35 +5,13 @@
 			<p class="theme-showcase__subtitle">${_config.subtitle}</p>
 			<p data-optional class="theme-showcase__pitch">${_config.pitch}</p>
 			<h3 class="theme-showcase__fonts-title">Fonts</h3>
-			<p class="theme-showcase__fonts-primary">Primary: ${_config.fonts.primary.name}</p>
-			<p class="theme-showcase__fonts-secondary">Secondary: ${_config.fonts.secondary.name}</p>
+			<p>
+				<span class="theme-showcase__fonts-primary">Primary: ${_config.fonts.primary.name}</span>
+				<span class="theme-showcase__fonts-secondary">Secondary: ${_config.fonts.secondary.name}</span>
 		</div>
 		<div>
 			<div data-component="copy-theme-button"></div>
 		</div>
-	</section>
- 	<section>
-	  <!-- Backgrounds -->
-	  <p class="theme-showcase__section-label">Backgrounds</p>
-	  <div class="theme-showcase__bg-row">
-	    <div class="theme-showcase__bg-swatch is-bg">
-	      <p class="theme-showcase__sw-name">background</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.background}</p>
-	    </div>
-	    <div class="theme-showcase__bg-swatch is-surface">
-	      <p class="theme-showcase__sw-name">surface</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.surface}</p>
-	    </div>
-	  </div>
-  </section>
-  <section>
-  <!-- Typography -->
-	  <p class="theme-showcase__section-label">Text</p>
-	  <div class="theme-showcase__text-block">
-	    <p class="theme-showcase__t-body">The quick brown fox jumps over — text</p>
-	    <p class="theme-showcase__t-muted">Supporting detail line — text-muted</p>
-	    <p class="theme-showcase__t-hint">text ${_config.variables.text} · text-muted ${_config.variables.textMuted}</p>
-	  </div>
 	</section>
  
   <section>
@@ -65,6 +43,31 @@
 	      <p class="theme-showcase__ct-name">accent</p>
 	      <p class="theme-showcase__ct-hex">${_config.variables.accent}</p>
 	    </div>
+	  </div>
+	</section>
+
+ 	<section>
+	  <!-- Backgrounds -->
+	  <p class="theme-showcase__section-label">Backgrounds</p>
+	  <div class="theme-showcase__bg-row">
+	    <div class="theme-showcase__bg-swatch is-bg">
+	      <p class="theme-showcase__sw-name">background</p>
+	      <p class="theme-showcase__sw-hex">${_config.variables.background}</p>
+	    </div>
+	    <div class="theme-showcase__bg-swatch is-surface">
+	      <p class="theme-showcase__sw-name">surface</p>
+	      <p class="theme-showcase__sw-hex">${_config.variables.surface}</p>
+	    </div>
+	  </div>
+  </section>
+
+  <section>
+  <!-- Typography -->
+	  <p class="theme-showcase__section-label">Text</p>
+	  <div class="theme-showcase__text-block">
+	    <p class="theme-showcase__t-body">The quick brown fox jumps over — text</p>
+	    <p class="theme-showcase__t-muted">Supporting detail line — text-muted</p>
+	    <p class="theme-showcase__t-hint">text ${_config.variables.text} · text-muted ${_config.variables.textMuted}</p>
 	  </div>
 	</section>
  

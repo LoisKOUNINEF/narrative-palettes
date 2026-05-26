@@ -4,10 +4,10 @@
   color: var(--text);
   font-family: var(--primary-font), Arial, sans-serif;
   padding: 2rem;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: grid;
   gap: 2px;
-  max-width: 70%;
+  // max-width: 70%;
   margin: 0 auto;
   border-radius: 10px;
 }
@@ -222,6 +222,7 @@
 }
 
 .copy-theme-button {
+  // width: 20%;
   font-weight: bold;
   font-family: var(--primary-font);
   color: var(--primary)!important;

@@ -1,9 +1,9 @@
 .home__wrapper {
 	width: 100%;
 	display: flex;
-	flex-direction: column;
+	// flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	padding: 2rem 0;
 }
 
@@ -15,8 +15,10 @@
 	// grid-template-rows: repeat(auto, 1fr);
 	// // grid-auto-rows: 1fr;
 	// gap: 1rem;
+	align-self: flex-start;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+	// grid-template-rows: repeat(auto, 1fr);
   gap: 1rem;
   padding: 2rem;
   padding-bottom: 2rem;
@@ -53,5 +55,8 @@
 }
 
 .home__theme-current {
+	padding: 1rem;
+	padding-top: 2rem;
 	width: 100%;
+	height: 100%;
 }
