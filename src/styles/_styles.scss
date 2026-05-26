@@ -24,6 +24,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	body {
 		background-color: $background-color;
 	  color: $text-color;
+	  min-width: 100vw;
 		min-height: 100vh;
 		cursor: default;
 	  line-height: 1.6;

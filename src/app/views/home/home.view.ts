@@ -9,7 +9,7 @@ export class HomeView extends View {
   private _currentTheme: ITheme;
 
   constructor() {
-    super({template, viewName: 'Narrative Palettes'});
+    super({template});
     this._currentTheme = neutralLight;
   }
 

@@ -1,9 +1,15 @@
+@use "mixins";
+
 .home__wrapper {
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
+	@include mixins.respond-to(medium) {
+		align-items: center;
+		flex-wrap: wrap;
+	}
 }
 
 .home__themes-catalog {
@@ -18,6 +24,9 @@
   height: 100%;
 	overflow-y: auto;
 	min-width: 0;
+	@include mixins.respond-to(medium) {
+		height: 20%;
+	}
 }
 
 .home__theme-button {
@@ -50,6 +59,7 @@
 	padding-top: 2rem;
 	width: 100%;
 	height: 100%;
+	max-width: 150ch;
 }
 
 .secret__themes-catalog {

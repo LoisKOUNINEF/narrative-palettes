@@ -2,7 +2,7 @@
 
 [Demo website](https://narrative-palettes.nutin.org)
 
-**Full color palettes (light / dark pairs with suggested fonts) based on historical or cultural references.**
+**Contrasted color palettes (light / dark pairs with suggested fonts) based on historical or cultural references.**
 
 ```scss
 background

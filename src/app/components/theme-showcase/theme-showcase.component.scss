@@ -1,3 +1,5 @@
+@use "mixins";
+
 /* ── Layout ── */
 .theme-showcase__wrapper {
   background: var(--background);
@@ -14,10 +16,15 @@
   display: flex;
   align-items: space-between;
   justify-content: space-between;
+  @include mixins.respond-to(medium) {
+    justify-content: center;
+    // align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 .theme-showcase__presentation {
-  max-width: 80%;
+  max-width: 70ch;
 }
 
 .theme-showcase__title {
