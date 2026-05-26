@@ -10,7 +10,7 @@ function finalizeBuild() {
 }
 
 function removeFoldersAfterBundle() {
-  const foldersToRemove = ['core', 'libs', 'app'];
+  const foldersToRemove = [ 'core', 'libs', 'app', path.join('..', 'config') ];
   const pathToFolder = (folder) => path.join(PATHS.tempSource, folder);
 
   foldersToRemove.forEach(folder => fs.rmSync(pathToFolder(folder), { recursive : true }));

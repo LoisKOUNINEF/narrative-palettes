@@ -20,6 +20,7 @@ runScript(path.join(scriptsDir, 'validate-html.js'), 'Adding and validating tags
 if (isProd) {
 	runScript(path.join(scriptsDir, 'esbuild.js'), 'Running esbuild...');
 	runScript(path.join(scriptsDir, 'hash-files.js'), 'Hashing files...');
+	runScript(path.join(scriptsDir, 'compress-files.js'), 'Compressing files...');
 }
 
 runScript(path.join(scriptsDir, 'finalize-build.js'), 'Finalizing build...')

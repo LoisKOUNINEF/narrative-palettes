@@ -1,6 +1,8 @@
 # narrative-palettes - Built with nutin
 
-**Full color palettes (light / dark pairs) based on historical or cultural references.**
+[Demo website](https://narrative-palettes.nutin.org)
+
+**Full color palettes (light / dark pairs with suggested fonts) based on historical or cultural references.**
 
 ```scss
 background
@@ -26,4 +28,7 @@ info
 border
 border-strong
 overlay
+
+primary-font (Body)
+secondary-font (Display)
 ```

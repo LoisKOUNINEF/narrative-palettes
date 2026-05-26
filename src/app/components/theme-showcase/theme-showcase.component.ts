@@ -28,9 +28,11 @@ export class ThemeShowcaseComponent extends Component {
   }
 
   private copyThemeToClipboard() {
-    console.debug(this._theme)
     const themeContent = JSON.stringify(this._theme.variables);
     navigator.clipboard.writeText(themeContent);
-    notify('copied!')
+    notify(`${this._theme.title} copied to clipboard.`, {
+      type: 'success',
+      position: 'top',
+    })
   }
 }
