@@ -153,4 +153,9 @@
 }
 
 
-
+.font-preload {
+  font-family: 'Inter', 'Courier Prime', 'Nimbus Sans', 'Bebas Neue', 'Cinzel', 'Josefin Sans', 'EB Garamond', 'Playfair Display';
+  visibility: hidden;
+  position: absolute;
+  pointer-events: none;
+}

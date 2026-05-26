@@ -1,4 +1,5 @@
 .home__wrapper {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -9,9 +10,48 @@
 .home__themes-catalog {
 	// display: flex;
 	// flex-direction: column;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(auto, 1fr);
-	// grid-auto-rows: 1fr;
-	gap: 2rem;
+	// display: grid;
+	// grid-template-columns: repeat(8, 1fr);
+	// grid-template-rows: repeat(auto, 1fr);
+	// // grid-auto-rows: 1fr;
+	// gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  padding-bottom: 2rem;
+  margin: 0;
+  list-style: none;
+}
+
+.home__theme-button {
+	// max-width: 10ch;
+	background: var(--background);
+	color: var(--primary);
+	border: var(--border);
+	font-size: 1.1rem;
+	font-weight: bold;
+	font-family: var(--secondary-font);
+	padding: .5rem;
+  width: 100%;
+  min-width: 0; /* Prevents overflow issues */
+  
+  /* Text truncation */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 15ch;
+
+  &:hover {
+		color: var(--text);
+	}
+  @media(hover:none) {
+  	&:hover {
+			color: var(--primary);
+  	}
+  }
+}
+
+.home__theme-current {
+	width: 100%;
 }

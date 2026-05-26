@@ -1,7 +1,7 @@
 // neutral
 [class*="theme-neutral"] {
-  --primary-font: Inter, Arial, sans-serif;
-  --secondary-font: 'Nimbus Sans', Arial, sans-serif;
+  --primary-font: 'Inter';
+  --secondary-font: 'Nimbus Sans';
 }
 
 .theme-neutral-light {
@@ -48,8 +48,8 @@
 
 // 80s
 [class*="theme-80s"] {
-  --primary-font: 'Courier Prime', Arial, sans-serif;
-  --secondary-font: 'Nimbus Sans', Arial, sans-serif;
+  --primary-font: 'Courier Prime';
+  --secondary-font: 'Nimbus Sans';
 }
 
 .theme-80s-light {
@@ -96,8 +96,8 @@
 
 // 90s
 [class*="theme-90s"] {
-  --primary-font: 'Source Serif 4', Arial, sans-serif;
-  --secondary-font: 'Playfair Display', Arial, sans-serif;
+  --primary-font: 'Source Serif 4';
+  --secondary-font: 'Playfair Display';
 }
 
 .theme-90s-light {
@@ -144,8 +144,8 @@
 
 //bauhaus
 [class*="theme-bauhaus"] {
-  --primary-font: 'EB Garamond', Arial, sans-serif;
-  --secondary-font: 'Josefin Sans', Arial, sans-serif;
+  --primary-font: 'EB Garamond';
+  --secondary-font: 'Josefin Sans';
 }
 
 .theme-bauhaus-light {
@@ -192,8 +192,8 @@
 
 // constructivism
 [class*="theme-constructivism"] {
-  --primary-font: 'IBM Plex Mono', Arial, sans-serif;
-  --secondary-font: 'Bebas Neue', Arial, sans-serif;
+  --primary-font: 'IBM Plex Mono';
+  --secondary-font: 'Bebas Neue';
 }
 
 .theme-constructivism-light {
@@ -240,8 +240,8 @@
 
 // doom
 [class*="theme-doom"] {
-  --primary-font: 'Overpass Mono', Arial, sans-serif;
-  --secondary-font: 'Share Tech Mono', Arial, sans-serif;
+  --primary-font: 'Overpass Mono';
+  --secondary-font: 'Share Tech Mono';
 }
 
 .theme-doom-light {
@@ -288,8 +288,8 @@
 
 // hogwarts
 [class*="theme-hogwarts"] {
-  --primary-font: 'Lora', Arial, sans-serif;
-  --secondary-font: 'Cinzel Decorative', Arial, sans-serif;
+  --primary-font: 'Lora';
+  --secondary-font: 'Cinzel Decorative';
 }
 
 .theme-hogwarts-light {
@@ -335,8 +335,8 @@
 
 // iznik
 [class*="theme-iznik"] {
-  --primary-font: 'Gentium Plus', Arial, sans-serif;
-  --secondary-font: 'Scheherazade New', Arial, sans-serif;
+  --primary-font: 'Gentium Plus';
+  --secondary-font: 'Scheherazade New';
 }
 
 .theme-iznik-light {
@@ -383,8 +383,8 @@
 
 // iznik
 [class*="theme-kaamos"] {
-  --primary-font: 'Newsreader', Arial, sans-serif;
-  --secondary-font: 'Figtree', Arial, sans-serif;
+  --primary-font: 'Newsreader';
+  --secondary-font: 'Figtree';
 }
 
 .theme-kaamos-light {
@@ -431,8 +431,8 @@
 
 // kaibab
 [class*="theme-kaibab"] {
-  --primary-font: Bitter, Arial, sans-serif;
-  --secondary-font: Teko, Arial, sans-serif;
+  --primary-font: Bitter;
+  --secondary-font: Teko;
 }
 
 .theme-kaibab-light {
@@ -479,8 +479,8 @@
 
 // lotr
 [class*="theme-lotr"] {
-  --primary-font: 'GFS Didot', Arial, sans-serif;
-  --secondary-font: UnifrakturMaguntia, Arial, sans-serif;
+  --primary-font: 'GFS Didot';
+  --secondary-font: UnifrakturMaguntia;
 }
 
 .theme-lotr-light {
@@ -527,8 +527,8 @@
 
 // murano
 [class*="theme-murano"] {
-  --primary-font: Spectral, Arial, sans-serif;
-  --secondary-font: 'Cormorant Garamond', Arial, sans-serif;
+  --primary-font: Spectral;
+  --secondary-font: 'Cormorant Garamond';
 }
 
 .theme-murano-light {
@@ -575,8 +575,8 @@
 
 // nostromo
 [class*="theme-nostromo"] {
-  --primary-font: 'IBM Plex Sans', Arial, sans-serif;
-  --secondary-font: 'Share Tech', Arial, sans-serif;
+  --primary-font: 'IBM Plex Sans';
+  --secondary-font: 'Share Tech';
 }
 
 .theme-nostromo-light {
@@ -623,8 +623,8 @@
 
 // pentelic
 [class*="theme-pentelic"] {
-  --primary-font: Cardo, Arial, sans-serif;
-  --secondary-font: 'GFS Neohellenic', Arial, sans-serif;
+  --primary-font: Cardo;
+  --secondary-font: 'GFS Neohellenic';
 }
 
 .theme-pentelic-light {
@@ -671,8 +671,8 @@
 
 // pompeian
 [class*="theme-pompeian"] {
-  --primary-font: Cardo, Arial, sans-serif;
-  --secondary-font: Cinzel, Arial, sans-serif;
+  --primary-font: Cardo;
+  --secondary-font: Cinzel;
 }
 
 .theme-pompeian-light {
@@ -719,8 +719,8 @@
 
 // sheffield-steel
 [class*="theme-sheffield-steel"] {
-  --primary-font: 'Source Sans 3', Arial, sans-serif;
-  --secondary-font: 'Barlow Condensed', Arial, sans-serif;
+  --primary-font: 'Source Sans 3';
+  --secondary-font: 'Barlow Condensed';
 }
 
 .theme-sheffield-steel-light {
@@ -767,8 +767,8 @@
 
 // star-wars
 [class*="theme-star-wars"] {
-  --primary-font: 'Nunito', Arial, sans-serif;
-  --secondary-font: 'Orbitron', Arial, sans-serif;
+  --primary-font: 'Nunito';
+  --secondary-font: 'Orbitron';
 }
 
 .theme-star-wars-light {
@@ -815,8 +815,8 @@
 
 // theban-tomb
 [class*="theme-theban-tomb"] {
-  --primary-font: 'Cardo', Arial, sans-serif;
-  --secondary-font: 'Cinzel', Arial, sans-serif;
+  --primary-font: 'Cardo';
+  --secondary-font: 'Cinzel';
 }
 
 .theme-theban-tomb-light {
@@ -863,8 +863,8 @@
 
 // tiznit-silver
 [class*="theme-tiznit-silver"] {
-  --primary-font: Lateef, Arial, sans-serif;
-  --secondary-font: 'Aref Ruqaa Ink', Arial, sans-serif;
+  --primary-font: Lateef;
+  --secondary-font: 'Aref Ruqaa Ink';
 }
 
 .theme-tiznit-silver-light {
@@ -911,8 +911,8 @@
 
 // tres-riches-heures
 [class*="theme-tres-riches-heures"] {
-  --primary-font: 'EB Garamond', Arial, sans-serif;
-  --secondary-font: 'MedievalSharp', Arial, sans-serif;
+  --primary-font: 'EB Garamond';
+  --secondary-font: 'MedievalSharp';
 }
 
 .theme-tres-riches-heures-light {
@@ -959,8 +959,8 @@
 
 // ukiyo-e
 [class*="theme-ukiyo-e"] {
-  --primary-font: 'Shippori Antique', Arial, sans-serif;
-  --secondary-font: 'Dela Gothic One', Arial, sans-serif;
+  --primary-font: 'Shippori Antique';
+  --secondary-font: 'Dela Gothic One';
 }
 
 .theme-ukiyo-e-light {
@@ -1007,8 +1007,8 @@
 
 // wari
 [class*="theme-wari"] {
-  --primary-font: 'Karma', Arial, sans-serif;
-  --secondary-font: 'Encode Sans Condensed', Arial, sans-serif;
+  --primary-font: 'Karma';
+  --secondary-font: 'Encode Sans Condensed';
 }
 
 .theme-wari-light {
@@ -1055,8 +1055,8 @@
 
 // washi
 [class*="theme-washi"] {
-  --primary-font: 'Shippori Antique', Arial, sans-serif;
-  --secondary-font: 'Dela Gothic One', Arial, sans-serif;
+  --primary-font: 'Shippori Antique';
+  --secondary-font: 'Dela Gothic One';
 }
 
 .theme-washi-light {
@@ -1103,8 +1103,8 @@
 
 // yosemite
 [class*="theme-yosemite"] {
-  --primary-font: 'Merriweather', Arial, sans-serif;
-  --secondary-font: 'Fjalla One', Arial, sans-serif;
+  --primary-font: 'Merriweather';
+  --secondary-font: 'Fjalla One';
 }
 
 .theme-yosemite-light {

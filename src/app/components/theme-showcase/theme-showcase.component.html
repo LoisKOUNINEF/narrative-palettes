@@ -1,11 +1,16 @@
 <div class="theme-showcase__wrapper theme-${_config.cssName}">
-	<section>
-		<h2 class="theme-showcase__title">${_config.title}</h2>
-		<p class="theme-showcase__subtitle">${_config.subtitle}</p>
-		<p data-optional class="theme-showcase__pitch">${_config.pitch}</p>
-		<h3 class="theme-showcase__fonts-title">Fonts</h3>
-		<p class="theme-showcase__fonts-primary">Primary: ${_config.fonts.primary.name}</p>
-		<p class="theme-showcase__fonts-secondary">Secondary: ${_config.fonts.secondary.name}</p>
+	<section class="theme-showcase__header">
+		<div class="theme-showcase__presentation">
+			<h2 class="theme-showcase__title">${_config.title}</h2>
+			<p class="theme-showcase__subtitle">${_config.subtitle}</p>
+			<p data-optional class="theme-showcase__pitch">${_config.pitch}</p>
+			<h3 class="theme-showcase__fonts-title">Fonts</h3>
+			<p class="theme-showcase__fonts-primary">Primary: ${_config.fonts.primary.name}</p>
+			<p class="theme-showcase__fonts-secondary">Secondary: ${_config.fonts.secondary.name}</p>
+		</div>
+		<div>
+			<div data-component="copy-theme-button"></div>
+		</div>
 	</section>
  	<section>
 	  <!-- Backgrounds -->
@@ -118,6 +123,4 @@
 	    </div>
 	  </div>
 	</section>
-  
-<div data-component="copy-theme-button"></div>
 </div>
