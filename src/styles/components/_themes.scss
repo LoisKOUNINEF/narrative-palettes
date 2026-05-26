@@ -1154,3 +1154,100 @@
   --border-strong: rgb(40 52 64); // #283440
   --overlay: rgba(8 12 20 / 0.85);
 }
+
+// secret themes
+// portfolio
+[class*="theme-portfolio"] {
+  --primary-font: 'Inter';
+  --secondary-font: 'Sora';
+}
+
+.theme-portfolio-light {
+  --background: rgb(245 240 233);      // #F5F0E9
+  --surface: rgb(235 228 218);         // #EBE4DA
+  --text: rgb(40 30 20);               // #281E14
+  --text-muted: rgb(130 110 90);       // #826E5A
+  --primary: rgb(200 140 40);          // #C88C28
+  --primary-hover: rgb(180 122 30);    // #B47A1E
+  --secondary: rgb(170 85 50);         // #AA5532
+  --secondary-hover: rgb(145 68 38);   // #914426
+  --accent: rgb(60 130 135);           // #3C8287
+  --success: rgb(72 140 88);           // #488C58
+  --error: rgb(185 65 55);             // #B94137
+  --warning: rgb(215 155 55);          // #D79B37
+  --info: rgb(70 120 175);             // #4678AF
+  --border: rgb(210 198 184);          // #D2C6B8
+  --border-strong: rgb(170 150 128);   // #AA9680
+  --overlay: rgb(20 15 10 / 60%);      // #140F0A99
+  --bg-disabled: rgb(225 216 204);     // #E1D8CC
+  --text-disabled: rgb(170 156 140);   // #AA9C8C
+}
+
+.theme-portfolio-dark {
+  --background: rgb(8 5 3);            // #080503
+  --surface: rgb(28 22 16);            // #1C1610
+  --text: rgb(228 214 167);            // #E4D6A7
+  --text-muted: rgb(160 140 110);      // #A08C6E
+  --primary: rgb(233 180 76);          // #E9B44C
+  --primary-hover: rgb(245 196 104);   // #F5C468
+  --secondary: rgb(191 95 55);         // #BF5F37
+  --secondary-hover: rgb(214 118 76);  // #D6764C
+  --accent: rgb(80 162 167);           // #50A2A7
+  --success: rgb(92 170 110);          // #5CAA6E
+  --error: rgb(220 90 78);             // #DC5A4E
+  --warning: rgb(235 180 72);          // #EBB448
+  --info: rgb(95 155 220);             // #5F9BDC
+  --border: rgb(58 48 38);             // #3A3026
+  --border-strong: rgb(92 78 62);      // #5C4E3E
+  --overlay: rgb(0 0 0 / 72%);         // #000000B8
+  --bg-disabled: rgb(48 40 32);        // #302820
+  --text-disabled: rgb(120 108 90);    // #786C5A
+}
+
+// nutin
+[class*="theme-nutin"] {
+  --primary-font: 'Source Sans Pro';
+  --secondary-font: 'Work Sans';
+}
+
+.theme-nutin-light {
+  --background: rgb(247 249 246);      // #F7F9F6
+  --surface: rgb(237 242 236);         // #EDF2EC
+  --text: rgb(22 28 24);               // #161C18
+  --text-muted: rgb(80 104 88);              // #506858
+  --primary: rgb(71 85 105);           // #475569
+  --primary-hover: rgb(56 68 87);            // #384457
+  --secondary: rgb(148 163 184);       // #94A3B8
+  --secondary-hover: rgb(124 140 163);       // #7C8CA3
+  --accent: rgb(90 122 96);            // #5A7A60
+  --success: rgb(74 140 98);                 // #4A8C62
+  --error: rgb(190 78 78);                   // #BE4E4E
+  --warning: rgb(214 162 62);                // #D6A23E
+  --info: rgb(74 120 190);                   // #4A78BE
+  --border: rgb(205 216 206);                // #CDD8CE
+  --border-strong: rgb(150 168 154);         // #96A89A
+  --overlay: rgb(10 18 14 / 52%);            // #0A120E85
+  --bg-disabled: rgb(220 228 218);           // #DCE4DA
+  --text-disabled: rgb(140 160 140);         // #8CA08C
+}
+
+.theme-nutin-dark {
+  --background: rgb(17 23 20);         // #111714
+  --surface: rgb(26 36 32);            // #1A2420
+  --text: rgb(232 236 234);            // #E8ECEA
+  --text-muted: rgb(176 196 186);            // #B0C4BA
+  --primary: rgb(139 181 162);         // #8BB5A2
+  --primary-hover: rgb(160 198 181);         // #A0C6B5
+  --secondary: rgb(109 149 127);       // #6D957F
+  --secondary-hover: rgb(128 170 146);       // #80AA92
+  --accent: rgb(74 122 96);            // #4A7A60
+  --success: rgb(92 170 118);                // #5CAA76
+  --error: rgb(224 102 102);                 // #E06666
+  --warning: rgb(235 186 82);                // #EBBA52
+  --info: rgb(102 153 224);                  // #6699E0
+  --border: rgb(52 66 60);                   // #34423C
+  --border-strong: rgb(88 108 98);           // #586C62
+  --overlay: rgb(0 0 0 / 68%);               // #000000AD
+  --bg-disabled: rgb(38 48 44);              // #26302C
+  --text-disabled: rgb(100 120 110);         // #64786E
+}

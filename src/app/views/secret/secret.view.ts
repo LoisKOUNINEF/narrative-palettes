@@ -1,20 +1,20 @@
-import { ThemeShowcaseComponent, ButtonComponent } from '../../components/index.js';
+import { ButtonComponent, ThemeShowcaseComponent } from '../../components/index.js';
 import { ComponentConfig, View } from '../../../core/index.js';
-import { themes } from '../../themes-data/themes.js';
-import { neutralLight } from '../../themes-data/themes/neutral.theme.js';
+import { secretThemes } from '../../themes-data/secret-themes.js';
+import { nutinLight } from '../../themes-data/secret-themes/nutin.theme.js';
 
 const template = `__TEMPLATE_PLACEHOLDER__`;
 
-export class HomeView extends View {
+export class SecretView extends View {
   private _currentTheme: ITheme;
 
   constructor() {
-    super({template, viewName: 'Narrative Palettes'});
-    this._currentTheme = neutralLight;
+    super({template});
+    this._currentTheme = nutinLight;
   }
 
   public childConfigs(): ComponentConfig[] {
-    const _themeButtonsConfig = themes.map((theme: ITheme) => {
+    const _themeButtonsConfig = secretThemes.map((theme: ITheme) => {
     return {
       className: `theme-${theme.cssName} home__theme-button`,
       textContent: theme.title,
@@ -25,17 +25,21 @@ export class HomeView extends View {
     }
   });
     const themeButtons = this.catalogConfig({
-      selector: 'home-theme-buttons',
+      selector: 'secret-theme-buttons',
       array: _themeButtonsConfig,
       component: ButtonComponent,
       elementName: 'home-theme-button'
     })
+    if (!this._currentTheme) {
+      return themeButtons;
+    }
     return [
       ...themeButtons,
       {
-        selector: 'home-theme-current',
+        selector: 'secret-theme-current',
         factory: (el) => new ThemeShowcaseComponent(el, this._currentTheme)
       }
     ]
   }
+
 }

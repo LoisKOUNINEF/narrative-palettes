@@ -21,4 +21,8 @@ export class NotFoundView extends View {
   handleHome() {
     AppEventBus.emit('navigate', '/');
   }
+
+  goToSecret() {
+    AppEventBus.emit('navigate', '/secret');
+  }
 }
