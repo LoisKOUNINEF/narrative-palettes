@@ -23,5 +23,8 @@ export default {
       'views',
     ], // in styles/
   },
+  compression: {
+    gzip: true,
+  },
 	verbose: false,
 }
