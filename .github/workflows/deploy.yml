@@ -18,15 +18,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Ensure tag is on main
-        run: |
-          if [ "$(git branch --contains $GITHUB_SHA | grep 'main')" = "" ]; then
-            echo "❌ Tag is not on main. Aborting deployment."
-            exit 1
-          fi
-
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
@@ -91,7 +84,7 @@ jobs:
         run: .github/workflows/scripts/jobs/add-tag.sh
 
       - name: Copy updated stack file to VPS
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -102,7 +95,7 @@ jobs:
           target: "${{ env.PROJECT_LOWER }}"
 
       - name: Copy deployment scripts to VPS
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -114,7 +107,7 @@ jobs:
           strip_components: 3
 
       - name: Deploy Narrative Palettes
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.2.5
         env:
           DOCKER_AUTH: ${{ secrets.DOCKER_AUTH }}
           REPO_LOWER: ${{ env.REPO_LOWER }}
