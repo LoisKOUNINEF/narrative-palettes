@@ -1,1 +1,1 @@
-export * from './example/example.service.js';
+export * from './themes/themes.service.js';

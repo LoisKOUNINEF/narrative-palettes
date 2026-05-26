@@ -8,6 +8,7 @@ declare type CoreEventMap = {
     'popover-opened': string;
     'popover-close': string;
     'language-changed': string;
+    'current-theme-changed': { theme : ITheme };
     // Add other events and their payload types here
 };
 
