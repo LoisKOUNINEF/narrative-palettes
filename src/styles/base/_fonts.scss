@@ -1,56 +1,33 @@
-// missing: Iznik, Kaamos
-
 // primaries
 @font-face {
-  font-family: 'Inter';
-  src: url('/assets/fonts/primary/inter/woff/inter-400-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/inter/woff/inter-400-normal.woff') format('woff'),
-       url('/assets/fonts/primary/inter/ttf/inter-400-normal.ttf') format('truetype');  
+  font-family: 'Bitter';
+  src: url('/assets/fonts/primary/bitter/woff/bitter-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/bitter/woff/bitter-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/bitter/ttf/bitter-400-normal.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/assets/fonts/primary/inter/woff/inter-500-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/inter/woff/inter-500-normal.woff') format('woff'),
-       url('/assets/fonts/primary/inter/ttf/inter-500-normal.ttf') format('truetype');  
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/assets/fonts/primary/inter/woff/inter-600-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/inter/woff/inter-600-normal.woff') format('woff'),
-       url('/assets/fonts/primary/inter/ttf/inter-600-normal.ttf') format('truetype');  
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/assets/fonts/primary/inter/woff/inter-700-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/inter/woff/inter-700-normal.woff') format('woff'),
-       url('/assets/fonts/primary/inter/ttf/inter-700-normal.ttf') format('truetype');  
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Serif 4';
-  src: url('/assets/fonts/primary/source-serif-4/woff/source-serif-4-400-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/source-serif-4/woff/source-serif-4-400-normal.woff') format('woff'),
-       url('/assets/fonts/primary/source-serif-4/ttf/source-serif-4-400-normal.ttf') format('truetype');  
+  font-family: 'Cardo';
+  src: url('/assets/fonts/primary/cardo/woff/Cardo-Regular.woff2') format('woff2'),
+       url('/assets/fonts/primary/cardo/woff/Cardo-Regular.woff') format('woff'),
+       url('/assets/fonts/primary/cardo/ttf/Cardo-Regular.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/assets/fonts/primary/courier-prime/woff/courier-prime-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/courier-prime/woff/courier-prime-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/courier-prime/ttf/courier-prime-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'EB Garamond';
@@ -63,40 +40,20 @@
 }
 
 @font-face {
-  font-family: 'EB Garamond';
-  src: url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-500-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-500-normal.woff') format('woff'),
-       url('/assets/fonts/primary/eb-garamond/ttf/eb-garamond-500-normal.ttf') format('truetype');  
-  font-weight: 500;
+  font-family: 'Gentium Plus';
+  src: url('/assets/fonts/primary/gentium-plus/woff/gentium-plus-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/gentium-plus/woff/gentium-plus-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/gentium-plus/ttf/gentium-plus-400-normal.ttf') format('truetype');  
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'EB Garamond';
-  src: url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-600-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-600-normal.woff') format('woff'),
-       url('/assets/fonts/primary/eb-garamond/ttf/eb-garamond-600-normal.ttf') format('truetype');  
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-700-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/eb-garamond/woff/eb-garamond-700-normal.woff') format('woff'),
-       url('/assets/fonts/primary/eb-garamond/ttf/eb-garamond-700-normal.ttf') format('truetype');  
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Overpass Mono';
-  src: url('/assets/fonts/primary/overpass-mono/woff/overpass-mono-400-normal.woff2') format('woff2'),
-       url('/assets/fonts/primary/overpass-mono/woff/overpass-mono-400-normal.woff') format('woff'),
-       url('/assets/fonts/primary/overpass-mono/ttf/overpass-mono-400-normal.ttf') format('truetype');  
+  font-family: 'GFS Didot';
+  src: url('/assets/fonts/primary/gfs-didot/woff/gfs-didot-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/gfs-didot/woff/gfs-didot-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/gfs-didot/ttf/gfs-didot-400-normal.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -112,11 +69,313 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/assets/fonts/primary/ibm-plex-sans/woff/ibm-plex-sans-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/ibm-plex-sans/woff/ibm-plex-sans-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/ibm-plex-sans/ttf/ibm-plex-sans-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/primary/inter/woff/inter-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/inter/woff/inter-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/inter/ttf/inter-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karma';
+  src: url('/assets/fonts/primary/karma/woff/karma-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/karma/woff/karma-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/karma/ttf/karma-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lateed';
+  src: url('/assets/fonts/primary/lateef/woff/lateef-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/lateef/woff/lateef-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/lateef/ttf/lateef-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/assets/fonts/primary/lora-4/woff/lora-4-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/lora-4/woff/lora-4-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/lora-4/ttf/lora-4-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/assets/fonts/primary/merriweather/woff/merriweather-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/merriweather/woff/merriweather-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/merriweather/ttf/merriweather-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/assets/fonts/primary/newsreader/woff/newsreader-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/newsreader/woff/newsreader-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/newsreader/ttf/newsreader-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/assets/fonts/primary/nunito/woff/nunito-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/nunito/woff/nunito-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/nunito/ttf/nunito-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Overpass Mono';
+  src: url('/assets/fonts/primary/overpass-mono/woff/overpass-mono-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/overpass-mono/woff/overpass-mono-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/overpass-mono/ttf/overpass-mono-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shippori Antique';
+  src: url('/assets/fonts/primary/shippori-antique/woff/shippori-antique-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/shippori-antique/woff/shippori-antique-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/shippori-antique/ttf/shippori-antique-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shippori Mincho';
+  src: url('/assets/fonts/primary/shippori-mincho/ShipporiMincho-Regular.woff2') format('woff2'),
+       url('/assets/fonts/primary/shippori-mincho/ShipporiMincho-Regular.woff') format('woff'),
+       url('/assets/fonts/primary/shippori-mincho/ShipporiMincho-Regular.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/assets/fonts/primary/source-sans-3/woff/source-sans-3-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/source-sans-3/woff/source-sans-3-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/source-sans-3/ttf/source-sans-3-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/assets/fonts/primary/source-sans-pro/woff/source-sans-pro-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/source-sans-pro/woff/source-sans-pro-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/source-sans-pro/ttf/source-sans-pro-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('/assets/fonts/primary/source-serif-4/woff/source-serif-4-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/source-serif-4/woff/source-serif-4-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/source-serif-4/ttf/source-serif-4-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif Pro';
+  src: url('/assets/fonts/primary/source-serif-pro/woff/source-serif-pro-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/source-serif-pro/woff/source-serif-pro-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/source-serif-pro/ttf/source-serif-pro-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spectral';
+  src: url('/assets/fonts/primary/spectral/woff/spectral-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/primary/spectral/woff/spectral-400-normal.woff') format('woff'),
+       url('/assets/fonts/primary/spectral/ttf/spectral-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 // secondaries
 @font-face {
+  font-family: 'Aref Ruqaa Ink';
+  src: url('/assets/fonts/secondary/aref-ruqaa-ink/woff/aref-ruqaa-ink-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/aref-ruqaa-ink/woff/aref-ruqaa-ink-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/aref-ruqaa-ink/ttf/aref-ruqaa-ink-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('/assets/fonts/secondary/barlow-condensed/woff/barlow-condensed-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/barlow-condensed/woff/barlow-condensed-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/barlow-condensed/ttf/barlow-condensed-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/assets/fonts/secondary/bebas-neue/woff/bebas-neue-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/bebas-neue/woff/bebas-neue-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/bebas-neue/ttf/bebas-neue-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/secondary/cinzel/woff/cinzel-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/cinzel/woff/cinzel-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/cinzel/ttf/cinzel-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/secondary/cinzel-decorative/woff/cinzel-decorative-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/cinzel-decorative/woff/cinzel-decorative-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/cinzel-decorative/ttf/cinzel-decorative-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/assets/fonts/secondary/cormorant-garamond/woff/cormorant-garamond-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/cormorant-garamond/woff/cormorant-garamond-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/cormorant-garamond/ttf/cormorant-garamond-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dela Gothic One';
+  src: url('/assets/fonts/secondary/dela-gothic-one/woff/dela-gothic-one-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/dela-gothic-one/woff/dela-gothic-one-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/dela-gothic-one/ttf/dela-gothic-one-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  src: url('/assets/fonts/secondary/encode-sans-condensed/woff/encode-sans-condensed-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/encode-sans-condensed/woff/encode-sans-condensed-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/encode-sans-condensed/ttf/encode-sans-condensed-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('/assets/fonts/secondary/figtree/woff/Figtree-Regular.woff2') format('woff2'),
+       url('/assets/fonts/secondary/figtree/woff/Figtree-Regular.woff') format('woff'),
+       url('/assets/fonts/secondary/figtree/ttf/Figtree-Regular.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fjalla One';
+  src: url('/assets/fonts/secondary/fjalla-one/woff/fjalla-one-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/fjalla-one/woff/fjalla-one-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/fjalla-one/ttf/fjalla-one-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GFS Neohellenic';
+  src: url('/assets/fonts/secondary/gfs-neohellenic/woff/gfs-neohellenic-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/gfs-neohellenic/woff/gfs-neohellenic-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/gfs-neohellenic/ttf/gfs-neohellenic-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/assets/fonts/secondary/josefin-sans/woff/josefin-sans-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/josefin-sans/woff/josefin-sans-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/josefin-sans/ttf/josefin-sans-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Medievalsharp';
+  src: url('/assets/fonts/secondary/medievalsharp/woff/medievalsharp-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/medievalsharp/woff/medievalsharp-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/medievalsharp/ttf/medievalsharp-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Nimbus Sans';
-  src: url('/assets/fonts/secondary/nimbus-sans/nimbus-sans-normal.ttf') format('truetype');  
+  src: url('/assets/fonts/secondary/nimbus-sans/nimbus-sans-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/nimbus-sans/nimbus-sans-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/nimbus-sans/nimbus-sans-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/assets/fonts/secondary/orbitron/woff/orbitron-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/orbitron/woff/orbitron-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/orbitron/ttf/orbitron-400-normal.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -133,29 +392,71 @@
 }
 
 @font-face {
-  font-family: 'Josefin Sans';
-  src: url('/assets/fonts/secondary/josefin-sans/woff/josefin-sans-normal.woff2') format('woff2'),
-       url('/assets/fonts/secondary/josefin-sans/woff/josefin-sans-normal.woff') format('woff'),
-       url('/assets/fonts/secondary/josefin-sans/josefin-sans-normal.ttf') format('truetype');  
+  font-family: 'Scheherazade New';
+  src: url('/assets/fonts/secondary/scheherazade-new/woff/scheherazade-new-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/scheherazade-new/woff/scheherazade-new-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/scheherazade-new/ttf/scheherazade-new-400-normal.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Bebas Neue';
-  src: url('/assets/fonts/secondary/bebas-neue/woff/bebas-neue-normal.woff2') format('woff2'),
-       url('/assets/fonts/secondary/bebas-neue/woff/bebas-neue-normal.woff') format('woff'),
-       url('/assets/fonts/secondary/bebas-neue/bebas-neue-normal.ttf') format('truetype');  
+  font-family: 'Share Tech';
+  src: url('/assets/fonts/secondary/share-tech/woff/share-tech-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/share-tech/woff/share-tech-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/share-tech/ttf/share-tech-400-normal.ttf') format('truetype');  
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('/assets/fonts/secondary/share-tech-mono/woff/share-tech-mono-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/share-tech-mono/woff/share-tech-mono-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/share-tech-mono/ttf/share-tech-mono-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-.font-preload {
-  font-family: 'Inter', 'Courier Prime', 'Nimbus Sans', 'Bebas Neue', 'Cinzel', 'Josefin Sans', 'EB Garamond', 'Playfair Display';
-  visibility: hidden;
-  position: absolute;
-  pointer-events: none;
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/secondary/sora/woff/sora-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/sora/woff/sora-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/sora/ttf/sora-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Teko';
+  src: url('/assets/fonts/secondary/teko/woff/teko-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/teko/woff/teko-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/teko/ttf/teko-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unifrakturmaguntia';
+  src: url('/assets/fonts/secondary/unifrakturmaguntia/woff/unifrakturmaguntia-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/unifrakturmaguntia/woff/unifrakturmaguntia-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/unifrakturmaguntia/ttf/unifrakturmaguntia-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/assets/fonts/secondary/work-sans/woff/work-sans-400-normal.woff2') format('woff2'),
+       url('/assets/fonts/secondary/work-sans/woff/work-sans-400-normal.woff') format('woff'),
+       url('/assets/fonts/secondary/work-sans/ttf/work-sans-400-normal.ttf') format('truetype');  
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

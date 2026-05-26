@@ -1,20 +1,19 @@
+@use "fonts";
+
 /* ── Layout ── */
 .theme-showcase__wrapper {
   background: var(--background);
   color: var(--text);
   font-family: var(--primary-font), Arial, sans-serif;
   padding: 2rem;
-  // min-height: 100vh;
   display: grid;
   gap: 2px;
-  // max-width: 70%;
   margin: 0 auto;
   border-radius: 10px;
 }
 
 .theme-showcase__header {
   display: flex;
-  // flex-direction: column;
   align-items: space-between;
   justify-content: space-between;
 }
@@ -31,7 +30,6 @@
 .theme-showcase__subtitle {
   font-family: var(--secondary-font), Arial, sans-serif;
   font-size: 1.3rem;
-  font-weight: 500;
 }
  
   /* ── Section header ── */
@@ -183,7 +181,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
-  // color: var(--background)
 }
  
 .fake-el {
@@ -210,7 +207,9 @@
 }
 
 [class*="theme-showcase__fonts"] {
-  // font-size: 1.4rem;
+  h4 {
+    font-size: 1.2rem;
+  }
 }
 
 .theme-showcase__fonts-primary {
@@ -222,8 +221,6 @@
 }
 
 .copy-theme-button {
-  // width: 20%;
-  font-weight: bold;
   font-family: var(--primary-font);
   color: var(--primary)!important;
   background: var(--background);

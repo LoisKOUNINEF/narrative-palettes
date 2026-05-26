@@ -1,5 +1,6 @@
 .home__wrapper {
 	width: 100%;
+	height: 100vh;
 	display: flex;
 	// flex-direction: column;
 	justify-content: center;
@@ -17,13 +18,16 @@
 	// gap: 1rem;
 	align-self: flex-start;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 	// grid-template-rows: repeat(auto, 1fr);
   gap: 1rem;
   padding: 2rem;
   padding-bottom: 2rem;
   margin: 0;
   list-style: none;
+  height: 100%;
+	overflow-y: auto;
+	min-width: 0;
 }
 
 .home__theme-button {
@@ -32,17 +36,16 @@
 	color: var(--primary);
 	border: var(--border);
 	font-size: 1.1rem;
-	font-weight: bold;
 	font-family: var(--secondary-font);
 	padding: .5rem;
   width: 100%;
-  min-width: 0; /* Prevents overflow issues */
+  // min-width: 20%; /* Prevents overflow issues */
   
   /* Text truncation */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 15ch;
+  // width: auto;
 
   &:hover {
 		color: var(--text);
@@ -55,6 +58,7 @@
 }
 
 .home__theme-current {
+	overflow-y: auto;
 	padding: 1rem;
 	padding-top: 2rem;
 	width: 100%;

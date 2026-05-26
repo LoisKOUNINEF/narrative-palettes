@@ -1,11 +1,11 @@
 const fonts: IThemeFonts = {
   primary: {
     name: 'Karma',
-    pitch: '',
+    pitch: 'A Devanagari-influenced serif that brings a non-European letter construction to a non-European palette, avoiding the colonial default.',
   },
   secondary: {
     name: 'Encode Sans Condensed',
-    pitch: '',
+    pitch: 'Compressed and geometric, evoking the structured geometry of Wari textile pattern without requiring an explicitly pre-Columbian display face.',
   },
 }
 
@@ -13,7 +13,7 @@ export const wariLight: ITheme = {
   cssName: 'wari-light',
   title: 'Wari',
   subtitle: 'WARI TEXTILE CULTURE · AYACUCHO HIGHLANDS · PERU · 600–1000 CE',
-  pitch: '',
+  pitch: 'The Wari produced the most technically complex textiles in pre-Columbian history — discontinuous warp, interlocked weft, up to 120 threads per centimetre. Every colour here is an Andean dye source on camelid fibre. Background is undyed alpaca in its natural fawn tone — not beige, not tan, but the specific warm grey-brown of raw vicuña-adjacent fibre from the Ayacucho highlands. Surface is the slightly darker natural alpaca used for warp thread. Text is ch\'uqi dark — potato black, used as both mordant and pigment, a warm near-black. Primary is cochineal-on-alpaca: the crimson produced by Dactylopius coccus beetles on camelid fibre differs from the same dye on cotton — the protein fibre base shifts it toward a deeper, more violet-red. Secondary is añil indigo from the lowland Indigofera plant, greener and cooler than Japanese ai. Accent is chilca yellow — Baccharis latifolia, an Andean shrub dye giving a specific warm saffron-gold.',
   fonts: fonts,
   variables: {
     background: '#F0E8D8',
@@ -41,7 +41,7 @@ export const wariDark: ITheme = {
   cssName: 'wari-dark',
   title: 'Wari tomb',
   subtitle: 'WARI BURIAL TEXTILES · HIGHLAND TOMB · CANDLELIGHT',
-  pitch: '',
+  pitch: 'Wari elite burials wrapped the deceased in multiple layers of their finest textiles — the same discontinuous-warp tunics, folded and placed in underground stone-lined chambers. The only light that ever entered these chambers was human-carried fire. In that context the cochineal crimson deepens and reddens, losing its violet undertone and becoming a pure blood-red. The añil indigo recedes almost to black — indigo absorbs red light and in firelight there is almost no blue to reflect, so it reads as the darkest tone in the chamber. The chilca yellow brightens to the specific amber of tallow fire itself. Background is the compressed darkness of packed highland earth — a very dark, slightly reddish-brown black, the colour of Andean soil at depth. Surface is the stone lining of the tomb chamber — fractionally cooler, fractionally lighter, volcanic granite.',
   fonts: fonts,
   variables: {
     background: '#0E0906',

@@ -26,13 +26,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		min-height: 100vh;
 		cursor: default;
 	  line-height: 1.6;
-		font-family: 'Inter', 'Courier Prime', 'Nimbus Sans', 'Bebas Neue', 'Cinzel', 'Josefin Sans', 'EB Garamond', 'Playfair Display', Arial, sans-serif;
 	  font-size: map.get($font-sizes, medium);
 	}
 
 	h1 {
 		font-size: map.get($font-sizes, largest);
-		font-family: var(--secondary-font), Arial, sans-serif;
 	}
 
 	a, button {

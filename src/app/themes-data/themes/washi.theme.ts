@@ -1,11 +1,11 @@
 const fonts: IThemeFonts = {
   primary: {
     name: 'Shippori Antique',
-    pitch: '',
+    pitch: 'An antiqued Japanese serif with ink-spread warmth, matching the hanshi paper texture of this palette.',
   },
   secondary: {
     name: 'Dela Gothic One',
-    pitch: '',
+    pitch: 'A bold Japanese gothic with woodblock weight; its Latin character set has the same structural density as the Japanese.',
   },
 }
 
@@ -41,7 +41,7 @@ export const washiDark: ITheme = {
   cssName: 'washi-dark',
   title: 'Negoro lacquer',
   subtitle: 'KURO-URUSHI LACQUERWARE · KAMAKURA PERIOD',
-  pitch: '',
+  pitch: 'Negoro-nuri lacquer is built in layers: black urushi base coated with vermilion, polished over decades until the red wears through in patterns of use. The background here is the deep black of fresh kuro-urushi — not a flat digital black but a black with warm undertone from the urushi resin. Surface is the slightly raised, slightly warmer black of aged lacquer where it has yellowed. Text is washi paper white — the same paper from the light palette, now inverted to become the light source. Primary is ai-indigo seen through lantern light — shifted to its brighter register, more periwinkle than navy. Secondary is beni-red, now luminous against the dark ground rather than absorbing into it. Accent is the pale gold of polished brass fittings on a lacquer box.',
   fonts: fonts,
   variables: {
     background: '#0E0B08',

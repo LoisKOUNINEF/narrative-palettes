@@ -4,10 +4,6 @@
 			<h2 class="theme-showcase__title">${_config.title}</h2>
 			<p class="theme-showcase__subtitle">${_config.subtitle}</p>
 			<p data-optional class="theme-showcase__pitch">${_config.pitch}</p>
-			<h3 class="theme-showcase__fonts-title">Fonts</h3>
-			<p>
-				<span class="theme-showcase__fonts-primary">Primary: ${_config.fonts.primary.name}</span>
-				<span class="theme-showcase__fonts-secondary">Secondary: ${_config.fonts.secondary.name}</span>
 		</div>
 		<div>
 			<div data-component="copy-theme-button"></div>
@@ -16,7 +12,7 @@
  
   <section>
 	  <!-- Interactive colors -->
-	  <p class="theme-showcase__section-label">Interactive</p>
+	  <h3 class="theme-showcase__section-label">Interactive</h3>
 	  <div class="theme-showcase__interactive-grid">
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-primary"></div>
@@ -46,9 +42,23 @@
 	  </div>
 	</section>
 
+	<section>
+	<!-- fonts -->
+		<h3 class="theme-showcase__section-label">Fonts</h3>
+		<div class="theme-showcase__fonts-primary">
+			<h4>Primary: ${_config.fonts.primary.name}</h4>
+			<p data-optional>${_config.fonts.primary.pitch}</p>
+		</div>
+		<br/>
+		<div class="theme-showcase__fonts-secondary">
+			<h4>Secondary: ${_config.fonts.secondary.name}</h4>
+			<p data-optional>${_config.fonts.secondary.pitch}</p>
+		</div>
+	</section>
+
  	<section>
 	  <!-- Backgrounds -->
-	  <p class="theme-showcase__section-label">Backgrounds</p>
+	  <h3 class="theme-showcase__section-label">Backgrounds</h3>
 	  <div class="theme-showcase__bg-row">
 	    <div class="theme-showcase__bg-swatch is-bg">
 	      <p class="theme-showcase__sw-name">background</p>
@@ -63,7 +73,7 @@
 
   <section>
   <!-- Typography -->
-	  <p class="theme-showcase__section-label">Text</p>
+	  <h3 class="theme-showcase__section-label">Text</h3>
 	  <div class="theme-showcase__text-block">
 	    <p class="theme-showcase__t-body">The quick brown fox jumps over — text</p>
 	    <p class="theme-showcase__t-muted">Supporting detail line — text-muted</p>
@@ -73,7 +83,7 @@
  
   <section>
 	  <!-- Status -->
-	  <p class="theme-showcase__section-label">Status</p>
+	  <h3 class="theme-showcase__section-label">Status</h3>
 	  <div class="theme-showcase__status-row">
 	    <div class="theme-showcase__status-tile">
 	      <div class="theme-showcase__status-bar theme-showcase__bar-success"></div>
@@ -100,7 +110,7 @@
   
   <section>
 	  <!-- Disabled -->
-	  <p class="theme-showcase__section-label">Disabled</p>
+	  <h3 class="theme-showcase__section-label">Disabled</h3>
 	  <div class="theme-showcase__disabled-tile">
 	    <div class="theme-showcase__disabled-swatch"></div>
 	    <div class="theme-showcase__disabled-info">
@@ -112,7 +122,7 @@
  
   <section>
 	  <!-- Borders -->
-	  <p class="theme-showcase__section-label">Borders</p>
+	  <h3 class="theme-showcase__section-label">Borders</h3>
 	  <div class="theme-showcase__border-row">
 	    <div class="theme-showcase__border-tile theme-showcase__soft">
 	      <div class="theme-showcase__border-preview theme-showcase__bp-soft"></div>

@@ -7,16 +7,6 @@ const template = `__TEMPLATE_PLACEHOLDER__`;
 
 export class HomeView extends View {
   private _currentTheme: ITheme;
-  // private _themeButtonsConfig = themes.map((theme: ITheme) => {
-  //   return {
-  //     className: `theme-${theme.cssName} home__theme-button`,
-  //     textContent: theme.title,
-  //     callback: () => {
-  //       this._currentTheme = theme;
-  //       this.forceRender();
-  //     },
-  //   }
-  // });
 
   constructor() {
     super({template});

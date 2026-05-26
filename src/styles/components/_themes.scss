@@ -484,6 +484,9 @@
 }
 
 .theme-lotr-light {
+  .theme-showcase__subtitle {
+    text-transform: lowercase;
+  }
   --background: rgb(245 240 224); // #F5F0E0
   --surface: rgb(236 230 208); // #ECE6D0
   --text: rgb(22 14 8); // #160E08
@@ -505,6 +508,9 @@
 }
 
 .theme-lotr-dark {
+  .theme-showcase__subtitle {
+    text-transform: lowercase;
+  }
   --background: rgb(12 10 8); // #0C0A08
   --surface: rgb(24 20 16); // #181410
   --text: rgb(234 226 204); // #EAE2CC
