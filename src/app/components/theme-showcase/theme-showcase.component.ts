@@ -11,7 +11,6 @@ export class ThemeShowcaseComponent extends Component {
       templateFn,
       mountTarget,
       config: config,
-      tagName: 'article',
     });
     this._theme = config;
   }

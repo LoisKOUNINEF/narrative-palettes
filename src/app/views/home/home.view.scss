@@ -14,19 +14,11 @@
 
 .home__themes-catalog {
 	align-self: flex-start;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  padding: 2rem;
-  padding-bottom: 2rem;
-  margin: 0;
-  list-style: none;
   height: 100%;
 	overflow-y: auto;
 	min-width: 0;
 	@include mixins.respond-to(medium) {
 		height: 23%;
-		padding-top: 1rem;
 	}
 }
 
@@ -68,11 +60,13 @@
 
 .secret__themes-catalog {
 	width: 20%;
-	justify-content: flex-start;
-	display: flex;
-	flex-direction: column;
-	.home__theme-button {
-		flex-basis: 50%;
+	.theme-button-catalog {
+		justify-content: flex-start;
+		display: flex;
+		flex-direction: column;
+		.home__theme-button {
+			flex-basis: 50%;
+		}
 	}
 	@include mixins.respond-to(medium) {
 		width: 100%;
