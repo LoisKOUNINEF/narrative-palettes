@@ -1,4 +1,4 @@
-import { ButtonComponent, ThemeButtonCatalogComponent, ThemeWrapperComponent } from '../../components/index.js';
+import { ButtonComponent, ThemeButtonCatalogComponent, ThemeShowcaseComponent } from '../../components/index.js';
 import { ComponentConfig, View } from '../../../core/index.js';
 import { ThemesService } from '../../services/index.js';
 
@@ -11,10 +11,6 @@ export class SecretView extends View {
     this._secretThemes = ThemesService.secretThemes;
   }
 
-  onEnter(): void {
-    ThemesService.setDefaultToSecret();
-  }
-
   public childConfigs(): ComponentConfig[] {
     return [
       {
@@ -23,7 +19,7 @@ export class SecretView extends View {
       },
       {
         selector: 'secret-theme-current',
-        factory: (el) => new ThemeWrapperComponent(el)
+        factory: (el) => new ThemeShowcaseComponent(el)
       }
     ]
   }

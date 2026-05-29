@@ -25,6 +25,10 @@ export class Themes extends Service<Themes> {
     return this._currentTheme;
   }
 
+  get defaultTheme(): ITheme {
+    return this._defaultTheme;
+  }
+
   get themes(): ITheme[] {
     return this._themes;
   }
@@ -36,10 +40,6 @@ export class Themes extends Service<Themes> {
   public changeCurrentTheme(theme: ITheme) {
     this._currentTheme = theme;
     AppEventBus.emit('current-theme-changed', { theme });
-  }
-  
-  public setDefaultToSecret(): void {
-    this._currentTheme = this._defaultSecretTheme;
   }
 
   private clear() {

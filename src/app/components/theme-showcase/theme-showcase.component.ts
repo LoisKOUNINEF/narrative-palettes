@@ -1,18 +1,23 @@
+import { ThemesService } from '../../services/index.js';
 import { Component, ComponentConfig } from '../../../core/index.js';
 import { notify } from '../../../libs/index.js';
 import { ButtonComponent } from '../index.js';
 
-const templateFn = (_config: ITheme) => `__TEMPLATE_PLACEHOLDER__`;
+const templateFn = (config: ITheme) => `__TEMPLATE_PLACEHOLDER__`;
 
-export class ThemeShowcaseComponent extends Component {
-  private _theme: ITheme;
-  constructor(mountTarget: HTMLElement, config: ITheme) {
+export class ThemeShowcaseComponent extends Component<HTMLElement, ITheme> {
+  constructor(mountTarget: HTMLElement) {
     super({
       templateFn,
       mountTarget,
-      config: config,
+      tagName: 'article',
     });
-    this._theme = config;
+    this.config = ThemesService.defaultTheme;
+    this.listenToRenderEvents(['current-theme-changed']);
+  }
+
+  beforeRender(): void {
+    this.config = ThemesService.currentTheme;
   }
 
   public childConfigs(): ComponentConfig[] {
@@ -27,9 +32,9 @@ export class ThemeShowcaseComponent extends Component {
   }
 
   private copyThemeToClipboard() {
-    const themeContent = JSON.stringify(this._theme.variables);
+    const themeContent = JSON.stringify(this.config.variables, null, 2);
     navigator.clipboard.writeText(themeContent);
-    notify(`${this._theme.title} copied to clipboard.`, {
+    notify(`${this.config.title} theme copied to clipboard.`, {
       type: 'success',
       position: 'top',
     })

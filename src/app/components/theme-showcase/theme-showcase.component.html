@@ -1,9 +1,9 @@
-<div class="theme-showcase__wrapper theme-${_config.cssName}">
+<div class="theme-showcase__wrapper theme-${config.cssName}">
 	<section class="theme-showcase__header">
 		<div class="theme-showcase__presentation">
-			<h2 class="theme-showcase__title">${_config.title}</h2>
-			<p class="theme-showcase__subtitle">${_config.subtitle}</p>
-			<p data-optional class="theme-showcase__pitch">${_config.pitch}</p>
+			<h2 class="theme-showcase__title">${config.title}</h2>
+			<p class="theme-showcase__subtitle">${config.subtitle}</p>
+			<p data-optional class="theme-showcase__pitch">${config.pitch}</p>
 		</div>
 		<div>
 			<div data-component="copy-theme-button"></div>
@@ -17,27 +17,27 @@
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-primary"></div>
 	      <p class="theme-showcase__ct-name">primary</p>
-	      <p class="theme-showcase__ct-hex">${_config.variables.primary}</p>
+	      <p class="theme-showcase__ct-hex">${config.variables.primary}</p>
 	    </div>
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-primary-hover"></div>
 	      <p class="theme-showcase__ct-name">primary-hover</p>
-	      <p class="theme-showcase__ct-hex">${_config.variables.primaryHover}</p>
+	      <p class="theme-showcase__ct-hex">${config.variables.primaryHover}</p>
 	    </div>
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-secondary"></div>
 	      <p class="theme-showcase__ct-name">secondary</p>
-	      <p class="theme-showcase__ct-hex">${_config.variables.secondary}</p>
+	      <p class="theme-showcase__ct-hex">${config.variables.secondary}</p>
 	    </div>
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-secondary-hover"></div>
 	      <p class="theme-showcase__ct-name">secondary-hover</p>
-	      <p class="theme-showcase__ct-hex">${_config.variables.secondaryHover}</p>
+	      <p class="theme-showcase__ct-hex">${config.variables.secondaryHover}</p>
 	    </div>
 	    <div class="theme-showcase__color-tile">
 	      <div class="theme-showcase__color-bar theme-showcase__bar-accent"></div>
 	      <p class="theme-showcase__ct-name">accent</p>
-	      <p class="theme-showcase__ct-hex">${_config.variables.accent}</p>
+	      <p class="theme-showcase__ct-hex">${config.variables.accent}</p>
 	    </div>
 	  </div>
 	</section>
@@ -47,12 +47,12 @@
 		<h3 class="theme-showcase__section-label">Fonts</h3>
 	  <div class="theme-showcase__fonts-grid">
 			<div class="theme-showcase__fonts-primary">
-				<h4>Primary: ${_config.fonts.primary.name}</h4>
-				<p data-optional>${_config.fonts.primary.pitch}</p>
+				<h4>Primary: ${config.fonts.primary.name}</h4>
+				<p data-optional>${config.fonts.primary.pitch}</p>
 			</div>
 			<div class="theme-showcase__fonts-secondary">
-				<h4>Secondary: ${_config.fonts.secondary.name}</h4>
-				<p data-optional>${_config.fonts.secondary.pitch}</p>
+				<h4>Secondary: ${config.fonts.secondary.name}</h4>
+				<p data-optional>${config.fonts.secondary.pitch}</p>
 			</div>
 		</div>
 	</section>
@@ -63,11 +63,11 @@
 	  <div class="theme-showcase__bg-row">
 	    <div class="theme-showcase__bg-swatch is-bg">
 	      <p class="theme-showcase__sw-name">background</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.background}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.background}</p>
 	    </div>
 	    <div class="theme-showcase__bg-swatch is-surface">
 	      <p class="theme-showcase__sw-name">surface</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.surface}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.surface}</p>
 	    </div>
 	  </div>
   </section>
@@ -78,7 +78,7 @@
 	  <div class="theme-showcase__text-block">
 	    <p class="theme-showcase__t-body">The quick brown fox jumps over — text</p>
 	    <p class="theme-showcase__t-muted">Supporting detail line — text-muted</p>
-	    <p class="theme-showcase__t-hint">text ${_config.variables.text} · text-muted ${_config.variables.textMuted}</p>
+	    <p class="theme-showcase__t-hint">text ${config.variables.text} · text-muted ${config.variables.textMuted}</p>
 	  </div>
 	</section>
  
@@ -89,22 +89,22 @@
 	    <div class="theme-showcase__status-tile">
 	      <div class="theme-showcase__status-bar theme-showcase__bar-success"></div>
 	      <p class="theme-showcase__sw-name">success</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.success}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.success}</p>
 	    </div>
 	    <div class="theme-showcase__status-tile">
 	      <div class="theme-showcase__status-bar theme-showcase__bar-error"></div>
 	      <p class="theme-showcase__sw-name">error</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.error}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.error}</p>
 	    </div>
 	    <div class="theme-showcase__status-tile">
 	      <div class="theme-showcase__status-bar theme-showcase__bar-warning"></div>
 	      <p class="theme-showcase__sw-name">warning</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.warning}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.warning}</p>
 	    </div>
 	    <div class="theme-showcase__status-tile">
 	      <div class="theme-showcase__status-bar theme-showcase__bar-info"></div>
 	      <p class="theme-showcase__sw-name">info</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.info}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.info}</p>
 	    </div>
 	  </div>
 	</section>
@@ -116,7 +116,7 @@
 	    <div class="theme-showcase__disabled-swatch"></div>
 	    <div class="theme-showcase__disabled-info">
 	      <p class="theme-showcase__sw-name" style="color: var(--text-disabled);">bg-disabled / text-disabled</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.bgDisabled} · ${_config.variables.textDisabled}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.bgDisabled} · ${config.variables.textDisabled}</p>
 	    </div>
 	  </div>
 	</section>
@@ -128,12 +128,12 @@
 	    <div class="theme-showcase__border-tile theme-showcase__soft">
 	      <div class="theme-showcase__border-preview theme-showcase__bp-soft"></div>
 	      <p class="theme-showcase__sw-name">border</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.border}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.border}</p>
 	    </div>
 	    <div class="theme-showcase__border-tile strong">
 	      <div class="theme-showcase__border-preview theme-showcase__bp-strong"></div>
 	      <p class="theme-showcase__sw-name">border-strong</p>
-	      <p class="theme-showcase__sw-hex">${_config.variables.primary}</p>
+	      <p class="theme-showcase__sw-hex">${config.variables.primary}</p>
 	    </div>
 	  </div>
 	</section>

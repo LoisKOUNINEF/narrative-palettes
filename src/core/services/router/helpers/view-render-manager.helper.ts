@@ -7,6 +7,7 @@ export class ViewRenderManager {
   public static async transitionOutCurrentView(currentView: View | null): Promise<null> {
     if (!currentView) return null;
     currentView.destroy();
+    currentView.onExit();
     this.emitEvent('view-unmount', currentView.viewName);
     return null;
   }
@@ -21,6 +22,7 @@ export class ViewRenderManager {
     view.setRouteParams(params);
 
     view.render();
+    view.onEnter();
 
     this.emitEvent('view-mount', view.viewName);
     return view;

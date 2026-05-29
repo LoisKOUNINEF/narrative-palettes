@@ -1,4 +1,4 @@
-import { ThemeWrapperComponent, ButtonComponent, ThemeButtonCatalogComponent } from '../../components/index.js';
+import { ThemeShowcaseComponent, ButtonComponent, ThemeButtonCatalogComponent } from '../../components/index.js';
 import { ComponentConfig, View, AppEventBus } from '../../../core/index.js';
 import { ThemesService } from '../../services/index.js';
 
@@ -19,7 +19,7 @@ export class HomeView extends View {
       },
       {
         selector: 'home-theme-current',
-        factory: (el) => new ThemeWrapperComponent(el),
+        factory: (el) => new ThemeShowcaseComponent(el),
       }
     ]
   }
