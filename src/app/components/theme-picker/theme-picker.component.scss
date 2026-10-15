@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "variables" as *;
+@use "mixins";
+
+// The drawer and floating live on <body>, outside any theme class: they use the base colours
+:root {
+  --a11y-drawer-color-background: #{$background-color};
+  --a11y-drawer-color-text: #{$text-color};
+  --a11y-drawer-width: min(420px, 90vw);
+}
+
+.theme-picker--sidebar {
+  padding: 2rem;
+  @include mixins.respond-to(medium) {
+    display: none;
+  }
+}
+
+// <a11y-radio-group> wraps the options in a <fieldset class="a11y-radio-group">
+.theme-picker .a11y-radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.theme-picker__option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: var(--background);
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-family: var(--secondary-font);
+  padding: .5rem;
+  transition: box-shadow .15s ease;
+  border-radius: 8px;
+
+  &:hover {
+    color: var(--text);
+  }
+  @media (hover: none) {
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  // Selected theme
+  &:has(.theme-picker__input:checked) {
+    box-shadow: inset 0 0 0 3px var(--primary);
+  }
+
+  // Keyboard focus (the radio itself is visually hidden)
+  &:has(.theme-picker__input:focus-visible) {
+    outline: 2px solid $text-color;
+    outline-offset: 2px;
+  }
+}
+
+.theme-picker__name {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Visually hidden, still focusable and announced; overrides a11y-elements' radio circle
+.theme-picker .theme-picker__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.theme-picker__drawer-title {
+  font-size: map.get($font-sizes, large);
+  margin-bottom: 1rem;
+}
+
+// Mobile only: the button that opens the drawer
+.theme-picker__floating {
+  display: none;
+  @include mixins.respond-to(medium) {
+    display: flex;
+  }
+}
+
+.theme-picker__toggle {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 3rem;
+  padding: 0 1.25rem;
+  border: 2px solid $text-color;
+  border-radius: map.get($border-radius, pill);
+  background-color: $background-color;
+  color: $text-color;
+  font: inherit;
+  font-size: map.get($font-sizes, medium);
+  box-shadow: map.get($shadows, large);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $text-color;
+    outline-offset: 2px;
+  }
+}

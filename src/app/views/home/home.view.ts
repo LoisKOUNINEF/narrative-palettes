@@ -1,21 +1,26 @@
-import { ThemeShowcaseComponent, ButtonComponent, ThemeButtonCatalogComponent } from '../../components/index.js';
-import { ComponentConfig, View, AppEventBus } from '../../../core/index.js';
-import { ThemesService } from '../../services/index.js';
+import { ThemePickerComponent } from '../../components/theme-picker/theme-picker.component.js';
+import { ThemeShowcaseComponent } from '../../components/theme-showcase/theme-showcase.component.js';
+import { View, html } from '../../../core/index.js';
+import { ThemesService } from '../../services/themes/themes.service.js';
 
-const template = `__TEMPLATE_PLACEHOLDER__`;
+const template = html`__TEMPLATE_PLACEHOLDER__`;
 
 export class HomeView extends View {
-  private _homeThemes: ITheme[]; 
+  private _homeThemes: ITheme[];
   constructor() {
-    super({template});
+    super({ template, viewName: 'home' });
     this._homeThemes = ThemesService.themes;
   }
 
-  public childConfigs(): ComponentConfig[] {
+  public override documentTitle(): string {
+    return 'Narrative Palettes';
+  }
+
+  public registerChildren(): Nutin.ComponentConfig[] {
     return [
       {
         selector: 'home-theme-buttons',
-        factory: (el) => new ThemeButtonCatalogComponent(el, this._homeThemes),
+        factory: (el) => new ThemePickerComponent(el, { themes: this._homeThemes, label: 'Themes', id: 'home' }),
       },
       {
         selector: 'home-theme-current',

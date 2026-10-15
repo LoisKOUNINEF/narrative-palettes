@@ -1,0 +1,146 @@
+# ---------------------------
+# HEADER VARIABLES (outside server block)
+# ---------------------------
+map $uri $frame_options {
+    default "SAMEORIGIN";
+}
+
+map $uri $content_type_options {
+    default "nosniff";
+}
+
+map $uri $xss_protection {
+    default "0";
+}
+
+map $uri $referrer_policy {
+    default "strict-origin-when-cross-origin";
+}
+
+map $uri $permissions_policy {
+    default "geolocation=(), microphone=(), camera=()";
+}
+
+map $uri $csp_policy {
+    default "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';";
+}
+
+# ---------------------------
+# COMPRESSION (applies globally)
+# ---------------------------
+gzip on;
+gzip_static on;
+gzip_proxied any;
+
+brotli on;
+brotli_static on;
+
+server {
+    # ---------------------------
+    # LISTEN PORTS
+    # ---------------------------
+    __PORTS_PLACEHOLDER__
+    server_name _;
+
+    # Keep nginx's own automatic redirects (e.g. the missing-trailing-slash 301 on a
+    # prerendered route directory) relative, so they never leak this container's
+    # internal port/scheme when served behind a reverse proxy or a remapped port.
+    absolute_redirect off;
+
+    # ---------------------------
+    # ROOT + ROUTING
+    # ---------------------------
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Hide nginx version
+    server_tokens off;
+
+    # With i18n enabled, redirects "/" and unprefixed paths ("/docs") to the default
+    # language, so every served URL matches a page's canonical/og:url instead of
+    # returning a duplicate SPA shell (filled in by validate-docker).
+    __ROOT_REDIRECT_PLACEHOLDER__
+
+    # SPA routing: serve index.html for unknown paths
+    location / {
+        try_files $uri $uri/ /index.html;
+        
+        # Security headers
+        add_header X-Frame-Options $frame_options always;
+        add_header X-Content-Type-Options $content_type_options always;
+        add_header X-XSS-Protection $xss_protection always;
+        add_header Referrer-Policy $referrer_policy always;
+        add_header Permissions-Policy $permissions_policy always;
+        add_header Content-Security-Policy $csp_policy always;
+    }
+
+    # ---------------------------
+    # STATIC ASSETS CACHING
+    # ---------------------------
+
+    # Immutable cache for static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|avif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable" always;
+        
+        # Security headers
+        add_header X-Frame-Options $frame_options always;
+        add_header X-Content-Type-Options $content_type_options always;
+        add_header X-XSS-Protection $xss_protection always;
+        add_header Referrer-Policy $referrer_policy always;
+        add_header Permissions-Policy $permissions_policy always;
+        add_header Content-Security-Policy $csp_policy always;
+    }
+
+    # No caching for HTML files (SPA shell)
+    location ~* \.html$ {
+        expires -1;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+        add_header Pragma "no-cache" always;
+        
+        # Security headers
+        add_header X-Frame-Options $frame_options always;
+        add_header X-Content-Type-Options $content_type_options always;
+        add_header X-XSS-Protection $xss_protection always;
+        add_header Referrer-Policy $referrer_policy always;
+        add_header Permissions-Policy $permissions_policy always;
+        add_header Content-Security-Policy $csp_policy always;
+    }
+
+    # ---------------------------
+    # HEALTH ENDPOINT
+    # ---------------------------
+    # Exact match: it must win over the i18n unprefixed-path redirect (a regex location).
+    location = /health {
+        access_log off;
+        add_header Content-Type text/plain always;
+        add_header Cache-Control "no-store" always;
+        return 200 "healthy\n";
+    }
+    
+    # ---------------------------
+    # ERROR PAGE 404 (rare but possible for SPAs)
+    # --------------------------
+    error_page 404 /404.html;
+
+    # A route directory that exists on disk but has no index.html of its own (e.g. a
+    # parent route whose only prerendered pages are its children) makes try_files'
+    # $uri/ candidate match the directory and stop there, returning 403 instead of
+    # falling through to the SPA shell. Serve the shell for that case too.
+    error_page 403 = /index.html;
+
+    location = /404.html {
+        internal;
+        try_files /404.html =404;
+        expires -1;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+        
+        # Security headers
+        add_header X-Frame-Options $frame_options always;
+        add_header X-Content-Type-Options $content_type_options always;
+        add_header X-XSS-Protection $xss_protection always;
+        add_header Referrer-Policy $referrer_policy always;
+        add_header Permissions-Policy $permissions_policy always;
+        add_header Content-Security-Policy $csp_policy always;
+    }
+}

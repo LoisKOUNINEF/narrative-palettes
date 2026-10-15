@@ -1,0 +1,53 @@
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+import { generateFile } from './handle-file.js';
+
+describe('handle-file', () => {
+  let tmpDir;
+  let exitSpy;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'nutin-handle-file-'));
+    exitSpy = spyOn(process, 'exit').andCallFake(() => {});
+  });
+
+  afterEach(() => {
+    exitSpy.restore();
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('generateFile writes the template output to <targetPath>/<name>.<suffix>.<extension>', () => {
+    const targetPath = path.join(tmpDir, 'components', 'widget');
+    const name = { kebab: 'widget', pascal: 'Widget', camel: 'widget', capitalized: 'Widget' };
+
+    generateFile({ name, targetPath, templateFn: (n) => `content for ${n.kebab}`, suffix: 'component' });
+
+    const filePath = path.join(targetPath, 'widget.component.ts');
+    expect(fs.existsSync(filePath)).toBeTruthy();
+    expect(fs.readFileSync(filePath, 'utf8')).toBe('content for widget');
+    expect(exitSpy.callCount).toBe(0);
+  });
+
+  it('generateFile respects a custom extension', () => {
+    const targetPath = path.join(tmpDir, 'services', 'widget');
+    const name = { kebab: 'widget', pascal: 'Widget', camel: 'widget', capitalized: 'Widget' };
+
+    generateFile({ name, targetPath, templateFn: () => 'x', suffix: 'service', extension: 'scss' });
+
+    expect(fs.existsSync(path.join(targetPath, 'widget.service.scss'))).toBeTruthy();
+  });
+
+  it('generateFile calls process.exit(1) instead of overwriting an existing file', () => {
+    const targetPath = path.join(tmpDir, 'components', 'widget');
+    const name = { kebab: 'widget', pascal: 'Widget', camel: 'widget', capitalized: 'Widget' };
+    const templateFn = () => 'fixed content';
+
+    generateFile({ name, targetPath, templateFn, suffix: 'component' });
+    // the second call hits the already-exists guard, which prints via console.error
+    silenceConsole('error', () => generateFile({ name, targetPath, templateFn, suffix: 'component' }));
+
+    expect(exitSpy.callCount).toBe(1);
+    expect(exitSpy.lastCall).toEqual([1]);
+  });
+});

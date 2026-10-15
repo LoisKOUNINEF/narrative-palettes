@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
 
       - name: Install all dependencies
@@ -59,7 +59,7 @@ jobs:
       SERVICE_NAME: "narrative-palettes"
       STACK_NAME: "production"
       CLIENT_PORT: "9001"
-      DOMAIN_NAME: "narrative-palettes.nutin.org"
+      DOMAIN_NAME: "narrative-palettes.nutin.dev"
     permissions:
       contents: read
       packages: read

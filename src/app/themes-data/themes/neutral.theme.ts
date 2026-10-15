@@ -10,8 +10,6 @@ const fonts: IThemeFonts = {
 export const neutralLight: ITheme = {
   cssName: 'neutral-light',
   title: 'Neutral light',
-  subtitle: 'Always start monochrome',
-  pitch: '',
   fonts: fonts,
   variables: {
     background: '#FAFAF9',
@@ -38,8 +36,6 @@ export const neutralLight: ITheme = {
 export const neutralDark: ITheme = {
   cssName: 'neutral-dark',
   title: 'Neutral Dark',
-  subtitle: '...even more in dark mode',
-  pitch: '',
   fonts: fonts,
   variables: {
     background: '#101010',

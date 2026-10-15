@@ -1,0 +1,22 @@
+{
+  "baseUrl": "https://narrative-palettes.nutin.dev",
+  "disallowBots": [],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Narrative Palettes",
+      "description": "Contrasted color palettes (light / dark pairs with suggested fonts) based on historical or cultural references.",
+      "ogImage": "/assets/images/og-cover.jpg"
+    },
+    {
+      "path": "/secret",
+      "title": "Secret",
+      "description": "Secret"
+    },
+    {
+      "path": "/404",
+      "title": "Page Not Found",
+      "description": "404 Page"
+    }
+  ]
+}

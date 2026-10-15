@@ -1,74 +1,83 @@
 @use "mixins";
 
-.home__wrapper {
+// Desktop: one screen high, the heading on top and the wrapper taking the rest, so the
+// sidebar and the showcase each scroll on their own. Mobile: the whole page scrolls.
+.home__container {
 	width: 100%;
 	height: 100vh;
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	flex-direction: column;
 	@include mixins.respond-to(medium) {
-		align-items: center;
-		flex-wrap: wrap;
+		display: block;
+	}
+	h1 {
+		font-family: Cinzel, Arial, sans-serif;
+		font-size: 2.5rem;
+		font-weight: 600;
+		color: #120D06;
+		padding-top: 1.5rem;
+		padding-left: 1.5rem;
+		@include mixins.respond-to(medium) {
+			padding-left: .5rem;
+		}
 	}
 }
 
+.home__subtitle {
+	font-family: Cardo, Arial, sans-serif;
+	color: #120D06;
+	font-size: 1.5rem;
+	padding-left: 2.5rem;
+	padding-bottom: 1rem;
+	@include mixins.respond-to(medium) {
+		padding-left: 1rem;
+	}
+}
+
+.home__wrapper {
+	display: flex;
+	align-items: flex-start;
+	// The height left under the heading: gives the sidebar and showcase's height: 100% a value
+	flex: 1;
+	min-height: 0;
+}
+
+// Sidebar on desktop. On mobile the theme picker moves to a drawer (see theme-picker.component.scss)
 .home__themes-catalog {
 	align-self: flex-start;
-  height: 100%;
+	height: 100%;
 	overflow-y: auto;
 	min-width: 0;
 	@include mixins.respond-to(medium) {
-		height: 23%;
+		display: none;
 	}
 }
 
-.home__theme-button {
-	background: var(--background);
-	color: var(--primary);
-	border: var(--border);
-	font-size: 1.1rem;
-	font-family: var(--secondary-font);
-	padding: .5rem;
-  width: 100%;
-  
-  /* Text truncation */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &:hover {
-		color: var(--text);
-	}
-  @media(hover:none) {
-  	&:hover {
-			color: var(--primary);
-  	}
-  }
-}
-
+// No padding here: the showcase's background covers this whole area, so spacing goes inside it
 .home__theme-current {
 	overflow-y: auto;
-	padding: 1rem;
-	padding-top: 2rem;
 	width: 100%;
 	height: 100%;
-	max-width: 150ch;
-	@include mixins.respond-to(medium) {
-		padding-top: .5rem;
+
+	// The showcase (its <article> root) is at least as tall as this area; its wrapper stretches with it
+	> * {
+		display: grid;
+		min-height: 100%;
+	}
+
+	.theme-showcase__wrapper {
+		padding-top: 3rem;
+		@include mixins.respond-to(medium) {
+			padding-top: 1.5rem;
+			// Room for the floating "Themes" button
+			padding-bottom: 5rem;
+		}
 	}
 }
 
 .secret__themes-catalog {
 	width: 20%;
-	.theme-button-catalog {
-		justify-content: flex-start;
-		display: flex;
-		flex-direction: column;
-		.home__theme-button {
-			flex-basis: 50%;
-		}
-	}
-	@include mixins.respond-to(medium) {
-		width: 100%;
+	.theme-picker--sidebar .a11y-radio-group {
+		grid-template-columns: minmax(0, 1fr);
 	}
 }
