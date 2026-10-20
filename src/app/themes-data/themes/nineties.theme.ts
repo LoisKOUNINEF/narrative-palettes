@@ -24,7 +24,7 @@ export const ninetiesLight: ITheme = {
     primaryHover: '#1C4850',
     secondary: '#8C4840',
     secondaryHover: '#683028',
-    accent: '#907830',
+    accent: '#7A6316',
     bgDisabled: '#D8D4CA',
     textDisabled: '#989490',
     success: '#407048',
@@ -32,7 +32,7 @@ export const ninetiesLight: ITheme = {
     warning: '#886818',
     info: '#386880',
     border: '#D8D4CC',
-    borderStrong: '#A8A49C',
+    borderStrong: '#86827A',
     overlay: '#14121080',
   }
 };
@@ -50,7 +50,7 @@ export const ninetiesDark: ITheme = {
     textMuted: '#8890A0',
     primary: '#389098',
     primaryHover: '#48B0B8',
-    secondary: '#B06058',
+    secondary: '#BB6A62',
     secondaryHover: '#D0786C',
     accent: '#B09838',
     bgDisabled: '#181C24',
@@ -60,7 +60,7 @@ export const ninetiesDark: ITheme = {
     warning: '#C0A848',
     info: '#4870A8',
     border: '#1C202C',
-    borderStrong: '#404858',
+    borderStrong: '#5C6576',
     overlay: '#0a0c10d9',
   }
 };

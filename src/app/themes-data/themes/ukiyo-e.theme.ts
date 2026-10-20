@@ -24,15 +24,15 @@ export const ukiyoELight: ITheme = {
     primaryHover: '#102458',
     secondary: '#B83040',
     secondaryHover: '#901828',
-    accent: '#C47C00',
+    accent: '#915B00',
     bgDisabled: '#DDD8CE',
     textDisabled: '#9E9488',
     success: '#386040',
     error: '#C82030',
-    warning: '#C08808',
+    warning: '#AD7A00',
     info: '#3870B0',
     border: '#E0DACE',
-    borderStrong: '#ACA494',
+    borderStrong: '#8A8373',
     overlay: '#0c0a0780',
   }
 };
@@ -56,11 +56,11 @@ export const ukiyoEDark: ITheme = {
     bgDisabled: '#1A2230',
     textDisabled: '#404C5C',
     success: '#407850',
-    error: '#B02838',
+    error: '#B8303E',
     warning: '#D8B038',
     info: '#50A8C0',
     border: '#101622',
-    borderStrong: '#243040',
+    borderStrong: '#576577',
     overlay: '#090c12d9',
   }
 };

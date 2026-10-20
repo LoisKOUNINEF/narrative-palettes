@@ -32,7 +32,7 @@ export default {
   testinNutin: {
     includeFramework: true,  // Test Nutin source - src/core
     includeTools: false,     // Test tools/ (builder, testin-nutin, etc.)
-    includeApp: false,       // Include application tests
+    includeApp: true,        // Include application tests
 
     coverage: {
       enabled: false,        // Include coverage in the normal test command

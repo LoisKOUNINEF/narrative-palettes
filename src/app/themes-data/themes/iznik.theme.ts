@@ -24,7 +24,7 @@ export const iznikLight: ITheme = {
     primaryHover: '#102458',
     secondary: '#A82820',
     secondaryHover: '#781810',
-    accent: '#1A7B6E',
+    accent: '#0C7467',
     bgDisabled: '#DDD8CC',
     textDisabled: '#9C9488',
     success: '#306848',
@@ -32,7 +32,7 @@ export const iznikLight: ITheme = {
     warning: '#A87820',
     info: '#208890',
     border: '#DCD6C8',
-    borderStrong: '#ACA494',
+    borderStrong: '#8A8273',
     overlay: '#0d0b0880',
   }
 };
@@ -56,11 +56,11 @@ export const iznikDark: ITheme = {
     bgDisabled: '#1A2238',
     textDisabled: '#3C4A62',
     success: '#48A880',
-    error: '#B03038',
+    error: '#B8383E',
     warning: '#D0A038',
     info: '#7088C0',
     border: '#121A34',
-    borderStrong: '#283858',
+    borderStrong: '#55678A',
     overlay: '#0a1020d9',
   }
 };

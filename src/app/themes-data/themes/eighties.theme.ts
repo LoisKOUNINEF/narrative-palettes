@@ -24,7 +24,7 @@ export const eightiesLight: ITheme = {
     primaryHover: '#1E3050',
     secondary: '#7A4858',
     secondaryHover: '#5E3040',
-    accent: '#907020',
+    accent: '#7F5F03',
     bgDisabled: '#D4D0C8',
     textDisabled: '#989490',
     success: '#486448',
@@ -32,7 +32,7 @@ export const eightiesLight: ITheme = {
     warning: '#785A10',
     info: '#4A6890',
     border: '#D0CCC4',
-    borderStrong: '#A8A4A0',
+    borderStrong: '#837F7B',
     overlay: '#14121080',
   }
 };
@@ -47,9 +47,9 @@ export const eightiesDark: ITheme = {
     background: '#0E0C0A',
     surface: '#181614',
     text: '#90C878',
-    textMuted: '#507848',
-    primary: '#4870B0',
-    primaryHover: '#6090D0',
+    textMuted: '#618A59',
+    primary: '#5780C1',
+    primaryHover: '#70A0E2',
     secondary: '#C09030',
     secondaryHover: '#D8A840',
     accent: '#C08828',
@@ -60,7 +60,7 @@ export const eightiesDark: ITheme = {
     warning: '#C8A048',
     info: '#4888A8',
     border: '#282420',
-    borderStrong: '#405838',
+    borderStrong: '#516A49',
     overlay: '#0e0c0ad9',
   }
 };
