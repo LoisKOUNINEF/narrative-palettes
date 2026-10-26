@@ -25,19 +25,19 @@ import {
 } from "./themes/index.js";
 
 export const themes: ITheme[] = [
-	yosemiteLight, yosemiteDark,
-	sheffieldSteelLight, sheffieldSteelDark,
-	iznikLight, iznikDark,
 	kaamosLight, kaamosDark,
-	kaibabLight, kaibabDark,
+	iznikLight, iznikDark,
 	muranoLight, muranoDark,
 	pentelicLight, pentelicDark,
 	tiznitSilverLight, tiznitSilverDark,
 	ukiyoELight, ukiyoEDark,
 	wariLight, wariDark,
 	washiLight, washiDark,
+	yosemiteLight, yosemiteDark,
+	kaibabLight, kaibabDark,
 	pompeianLight, pompeianDark,
 	thebanTombLight, thebanTombDark,
+	sheffieldSteelLight, sheffieldSteelDark,
 	bauhausLight, bauhausDark,
 	constructionLight, constructionDark,
 	eightiesLight, eightiesDark,

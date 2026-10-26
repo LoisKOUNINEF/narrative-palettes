@@ -1,5 +1,5 @@
 import { themes } from '../../themes-data/themes.js';
-import { neutralLight } from '../../themes-data/secret-themes/neutral.theme.js';
+import { kaamosLight } from '../../themes-data/themes/kaamos.theme.js';
 import { secretThemes } from '../../themes-data/secret-themes.js';
 import { AppEventBus, Service } from '../../../core/index.js';
 
@@ -13,7 +13,7 @@ export class Themes extends Service<Themes> {
     super();
     this.registerCleanup(this.clear);
     this._themes = themes;
-    this._defaultTheme = this._themes[0] || neutralLight;
+    this._defaultTheme = this._themes[0] || kaamosLight;
     this._currentTheme = this._defaultTheme;
     this._secretThemes = secretThemes;
   }
