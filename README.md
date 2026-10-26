@@ -1,6 +1,6 @@
-# narrative-palettes - Built with nutin
+# narrative-palettes - Built with [nutin](https://nutin.dev)
 
-[Demo website](https://narrative-palettes.nutin.org)
+[Demo website](https://narrative-palettes.nutin.dev)
 
 **Contrasted color palettes (light / dark pairs with suggested fonts) based on historical or cultural references.**
 

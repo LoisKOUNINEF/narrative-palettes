@@ -11,8 +11,8 @@ const fonts: IThemeFonts = {
 
 export const nutinLight: ITheme = {
   cssName: 'nutin-light',
-  title: 'nutin Light',
-  subtitle: 'nutin website, light version',
+  title: 'Nutin Light',
+  subtitle: 'Nutin website, light version',
   pitch: '',
   fonts: fonts,
   variables: {
@@ -22,25 +22,25 @@ export const nutinLight: ITheme = {
     textMuted: '#506858',
     primary: '#475569',
     primaryHover: '#384457',
-    secondary: '#94A3B8',
-    secondaryHover: '#7C8CA3',
-    accent: '#5A7A60',
+    secondary: '#616F83',
+    secondaryHover: '#4B596F',
+    accent: '#55755B',
     bgDisabled: '#DCE4DA',
     textDisabled: '#8CA08C',
     success: '#4A8C62',
     error: '#BE4E4E',
-    warning: '#D6A23E',
+    warning: '#B5820E',
     info: '#4A78BE',
     border: '#CDD8CE',
-    borderStrong: '#96A89A',
+    borderStrong: '#7E8F82',
     overlay: '#0A120E85',
   }
 };
 
 export const nutinDark: ITheme = {
   cssName: 'nutin-dark',
-  title: 'nutin Dark',
-  subtitle: 'nutin website, dark version',
+  title: 'Nutin Dark',
+  subtitle: 'Nutin website, dark version',
   pitch: '',
   fonts: fonts,
   variables: {
@@ -52,7 +52,7 @@ export const nutinDark: ITheme = {
     primaryHover: '#A0C6B5',
     secondary: '#6D957F',
     secondaryHover: '#80AA92',
-    accent: '#4A7A60',
+    accent: '#629378',
     bgDisabled: '#26302C',
     textDisabled: '#64786E',
     success: '#5CAA76',
@@ -60,7 +60,7 @@ export const nutinDark: ITheme = {
     warning: '#EBBA52',
     info: '#6699E0',
     border: '#34423C',
-    borderStrong: '#586C62',
+    borderStrong: '#5C7066',
     overlay: '#000000AD',
   }
 };

@@ -1156,13 +1156,13 @@
 }
 
 // secret themes
-// portfolio
-[class*="theme-portfolio"] {
+// earthy
+[class*="theme-earthy"] {
   --primary-font: 'Inter';
   --secondary-font: 'Sora';
 }
 
-.theme-portfolio-light {
+.theme-earthy-light {
   --background: rgb(245 240 233);      // #F5F0E9
   --surface: rgb(235 228 218);         // #EBE4DA
   --text: rgb(40 30 20);               // #281E14
@@ -1183,7 +1183,7 @@
   --text-disabled: rgb(170 156 140);   // #AA9C8C
 }
 
-.theme-portfolio-dark {
+.theme-earthy-dark {
   --background: rgb(8 5 3);            // #080503
   --surface: rgb(28 22 16);            // #1C1610
   --text: rgb(228 214 167);            // #E4D6A7
@@ -1202,6 +1202,54 @@
   --overlay: rgb(0 0 0 / 72%);         // #000000B8
   --bg-disabled: rgb(48 40 32);        // #302820
   --text-disabled: rgb(120 108 90);    // #786C5A
+}
+
+// portfolio
+[class*="theme-portfolio"] {
+  --primary-font: 'Inter';
+  --secondary-font: 'Sora';
+}
+
+.theme-portfolio-light {
+  --background: rgb(245 245 242);      // #F5F5F2
+  --surface: rgb(233 234 231);         // #E9EAE7
+  --text: rgb(36 38 40);               // #242628
+  --text-muted: rgb(111 116 120);      // #6F7478
+  --primary: rgb(52 58 64);            // #343A40
+  --primary-hover: rgb(32 36 40);      // #202428
+  --secondary: rgb(98 106 112);        // #626A70
+  --secondary-hover: rgb(70 77 82);    // #464D52
+  --accent: rgb(82 118 139);           // #52768B
+  --success: rgb(57 118 78);           // #39764E
+  --error: rgb(181 62 62);             // #B53E3E
+  --warning: rgb(149 106 34);          // #956A22
+  --info: rgb(63 110 155);             // #3F6E9B
+  --border: rgb(213 215 212);          // #D5D7D4
+  --border-strong: rgb(184 188 187);   // #B8BCBB
+  --overlay: rgb(23 25 26 / 60%);      // #17191A99
+  --bg-disabled: rgb(225 226 223);     // #E1E2DF
+  --text-disabled: rgb(154 157 158);   // #9A9D9E
+}
+
+.theme-portfolio-dark {
+  --background: rgb(17 19 20);         // #111314
+  --surface: rgb(28 32 34);            // #1C2022
+  --text: rgb(232 233 230);            // #E8E9E6
+  --text-muted: rgb(162 167 168);      // #A2A7A8
+  --primary: rgb(217 222 223);         // #D9DEDF
+  --primary-hover: rgb(255 255 255);   // #FFFFFF
+  --secondary: rgb(166 173 176);       // #A6ADB0
+  --secondary-hover: rgb(196 201 202); // #C4C9CA
+  --accent: rgb(131 169 190);          // #83A9BE
+  --success: rgb(114 183 135);         // #72B787
+  --error: rgb(228 119 112);           // #E47770
+  --warning: rgb(216 177 106);         // #D8B16A
+  --info: rgb(130 177 223);            // #82B1DF
+  --border: rgb(52 58 61);             // #343A3D
+  --border-strong: rgb(80 88 91);      // #50585B
+  --overlay: rgb(0 0 0 / 72%);         // #000000B8
+  --bg-disabled: rgb(41 45 47);        // #292D2F
+  --text-disabled: rgb(115 121 123);   // #73797B
 }
 
 // nutin

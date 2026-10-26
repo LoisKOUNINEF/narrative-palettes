@@ -22,17 +22,17 @@ export const muranoLight: ITheme = {
     textMuted: '#4E4840',
     primary: '#1A5C58',
     primaryHover: '#0E403C',
-    secondary: '#A05C10',
+    secondary: '#9B5706',
     secondaryHover: '#784008',
-    accent: '#2A7C8C',
+    accent: '#1D7282',
     bgDisabled: '#DDD9D2',
     textDisabled: '#9E9A92',
     success: '#488868',
     error: '#B03830',
-    warning: '#B08020',
+    warning: '#AC7C1A',
     info: '#3890A0',
     border: '#DCD8D0',
-    borderStrong: '#ACA69C',
+    borderStrong: '#8A847A',
     overlay: '#0e0c0a80',
   }
 };
@@ -60,7 +60,7 @@ export const muranoDark: ITheme = {
     warning: '#C89038',
     info: '#38A0B8',
     border: '#1C1612',
-    borderStrong: '#382C24',
+    borderStrong: '#6D5F56',
     overlay: '#0c0906d9',
   }
 };

@@ -1,0 +1,168 @@
+# Working on this project
+
+This project was generated with Nutin 3.0.0.
+
+## Architecture
+
+```
+src/
+  app/            application code (components, views, services)
+  core/           Nutin framework internals — see "Nutin" section before editing
+  styles/         project-level Sass
+config/           i18n (languages.json) and SEO configuration
+tools/            builder, dev server, generator, testin-nutin runner, docker (optional)
+nutin.config.js   build/feature config — see below
+.nutin-meta.json  Nutin version, package manager, enabled features (source of truth for what's installed)
+```
+
+## Conventions
+
+- Favor small, composable components.
+- One `View` = one route.
+- Import framework code from the `core/index.js` barrel — do not deep-import into `core/`. App elements have no barrels: import them by file path.
+- Framework types (`Nutin.ComponentConfig`, `Nutin.ComponentOptions`, `Nutin.CatalogConfig`, `Nutin.Template`, `Nutin.Routes`, `Nutin.RouteGuard`, `Nutin.RequestConfig`, …) live in the global `Nutin` namespace declared in `core/internals.d.ts` — use them without importing. App events extend it in `src/app/globals.d.ts` (`declare namespace Nutin { interface AppEventMap { … } }`).
+- `src/app/` layout is free; `components/`, `views/`, `services/` is the default suggestion.
+
+## Commands
+
+- Serve: `npm run serve` (build + serve), `npm run serve:prod` (prod build + serve), `npm run serve:only` (no rebuild), `npm run dev` (watch mode, reloads the page after each rebuild). Port defaults to 9090; override with `-- --port <n>` or `PORT=<n>`.
+- Build: `npm run build` (dev) or `npm run build:prod` (production). Opt-in dependencies (Tailwind, `markdown`) are only installed automatically in an interactive terminal; elsewhere pass `-- -y` (or set `NUTIN_ASSUME_YES`).
+- Generate: `npm run generate ELEMENT ELEMENT_NAME` (`ELEMENT` = `component`/`view`/`service`; `ELEMENT_NAME` may be a nested path, generated in `src/app/<path>/`; fails if that folder already exists and isn't empty).
+- Test: `npm run testin-nutin` (build + run), `npm run testin-nutin:only` (no rebuild), `npm run testin-nutin:watch`, `npm run testin-nutin:coverage`, `npm run testin-nutin:verbose`.
+- Update Nutin: `nutin-update` refuses to run unless the project is committed (no changes, no untracked files; `--allow-dirty` skips the check). Files edited here that also changed upstream are merged three-way; overlapping edits get `diff3` conflict markers, and the project won't build, nor will `nutin-update` run again, until they're resolved (listed in `.nutin-meta.json`'s `unmergedFiles` and `NUTIN-UPDATE-REPORT.md`).
+
+## Base classes
+
+```
+Service<T>          — app-wide singleton (router, event bus, i18n, http client, pipe registry, app-specific services)
+BaseComponent<T>     — render/destroy engine, data-* parsing, children
+├── Component        — reusable, non-routed UI; config/props + data-bind
+└── View              — one per route; mounted/unmounted by the Router
+```
+
+- `render()`: `onBeforeRender()` → sanitize the template and insert the resulting nodes (`SecurityHelper.sanitizeToFragment()`, never assigned to `innerHTML`) → mount children (`data-component`/`data-catalog`) → parse `data-i18n`/`data-pipe` → bind `data-event` listeners → `onAfterRender()`. Runs in full on every `render()` call — no virtual DOM/diffing; only children with `keep`/`keepBy` are kept (see "Children components").
+- `destroy()`: unbinds events, unsubscribes bus listeners, destroys children, removes the element.
+- `Service`: direct `new` throws — always use `MyService.getInstance()` (or the exported const). Auto-binds all methods to the instance. `registerCleanup(fn)` callbacks run on `dispose()`, `MyService.destroy()` and `Service.destroyAll()` (tests, SSR) — nothing is torn down on page unload.
+- Overridable hooks (all no-op by default): `onBeforeRender`, `onAfterRender`, `onBeforeDestroy`, `onAfterDestroy`, `onKept`, `generateTemplate()`, `registerChildren()`. `View` adds router-only `onEnter()`/`onExit()`.
+
+## Children components
+
+- Override `registerChildren(): Nutin.ComponentConfig[]` to declare children — matched against `[data-component="selector"]` elements in the rendered template. ComponentConfig: `{ selector: 'my-selector', factory: (el) => new MyComponent(el, {...} ), keep?: string | number }`.
+- Children are destroyed and recreated on every parent render unless they have a `keep` value: with the same value on the next render, the child is kept as-is (factory not called, not re-rendered, DOM state preserved) and only its `onKept()` hook runs. Put in `keep` whatever should force a recreate.
+- For repeated lists, use the inherited `createCatalogComponents({ items, elementName, selector, component })` inside `registerChildren()` instead of hand-writing one entry per item — targets `[data-catalog="selector"]`. Add `keepBy: (item, index) => id` to keep items whose id is unchanged and whose item is shallow-equal; without it the catalog is rebuilt every render.
+
+## `data-*` attributes
+
+| Attribute | Purpose |
+|---|---|
+| `data-event="event:handler[:args]"` | Declarative event binding, see below. |
+| `data-i18n="key"` | Sets translated text/placeholder via `I18nService`. |
+| `data-pipe="name[:args]\|name2..."` | Pipes value/text through registered pipes, chainable with `\|`. |
+| `data-pipe-source="..."` | Overrides the raw value fed into `data-pipe`. |
+| `data-optional` | Removes the element post-render if it ends up empty (tag-specific check: `src`/`value`/`textContent`). |
+| `data-component="selector"` | Child component mount point, from `registerChildren()`. |
+| `data-catalog="selector"` | Repeated-children mount point, from `createCatalogComponents()`. |
+| `data-bind="propKey"` | `Component`-only two-way field binding; read back with `getValues()`. |
+
+## DOM events binding
+
+Handlers are (re-)bound on every `render()`, not at build time. Always use private methods prefixed with underscore (`protected` for a handler a subclass's template uses):
+
+```html
+<div data-event="event:_myFunction:@value,@id">
+```
+```ts
+private _myFunction(value: string, id: string) { doStuff() }
+```
+
+The build type-checks each handler name written in a template against the class: a missing one fails `tsc` at the template line, and handlers count as used for `noUnusedLocals` (on in this project). Names built with `${}` aren't checked. At runtime, a missing handler binds nothing and logs a `console.warn` in development.
+
+Tokens: `@value`, `@id`, `@class`, `@textContent`, `@event`, `@target`, `@attr:name`, `@dataset:key`, plus string/number literals (quoted literals may contain commas). Token values are raw (not HTML-escaped): escaping happens when they are rendered through an `html` template.
+
+Only defaults that leave the page are cancelled: link clicks (`<a href>`, unless modified, e.g. ctrl+click), form `submit` and submit-button clicks inside a form. Other events keep their default (typing, checking a box); take `@event` and call `preventDefault()` yourself if needed. A component only binds its own `data-event`/`data-bind`/`data-i18n` elements, not those inside nested child components.
+
+## Core services
+
+- `AppEventBus` — `subscribe`/`once`/`emit`/`off`. Declare app events in `src/app/globals.d.ts`'s `Nutin.AppEventMap`: `emit()` requires the declared payload, and an event declared `undefined` takes none. Inside a component, prefer `this.listen(event, cb)` (auto-unsubscribes on `destroy()`) or `this.listenToRenderEvents([event1, event2, ...])` (re-runs `this.render()` whenever any of the given events fire) over calling the bus directly. Typed facades — each `on*` subscriber returns a closure you call directly to unsubscribe (`const off = Navigation.onNavigate(cb); ...; off();`), no need to keep the original callback reference around for `off()`:
+  - `Navigation` — `navigateTo(path)`/`onNavigate`, `reload()`/`onReload`.
+  - `Lifecycle` — `viewMount(viewName)`/`onViewMount`, `viewUnmount(viewName)`/`onViewUnmount`, plus generic `beforeRender`/`afterRender`/`beforeDestroy`/`afterDestroy`.
+- `AppRouter(routes)` — call once in `main.ts` (optional: without it, mount components into any element with `new X(el).render()`; the build then skips the `routes` and `#app` checks, unless `generateSEOFiles` is on; a mount target that isn't found logs a `console.error` in development; testin-nutin's framework tests still mount into `#app`, see "Testing"); routes support `:param`/`:param?`, per-route guards, and lazy views: a factory returning `import('./views/x/x.view.js').then((m) => new m.XView())` loads the view on first visit (import it by its own file, not through a barrel; factory type: global `Nutin.ViewFactory`). Keep `/` and `/404` eager. After each in-app navigation (not the first load or `Navigation.reload()`), focus moves to the view's `<h1>`, else the `<h1>` in `<main>`, else the view element, with `document.title` announced in a polite live region in that last case only (a focused heading is read by screen readers). Give each view an `<h1>`. `document.title` comes from `View.documentTitle()` if overridden, else `config/seo.json`'s title (with `generateSEOFiles`), the `<viewName>.title` translation, then `viewName`.
+- `registerGlobals({ before?, after? })` — each entry is `{ component, id }` (a bare class, constructed internally); mounts them outside `<main id="app">` (`before`/`after` control placement relative to it), stamping each root element with `id`. `hideGlobals(ids)`/`revealGlobals(ids)` (same module) toggle visibility by those ids from any component or view. Call once in `main.ts`.
+- `AppHttpClient` — `get/post/put/patch/delete<T>(endpoint, data?, config?)`; non-OK responses throw `HttpError`. Relative endpoints resolve against the page origin; a subclass with a base URL rejects endpoints leaving it. Build paths from values with ``path`/users/${id}` `` (encoded `/` and `\` in paths are rejected unless the API is in the `trustedAPIs` option). FormData/Blob bodies are sent as-is; 204 → `undefined`.
+- `I18nService` — `translate(key, fallback?)`, `setCurrentLanguage(lang)`; language list comes from `config/languages.json`. `initI18n()` (same module) loads the translations when `i18n` is enabled and does nothing otherwise; `main.ts` awaits it before starting the app. With `i18n: false`, prod builds drop the i18n code unless app code references `I18nService`.
+- `AppPipeRegistry` — `register(name, fn)` / `apply(name, value, args)`; backs `data-pipe`.
+
+## Styling
+
+- Sass is the primary styling system; Tailwind is optional (`nutin.config.js`'s `tailwind` flag).
+- Naming convention: `.my-element__my-class`.
+
+## Pipes
+
+Built-in pipes, registered by `registerPipes()` in `main.ts` (args in `data-pipe="name:arg1,arg2"`):
+
+- `currency:currency,locale` (defaults `USD`, `en-US`), `date:locale,format,time` (defaults browser language, `long`), `number:decimals` (`toFixed`, default `0`)
+- `uppercase`, `lowercase`, `capitalize`, `capitalizeAll`, `truncate:length,suffix` (defaults `50`, `...`)
+- `default:fallback`, `json`
+
+Add your own with `AppPipeRegistry.register(name, (value, ...args) => string)`; args arrive as strings.
+
+## Configuration
+
+### `nutin.config.js`
+
+Central options/tools config (see the inline comments for details):
+- `i18n`, `tailwind`, `generateSEOFiles` — top-level feature toggles.
+- `dockerPorts`, `markdownSources` — options of the `docker`/`markdown` features, only present once added with `nutin-add <feature>`.
+- `builder.{sass.paths, esbuild}` — build pipeline behavior.
+- `testinNutin.{includeFramework, includeTools, includeApp, jsdomOptions}` — test discovery/environment.
+
+### `config/seo.json`
+
+Consumed by builder (production only) to generate static HTML per route. Unused if `nutin.config.js -> generateSEOFiles` is disabled. Dynamic routes (`/blog/:slug`) are written at their real URL from `mockParams` (or `outputPath`). Route guards run first, as an anonymous visitor: a route they block or redirect isn't prerendered nor listed in `sitemap.xml`.
+
+### `config/languages.json`
+
+Consumed by i18nService and builder. Unused if i18n is disabled.
+
+## Security
+
+Write every template with the `html` tag (`import { html, raw } from` core): `templateFn = (task) => html\`<li>${task.name}</li>\``. Every `${}` is HTML-escaped, whatever the data's source (input, HTTP, localStorage). Nested `html` results are inserted as-is, and arrays are inserted item by item (no `.join('')`). For lists, use `createCatalogComponents()` (see "Children components") rather than mapping items to markup in the template: each item becomes a child component with its own events and state, kept across renders with `keepBy`. Unquoted attribute values (`title=${x}`) are quoted automatically. A plain value in tag position (`<input ${x}>`) is filtered like `raw()` there: plain attributes stay, handlers, bindings and script URLs are dropped. Wrap HTML you want rendered in `raw()`: it's parsed in place at render (works inside `<svg>`/`<table>`) and loses Nutin's binding attributes (`data-event`, `data-component`, `data-catalog`, `data-bind`, `data-i18n`, `data-pipe*`). `trustedRaw()` keeps them, for markup you wrote yourself (e.g. compiled Markdown). An untagged template literal escapes nothing, and the build warns about each one containing `${}`.
+
+Every `render()` also sanitizes the template (`SecurityHelper.sanitizeToFragment()`) and inserts the resulting nodes directly — never re-parsed from a string. `trustLevel` (`'strict' | 'normal' | 'trusted'`, default `'normal'`) controls how much is stripped (`<script>`/`<style>`/`<link>`/`<base>`/`<meta>`, inline handlers, `srcdoc`, `javascript:` URLs, `data:` frames and SVG `<animate>`/`<set>` targeting URL attributes from `normal` up; `<iframe>`/`<object>`/`<embed>` and all `data:` URLs under `strict` only). Don't interpolate data into `data-event` args or `style`: use `data-x="${v}"` + `@dataset:x`. URL attributes (`href`, `src`, `action`, …) whose interpolated value makes them a `javascript:` URL get `about:invalid#nutin-blocked` instead, at every trust level. It is a second layer for `raw()` content, not a substitute for `html`.
+
+## Testing (testin-nutin)
+
+Nutin's own hand-built test runner + jsdom - not Jest. Tests are plain JavaScript (`*.test.js` importing the compiled `#root/dist/...` output), so they aren't type-checked. `describe`/`it` only (**no `test()` alias**), `beforeAll`/`beforeEach`/`afterEach`/`afterAll` (one of each per suite, no stacking - anywhere inside the `describe` statement, not top-level). `it.todo(name)` lists a pending test. All globals — no imports needed in test files.
+
+- Matchers: `toBe`, `toEqual`, `toContain`, `toBeTruthy`/`toBeFalsy`, `toBeDefined`/`toBeUndefined`, `toBeInstanceOf`, `toHaveBeenCalled`/`toHaveBeenCalledWith`, `toBeLessThan`/`toBeGreaterThan`, `toThrow` — each has a `.not` counterpart.
+- `spyOn(obj, 'method')` returns `.calls`/`.callCount`/`.lastCall`, `.andCallFake(fn)`/`.andReturn(v)`, `.restore()` — unlike mocks, calls pass through by default.
+- `tools/testin-nutin/mocks/` has ready-made `MockEventBus`/`MockHttpClient`/`MockI18n`/`MockRouter` for constructor injection.
+- `useFakeTimers()`/`useRealTimers()`/`advanceTimersByTime(ms)`/`runAllTimers()` for time-dependent code; `flushPromises()` for pending promises.
+- `silenceConsole(method | methods, fn)` runs `fn` with those `console` methods muted (sync or async). Use it in any test that triggers an expected warning/error.
+- `$(selector)`/`$$(selector)` — `document.querySelector`/`querySelectorAll` (as an array).
+- Test discovery/scope controlled by `nutin.config.js`'s `testinNutin.includeApp`/`includeFramework`.
+- Tests run against the built `dist/src/index.html`, and the framework tests (`includeFramework`) mount into its `#app` element. An app without the router that has no `#app` keeps an empty `<div id="app"></div>` in `src/index.html` (not `hidden`: focus tests need it focusable), or sets `includeFramework: false`.
+
+## Nutin
+
+Nutin provides the project tooling, build pipeline and generated structure. Its source code lives in `src/core/`.
+
+Tests are an important source of documentation. They describe expected behavior and should be consulted before modifying existing functionality.
+Before changing existing functionality, inspect the corresponding tests.
+When adding behavior, add or update tests.
+
+When modifying Nutin `core/` files:
+
+1. Explore the alternatives: is modifying Nutin core files the best approach long-term? Always ask for validation.
+2. Check the corresponding Nutin documentation and tests.
+3. Preserve existing conventions.
+4. Inspect existing implementations before creating new abstractions.
+5. Reuse existing utilities/helpers where appropriate.
+6. Do not rewrite generated configuration unnecessarily.
+7. Keep changes focused on the requested feature.
+8. Run tests.
+
+## Documentation
+
+[Nutin Documentation](https://www.nutin.dev/docs)

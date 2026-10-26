@@ -22,7 +22,7 @@ export const bauhausLight: ITheme = {
     textMuted: '#5C5040',
     primary: '#8C3A30',
     primaryHover: '#68261C',
-    secondary: '#7A6410',
+    secondary: '#78620D',
     secondaryHover: '#584808',
     accent: '#445870',
     bgDisabled: '#DDD6C4',
@@ -32,7 +32,7 @@ export const bauhausLight: ITheme = {
     warning: '#A07810',
     info: '#304868',
     border: '#DAD2C0',
-    borderStrong: '#A89880',
+    borderStrong: '#8D7E66',
     overlay: '#100d0880',
   }
 };
@@ -60,7 +60,7 @@ export const bauhausDark: ITheme = {
     warning: '#D0A838',
     info: '#6078B0',
     border: '#28241C',
-    borderStrong: '#504838',
+    borderStrong: '#6B6352',
     overlay: '#0d0b09d9',
   }
 };

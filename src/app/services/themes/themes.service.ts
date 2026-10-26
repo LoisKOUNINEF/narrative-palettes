@@ -1,7 +1,6 @@
 import { themes } from '../../themes-data/themes.js';
 import { neutralLight } from '../../themes-data/themes/neutral.theme.js';
 import { secretThemes } from '../../themes-data/secret-themes.js';
-import { nutinLight } from '../../themes-data/secret-themes/nutin.theme.js';
 import { AppEventBus, Service } from '../../../core/index.js';
 
 export class Themes extends Service<Themes> {
@@ -9,7 +8,6 @@ export class Themes extends Service<Themes> {
   private _defaultTheme: ITheme;
   private _currentTheme: ITheme;
   private _secretThemes: ITheme[] = [];
-  private _defaultSecretTheme: ITheme;
 
   constructor() {
     super();
@@ -18,7 +16,6 @@ export class Themes extends Service<Themes> {
     this._defaultTheme = this._themes[0] || neutralLight;
     this._currentTheme = this._defaultTheme;
     this._secretThemes = secretThemes;
-    this._defaultSecretTheme = this._secretThemes[0] || nutinLight;
   }
 
   get currentTheme(): ITheme {

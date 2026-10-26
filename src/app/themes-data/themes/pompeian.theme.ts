@@ -24,15 +24,15 @@ export const pompeianLight: ITheme = {
     primaryHover: '#68160A',
     secondary: '#1E4870',
     secondaryHover: '#103058',
-    accent: '#8C6400',
+    accent: '#805B00',
     bgDisabled: '#D8D0BC',
     textDisabled: '#9A9080',
     success: '#386040',
     error: '#A82814',
-    warning: '#A07808',
+    warning: '#9F7706',
     info: '#3870A8',
     border: '#DCD4C0',
-    borderStrong: '#ACA088',
+    borderStrong: '#887C65',
     overlay: '#120d0680',
   }
 };
@@ -56,11 +56,11 @@ export const pompeianDark: ITheme = {
     bgDisabled: '#261E16',
     textDisabled: '#524438',
     success: '#487040',
-    error: '#A03820',
+    error: '#AB422A',
     warning: '#D8B840',
     info: '#4878A8',
     border: '#201A12',
-    borderStrong: '#403428',
+    borderStrong: '#6F6255',
     overlay: '#100c08d9',
   }
 };

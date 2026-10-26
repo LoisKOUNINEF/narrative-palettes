@@ -3,42 +3,85 @@ import { exec } from 'child_process';
 import path from 'path';
 import { print } from '../utils/index.js'
 
-const watcher = chokidar.watch(['src'], {
+// config/, nutin.config.js and public/ are copied into the build too.
+const watcher = chokidar.watch(['src', 'config', 'public', 'nutin.config.js'], {
   ignored: /(^|[/\\])\../,
   persistent: true,
+  ignoreInitial: true,
 });
 
 let isBuilding = false;
+let pendingRebuild = false;
 let buildTimeout = null;
+let lastChangedPath = null;
+let serverUrl = null;
 
-watcher.on('change', (filePath) => {
+function printWatching() {
+  if (serverUrl) print.boldInfo(`Serving at ${serverUrl}`);
+  print.boldBlue('Watching for changes...');
+}
+
+// Sent by dev-serve.js (relayed from serve.js) once the server is listening.
+process.on('message', (msg) => {
+  if (msg?.type === 'server-url') serverUrl = msg.url;
+});
+// Exit with dev-serve.js even if it dies without cleaning up (kill -9, crash).
+if (process.send) process.on('disconnect', () => process.exit(0));
+
+function runBuild() {
+  isBuilding = true;
+  pendingRebuild = false;
+
+  console.clear();
+  print.boldInfo(`\n🔄 File changed: ${path.relative(process.cwd(), lastChangedPath)}\n`);
+  print.info('\nRebuilding...');
+
+  const command = 'npm run build --silent';
+
+  exec(command, { maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
+    if (stdout) process.stdout.write(stdout);
+    if (stderr) process.stderr.write(stderr);
+    if (err) {
+      if (err.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER') {
+        print.boldError(`\nBuild output exceeded the buffer size — raise maxBuffer in tools/dev/watcher.js.`);
+      } else {
+        print.boldError(`\nBuild failed: ${err.message}`);
+      }
+    } else {
+      printWatching();
+      // Relayed by dev-serve.js to serve.js, which tells open pages to reload.
+      if (process.send && process.connected) process.send({ type: 'reload' });
+    }
+    isBuilding = false;
+
+    // A change arrived while this build was running — it was never picked up by
+    // any debounce timer (isBuilding used to make those just silently return,
+    // dropping the change for good), so build again now instead of missing it.
+    if (pendingRebuild) runBuild();
+  });
+}
+
+watcher.on('error', (err) => {
+  print.boldError(`\nWatcher error: ${err.message}`);
+});
+
+// New files (e.g. from `npm run generate`) and deletions need a rebuild too.
+watcher.on('all', (event, filePath) => {
+  if (!['add', 'change', 'unlink'].includes(event)) return;
+  lastChangedPath = filePath;
+
+  if (isBuilding) {
+    pendingRebuild = true;
+    return;
+  }
+
   if (buildTimeout) {
     clearTimeout(buildTimeout);
   }
-  
-  buildTimeout = setTimeout(() => {
-    if (isBuilding) return;
-    isBuilding = true;
 
-    console.clear();
-    print.boldInfo(`\n🔄 File changed: ${path.relative(process.cwd(), filePath)}\n`);
-    print.info('\nRebuilding...');
-
-    const command = 'npm run build';
-    
-    exec(command, (err, stdout, stderr) => {
-      if (stdout) process.stdout.write(stdout);
-      if (stderr) process.stderr.write(stderr);
-      if (err) {
-        print.error(`\n❌ Build failed: ${err.message}`);
-      } else {
-        print.boldHead('Watching for changes...');
-      }
-      isBuilding = false;
-    });
-  }, 100);
+  buildTimeout = setTimeout(runBuild, 100);
 });
 
 watcher.on('ready', () => {
-  print.boldHead('\nWatching for changes...\n');
+  print.boldBlue('Watching for changes...');
 });

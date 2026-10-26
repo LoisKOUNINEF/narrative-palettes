@@ -1,27 +1,13 @@
-declare type CoreEventMap = {
-    'navigate': string;
-    'reload': string;
-    'view-mount': string;
-    'view-render': string;
-    'view-unmount': string;
-    'track-pageview': { page: string };
-    'popover-opened': string;
-    'popover-close': string;
-    'language-changed': string;
-    'current-theme-changed': { theme : ITheme };
-    // Add other events and their payload types here
-};
-
-declare type StoreEventMap = {[ K in `store:${string}` ]: any; };
-
-// Merged event map
-declare type EventMap = CoreEventMap & StoreEventMap;
-declare type EventKey = keyof EventMap;
+declare namespace Nutin {
+  interface AppEventMap {
+    'current-theme-changed': { theme: ITheme };
+  }
+}
 
 declare interface ITheme {
   cssName: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   pitch?: string;
   variables: IThemeVariables;
   fonts: IThemeFonts;

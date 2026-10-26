@@ -26,11 +26,10 @@ import {
 } from "./themes/index.js";
 
 export const themes: ITheme[] = [
-	neutralLight, neutralDark,
+	yosemiteLight, yosemiteDark,
 	sheffieldSteelLight, sheffieldSteelDark,
 	iznikLight, iznikDark,
 	kaamosLight, kaamosDark,
-	yosemiteLight, yosemiteDark,
 	kaibabLight, kaibabDark,
 	muranoLight, muranoDark,
 	pentelicLight, pentelicDark,
@@ -50,4 +49,5 @@ export const themes: ITheme[] = [
 	starWarsLight, starWarsDark,
 	tresRichesHeuresLight, tresRichesHeuresDark,
 	lotrLight, lotrDark,
+	neutralLight, neutralDark,
 ];

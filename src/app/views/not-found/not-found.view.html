@@ -1,14 +1,13 @@
 <div 
   class="u-flex-center u-flex-column u-padd-y-large"
 >
-  <h1 
-    data-i18n="not-found.content" 
-    class="u-color-sec u-font-largest u-bold u-font-secondary"
-  ></h1>
-    <picture data-event="click:goToSecret" style="cursor:pointer;">
+  <h1 class="u-color-sec u-font-largest u-bold u-font-secondary">This page doesn't exist.</h1>
+  <a href="/secret" class="not-found__secret" tabindex="0" data-event="click:goToSecret">
+    <picture>
       <source srcset="/assets/images/palettes.avif" type="image/avif"/>
       <source srcset="/assets/images/palettes.webp" type="image/webp"/>
-      <img src="/assets/images/palettes.jpg" width=350 height=250 alt="Color squares on the left, ."/>
+      <img src="/assets/images/palettes.jpg" width=350 height=250 alt="Secret palettes"/>
     </picture>
+  </a>
   <div data-component="home"></div>
 </div>

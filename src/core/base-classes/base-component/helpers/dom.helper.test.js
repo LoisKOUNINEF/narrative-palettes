@@ -1,0 +1,252 @@
+import * as DomHelper from '#root/dist/src/core/base-classes/base-component/helpers/dom.helper.js';
+
+describe('DomHelper', () => {
+  let container;
+
+  beforeEach(() => {
+    container = document.createElement('div');
+    container.id = 'mount-target';
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    container.remove();
+    container = null;
+  });
+
+  it('mountElement appends the element into a string selector target', () => {
+    const el = document.createElement('span');
+    DomHelper.mountElement(el, '#mount-target');
+    expect(container.contains(el)).toBe(true);
+  });
+
+  it('mountElement mounts nothing and logs an error when the target is not found', () => {
+    const el = document.createElement('span');
+    const errorSpy = spyOn(console, 'error').andCallFake(() => {});
+    try {
+      DomHelper.mountElement(el, '#does-not-exist');
+      DomHelper.mountElement(document.createElement('div'), null);
+      expect(el.parentElement).toBe(null);
+      expect(errorSpy.callCount).toBe(2);
+      expect(errorSpy.calls[0][0]).toBe('Nothing to mount <span> into: "#does-not-exist" isn\'t in the page.');
+      expect(errorSpy.calls[1][0]).toContain('its mount target is null');
+    } finally {
+      errorSpy.restore();
+    }
+  });
+
+  it('mountElement replaces an HTMLElement target with the element', () => {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'placeholder';
+    container.appendChild(placeholder);
+
+    const el = document.createElement('span');
+    el.className = 'replacement';
+    DomHelper.mountElement(el, placeholder);
+
+    expect(container.contains(placeholder)).toBe(false);
+    expect(container.contains(el)).toBe(true);
+  });
+
+  it('mountElement carries the placeholder attributes onto the element, merging classes', () => {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'my-class other-class';
+    placeholder.id = 'foo';
+    placeholder.setAttribute('aria-label', 'Label');
+    placeholder.setAttribute('data-extra', 'bar');
+    container.appendChild(placeholder);
+
+    const el = document.createElement('span');
+    el.className = 'own-class';
+    DomHelper.mountElement(el, placeholder);
+
+    expect(el.classList.contains('own-class')).toBe(true);
+    expect(el.classList.contains('my-class')).toBe(true);
+    expect(el.classList.contains('other-class')).toBe(true);
+    expect(el.id).toBe('foo');
+    expect(el.getAttribute('aria-label')).toBe('Label');
+    expect(el.getAttribute('data-extra')).toBe('bar');
+  });
+
+  it('mountElement does not carry data-component over from the placeholder', () => {
+    const placeholder = document.createElement('div');
+    placeholder.setAttribute('data-component', 'widget');
+    container.appendChild(placeholder);
+
+    const el = document.createElement('span');
+    DomHelper.mountElement(el, placeholder);
+
+    expect(el.hasAttribute('data-component')).toBe(false);
+  });
+
+  it('mountElement leaves the element attributes untouched in append mode', () => {
+    container.className = 'container-class';
+    const el = document.createElement('span');
+    DomHelper.mountElement(el, '#mount-target');
+
+    expect(el.attributes.length).toBe(0);
+  });
+
+  it('createElement creates an element with the given tag name', () => {
+    const el = DomHelper.createElement('section');
+    expect(el.tagName).toBe('SECTION');
+  });
+
+  it('createElement sets sanitized innerHTML from the template', () => {
+    const el = DomHelper.createElement('div', '<p>hi</p><script>alert(1)</script>');
+    expect(el.innerHTML).toBe('<p>hi</p>');
+  });
+
+  it('createElement respects the trustLevel when sanitizing', () => {
+    const template = '<script>alert(1)</script>';
+    const el = DomHelper.createElement('div', template, 'trusted');
+    expect(el.innerHTML).toBe(template);
+  });
+
+  it('cleanupOptionalContent removes an optional img with no src', () => {
+    container.innerHTML = '<img data-optional>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('img')).toBe(null);
+  });
+
+  it('cleanupOptionalContent keeps an optional img that has a src', () => {
+    container.innerHTML = '<img data-optional src="pic.png">';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('img')).toBeDefined();
+  });
+
+  it('cleanupOptionalContent removes an optional input with no value', () => {
+    container.innerHTML = '<input data-optional>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('input')).toBe(null);
+  });
+
+  it('cleanupOptionalContent keeps an optional input that has a value', () => {
+    container.innerHTML = '<input data-optional value="hi">';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('input')).toBeDefined();
+  });
+
+  it('cleanupOptionalContent removes an optional textarea with no value', () => {
+    container.innerHTML = '<textarea data-optional></textarea>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('textarea')).toBe(null);
+  });
+
+  it('cleanupOptionalContent removes an optional source element with no src', () => {
+    container.innerHTML = '<video><source data-optional></video>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('source')).toBe(null);
+  });
+
+  it('cleanupOptionalContent keeps an optional source element that has a src', () => {
+    container.innerHTML = '<video><source data-optional src="movie.mp4"></video>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('source')).toBeDefined();
+  });
+
+  it('cleanupOptionalContent removes an optional element with empty textContent', () => {
+    container.innerHTML = '<span data-optional>   </span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('span')).toBe(null);
+  });
+
+  it('cleanupOptionalContent removes an optional element whose textContent is the literal string "undefined"', () => {
+    container.innerHTML = '<span data-optional>undefined</span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('span')).toBe(null);
+  });
+
+  it('cleanupOptionalContent removes an optional element whose textContent is the literal string "null"', () => {
+    container.innerHTML = '<span data-optional>null</span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('span')).toBe(null);
+  });
+
+  it('cleanupOptionalContent keeps an optional element with real textContent', () => {
+    container.innerHTML = '<span data-optional>hello</span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelector('span')).toBeDefined();
+  });
+
+  it('cleanupOptionalContent removes an element whose data-optional value is the literal string "undefined" or "null"', () => {
+    container.innerHTML = `
+      <span data-optional="undefined">has content</span>
+      <span data-optional="null">has content</span>
+    `;
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelectorAll('span').length).toBe(0);
+  });
+
+  it('cleanupOptionalContent keeps an element with data-optional="" and non-empty content — a bare/empty data-optional is a plain marker deferred to isEmpty(el), not a forced-removal signal', () => {
+    container.innerHTML = '<span data-optional="">has content</span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelectorAll('span').length).toBe(1);
+  });
+
+  it('cleanupOptionalContent removes an element whose data-optional value is whitespace-only, even with real content', () => {
+    container.innerHTML = '<span data-optional="   ">has content</span>';
+    DomHelper.cleanupOptionalContent();
+    expect(container.querySelectorAll('span').length).toBe(0);
+  });
+
+  it('cleanupOptionalContent only touches the given root, attached or not', () => {
+    container.innerHTML = '<p class="outside" data-optional></p>';
+    const detached = document.createElement('div');
+    detached.innerHTML = '<p class="inside" data-optional></p>';
+
+    DomHelper.cleanupOptionalContent(detached);
+
+    expect(detached.querySelector('.inside')).toBe(null);
+    expect(container.querySelector('.outside')).not.toBe(null);
+  });
+
+  it('cleanupOptionalContent always strips the data-optional attribute from surviving elements', () => {
+    container.innerHTML = '<span data-optional>hello</span>';
+    DomHelper.cleanupOptionalContent();
+    const span = container.querySelector('span');
+    expect(span.hasAttribute('data-optional')).toBe(false);
+  });
+
+  it('isInsideNestedComponent is true only below another component root inside the given root', () => {
+    container.innerHTML = '<p class="own"></p><div class="child"><p class="nested"></p></div>';
+    const child = container.querySelector('.child');
+    DomHelper.markComponentRoot(child);
+
+    expect(DomHelper.isInsideNestedComponent(container.querySelector('.own'), container)).toBe(false);
+    expect(DomHelper.isInsideNestedComponent(child, container)).toBe(false);
+    expect(DomHelper.isInsideNestedComponent(container.querySelector('.nested'), container)).toBe(true);
+  });
+
+  it('replacePlaceholder swaps the placeholder for the element', () => {
+    container.innerHTML = '<div class="placeholder"></div>';
+    const el = document.createElement('section');
+
+    DomHelper.replacePlaceholder(el, container.querySelector('.placeholder'));
+
+    expect(container.firstElementChild).toBe(el);
+    expect(container.querySelector('.placeholder')).toBe(null);
+  });
+
+  it('replacePlaceholder uses moveBefore when the element is connected and the browser supports it', () => {
+    const moved = [];
+    Element.prototype.moveBefore = function (node, child) {
+      moved.push(node);
+      this.insertBefore(node, child);
+    };
+
+    try {
+      container.innerHTML = '<div class="placeholder"></div>';
+      const el = document.createElement('section');
+      document.body.appendChild(el);
+
+      DomHelper.replacePlaceholder(el, container.querySelector('.placeholder'));
+
+      expect(moved).toEqual([el]);
+      expect(container.firstElementChild).toBe(el);
+      expect(container.querySelector('.placeholder')).toBe(null);
+    } finally {
+      delete Element.prototype.moveBefore;
+    }
+  });
+});

@@ -1,0 +1,43 @@
+import { readFileSync } from 'fs';
+import path from 'path';
+import { errorExit } from '../../../utils/index.js';
+import { PATHS } from './paths.js';
+import { builderConfig } from '../../builder.config.js';
+import { findDuplicateRouteKeys, readRoutesImporters } from './route-keys.js';
+
+const ROUTES_FILE = path.join(PATHS.sourceApp, 'routes.ts');
+
+// Only when the routes are used: imported by app code, or prerendered (generateSEOFiles bundles
+// appRoutes). An app without the router (components mounted into a page) needs no routes file.
+async function validateRoutes() {
+  const importers = readRoutesImporters(PATHS.sourceApp, ROUTES_FILE);
+  if (importers.length === 0 && !builderConfig.generateSEO) return;
+
+  let source;
+  try {
+    source = readFileSync(ROUTES_FILE, 'utf-8');
+  } catch {
+    const usedBy = importers.length
+      ? `imported by ${importers.map((file) => path.relative(process.cwd(), file)).join(', ')}`
+      : 'needed by generateSEOFiles';
+    errorExit(`Failed to read ${ROUTES_FILE} (${usedBy})`, 'validate-routes');
+  }
+
+  if (!/\bappRoutes\b/.test(source)) {
+    errorExit(`Could not find "appRoutes" in ${ROUTES_FILE}`, 'validate-routes');
+  }
+
+  const duplicates = await findDuplicateRouteKeys(source, { loader: 'ts', sourcefile: ROUTES_FILE });
+
+  if (duplicates.length > 0) {
+    const list = duplicates.map(({ key, line }) => `"${key}"${line ? ` (line ${line})` : ''}`).join(', ');
+    errorExit(
+      `Duplicate route key(s) in ${ROUTES_FILE}: ${list} — an earlier route with this path is silently unreachable.`,
+      'validate-routes'
+    );
+  }
+}
+
+validateRoutes().catch((err) => {
+  errorExit(err, 'validate-routes');
+});

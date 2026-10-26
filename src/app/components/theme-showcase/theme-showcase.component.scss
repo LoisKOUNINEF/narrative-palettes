@@ -1,247 +1,170 @@
 @use "mixins";
 
+// Every token of a theme (see _themes.scss), one swatch class each
+$color-tokens: (
+  background, surface, text, text-muted,
+  primary, primary-hover, secondary, secondary-hover, accent,
+  success, error, warning, info,
+  bg-disabled, text-disabled, border, border-strong, overlay,
+);
+
 /* ── Layout ── */
 .theme-showcase__wrapper {
   background: var(--background);
   color: var(--text);
   font-family: var(--primary-font), Arial, sans-serif;
   padding: 2rem;
+  // The background fills the remaining width; the content keeps a 150ch max-width (padding included)
+  padding-right: max(2rem, calc(100% - 150ch + 2rem));
   display: grid;
-  gap: 2px;
-  margin: 0 auto;
-  border-radius: 10px;
+  gap: 2rem;
+  // Rounded next to the sidebar only: the right edge runs to the window's edge
+  border-radius: 10px 0 0 10px;
   @include mixins.respond-to(medium) {
-    padding: .5rem;
-  }
-}
-
-.theme-showcase__header {
-  display: flex;
-  align-items: space-between;
-  justify-content: space-between;
-  @include mixins.respond-to(medium) {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-.theme-showcase__presentation {
-  max-width: 70ch;
-  @include mixins.respond-to(medium) {
-    max-width: auto;
+    padding: 1rem;
+    gap: 1.5rem;
   }
 }
 
 .theme-showcase__title {
   font-family: var(--secondary-font), Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  @include mixins.respond-to(medium) {
+    font-size: 2rem;
+  }
 }
 
 .theme-showcase__subtitle {
   font-family: var(--secondary-font), Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: .5rem;
 }
- 
-  /* ── Section header ── */
+
 .theme-showcase__section-label {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 1.5rem 0 0.4rem;
+  margin-bottom: .75rem;
 }
- 
-  /* ── Backgrounds ── */
-.theme-showcase__bg-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-}
- 
-.theme-showcase__bg-swatch {
-  padding: 1.25rem;
-  border: 1px solid var(--border);
-}
- 
-.theme-showcase__bg-swatch.is-bg      { background: var(--background); }
-.theme-showcase__bg-swatch.is-surface { background: var(--surface); }
- 
-.theme-showcase__sw-name { font-size: 12px; color: var(--text); margin-bottom: 4px; }
-.theme-showcase__sw-hex  { font-size: 10px; color: var(--text-muted); }
- 
-/* ── Typography ── */
-.theme-showcase__text-block {
+
+/* ── Colors ── */
+.theme-showcase__colors {
   background: var(--surface);
   border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 1.25rem;
 }
- 
-.theme-showcase__t-body   { font-size: 15px; color: var(--text);       line-height: 1.6; }
-.theme-showcase__t-muted  { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-.theme-showcase__t-hint   { font-size: 10px; color: var(--text-muted); opacity: 0.5; margin-top: 0.75rem; }
- 
-/* ── Interactive / colors ── */
-.theme-showcase__interactive-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
-  width: 100%;
 
-  @include mixins.respond-to(medium) {
-    grid-template-columns: repeat(3, 1fr);
+.theme-showcase__section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .75rem;
+
+  .theme-showcase__section-label {
+    margin-bottom: 0;
   }
 }
- 
-.theme-showcase__color-tile {
-  padding: 1rem 0.75rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
+
+.theme-showcase__color-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+
+.theme-showcase__group-label {
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.theme-showcase__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.theme-showcase__swatch {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  position: relative;
+  gap: .25rem;
+  width: 4.75rem;
 }
- 
-.theme-showcase__color-bar {
-  height: 28px;
-  border-radius: 2px;
-}
- 
-.theme-showcase__bar-primary        { background: var(--primary); }
-.theme-showcase__bar-primary-hover  { background: var(--primary-hover); }
-.theme-showcase__bar-secondary      { background: var(--secondary); }
-.theme-showcase__bar-secondary-hover{ background: var(--secondary-hover); }
-.theme-showcase__bar-accent         { background: var(--accent); }
- 
-.theme-showcase__ct-name { font-size: 10px; color: var(--text-muted); }
-.theme-showcase__ct-hex  { font-size: 9px;  color: var(--text-muted); opacity: 0.55; }
- 
-/* ── Status ── */
-.theme-showcase__status-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-}
- 
-.theme-showcase__status-tile {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 1rem 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
- 
-.theme-showcase__status-bar { height: 4px; border-radius: 1px; }
- 
-.theme-showcase__bar-success { background: var(--success); }
-.theme-showcase__bar-error   { background: var(--error);   }
-.theme-showcase__bar-warning { background: var(--warning); }
-.theme-showcase__bar-info    { background: var(--info);    }
- 
-/* ── Disabled ── */
-.theme-showcase__disabled-tile {
-  background: var(--background-disabled);
-  border: 1px solid var(--border);
-  padding: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
- 
-.theme-showcase__disabled-swatch {
-  width: 40px;
-  height: 40px;
-  border-radius: 2px;
-  background: var(--text-disabled);
-  flex-shrink: 0;
-}
- 
-.theme-showcase__disabled-info { display: flex; flex-direction: column; gap: 4px; }
 
-/* ── Borders ── */
-.theme-showcase__border-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
+.theme-showcase__chip {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  // Keeps colours close to the surface (background, surface, borders) visible
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+  @include mixins.respond-to(medium) {
+    // width: 4rem;
+  }
 }
- 
-.theme-showcase__border-tile {
-  background: var(--surface);
-  padding: 1.25rem;
-}
- 
-.theme-showcase__border-tile.soft   { border: 1px solid var(--border); }
-.theme-showcase__border-tile.strong { border: 1px solid var(--border-strong); }
- 
-.theme-showcase__border-preview {
-  height: 1px;
-  margin-bottom: 10px;
-}
- 
-.theme-showcase__bp-soft   { background: var(--border); }
-.theme-showcase__bp-strong { background: var(--border-strong); }
- 
-/* ── Overlay ── */
-.theme-showcase__overlay-tile {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
- 
-.theme-showcase__overlay-content {
-  background: var(--surface);
-  padding: 1.25rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-}
- 
-.fake-el {
-  height: 10px;
-  background: var(--border-strong);
-  border-radius: 1px;
-}
- 
-.fake-el.tall { height: 40px; }
 
-.theme-showcase__overlay-scrim {
-  position: absolute;
-  inset: 0;
-  background: var(--overlay);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@each $token in $color-tokens {
+  .theme-showcase__chip--#{$token} {
+    background: var(--#{$token});
+  }
 }
- 
-.theme-showcase__overlay-label {
-  font-size: 11px;
+
+// Translucent: shown over a checkerboard so the transparency reads
+.theme-showcase__chip--overlay {
+  background:
+    linear-gradient(var(--overlay), var(--overlay)),
+    repeating-conic-gradient(var(--background) 0 25%, var(--text) 0 50%) 0 0 / 12px 12px;
+}
+
+.theme-showcase__swatch-name {
+  font-size: .75rem;
+  line-height: 1.2;
+}
+
+.theme-showcase__swatch-hex {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: .7rem;
   color: var(--text-muted);
-  letter-spacing: 0.08em;
+}
+
+/* ── Narration ── */
+.theme-showcase__pitch {
+  max-width: 70ch;
+  line-height: 1.7;
 }
 
 /* ── Fonts ── */
 .theme-showcase__fonts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 2rem;
   width: 100%;
+  @include mixins.respond-to(medium) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .theme-showcase__fonts-primary {
-  max-width: 90%;
   font-family: var(--primary-font), Arial, sans-serif;
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
 .theme-showcase__fonts-secondary {
-  max-width: 90%;
   font-family: var(--secondary-font), Arial, sans-serif;
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -252,10 +175,10 @@
   border: 1px solid var(--primary);
   border-radius: 1rem;
   padding: .5rem;
-  margin-top: .5rem;
+  white-space: nowrap;
   &:hover {
     color: var(--primary-hover)!important;
-    border-color: var(--primary-hover);    
+    border-color: var(--primary-hover);
   }
   @media(hover:none) {
     color: var(--primary)!important;

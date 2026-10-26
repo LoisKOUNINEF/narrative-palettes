@@ -21,18 +21,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 // Global styles
 :root {
+  font-size: clamp(16px, 0.909rem + 0.455vw, 19px);
 	body {
 		background-color: $background-color;
 	  color: $text-color;
-	  min-width: 100vw;
 		min-height: 100vh;
 		cursor: default;
 	  line-height: 1.6;
 	  font-size: map.get($font-sizes, medium);
-	}
-
-	h1 {
-		font-size: map.get($font-sizes, largest);
 	}
 
 	a, button {

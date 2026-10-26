@@ -1,4 +1,7 @@
-// Libraries styles (snackbar, popover).
+// a11y-elements default styles - first, so every rule below wins the cascade
+@use "pkg:a11y-elements/a11y.css";
+
+// helper styles
 @use "core";
 
 // built-in classes
@@ -11,5 +14,3 @@
 @use "custom-classes";
 // components styles
 @use "components";
-// views styles
-@use "views";

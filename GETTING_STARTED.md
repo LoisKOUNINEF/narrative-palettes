@@ -1,0 +1,206 @@
+# Getting started
+
+## Table of contents
+
+- [Project structure](#project-structure)
+- [How do I run my app?](#running-your-app)
+- [How do I generate components, views and services?](#generate-components-views-and-services)
+- [What does a typical component look like?](#a-typical-component)
+- [Options and configuration](#options-and-configuration)
+- [Styling](#styling)
+- [Testing](#testing)
+- [Go further](#go-further)
+
+## Project structure
+
+```
+src/
+  app/    -- suggested layout: organize src/app however you like
+    components/
+    services/
+    views/
+    routes.ts
+    main.ts
+  assets/
+  core/   -- Nutin framework source
+  styles/
+
+tools/    -- build, development, generator and testing
+
+nutin.config.js   -- options and configuration
+```
+
+* Views **orchestrate application flow**
+* Components **encapsulate UI behavior**
+* Services **handle application concerns** through shared instances
+
+### Imports
+
+- Imports use **relative paths** and end with `.js` extension.
+
+```js
+import { Foo } from 'relative/path/to/foo.js';
+```
+
+- Use Nutin's code barrel file (`src/core/index.js`) to import Nutin's modules.
+- Nutin's types (`Nutin.ComponentConfig`, `Nutin.Routes`, `Nutin.Template`, …) live in the global `Nutin` namespace declared in `src/core/internals.d.ts`: no import needed.
+
+## How do I run my app?
+
+```bash
+# Development
+npm run serve # build and serve
+npm run dev   # build and serve with live reload
+npm run dev -- --port 3000 # serve on another port (default 9090; PORT=3000 also works)
+
+# Build
+npm run build      # build the application
+npm run build:prod # build the application for production
+```
+
+## How do I generate components, views and services?
+
+Elements are generated in `src/app/<path>/`, so you choose the project structure. The generator stops if the target folder already exists and isn't empty.
+
+```bash
+npm run generate <component|view|service> PATH/TO/ELEMENT_NAME
+
+# Examples
+npm run generate component components/hello-world # generates src/app/components/hello-world/hello-world.component.ts|html|scss
+npm run generate view user/dashboard # generates src/app/user/dashboard/dashboard.view.ts|html|scss
+```
+
+## What does a typical component look like?
+
+```bash
+components/
+  product-card/
+    product-card.component.html
+    product-card.component.scss
+    product-card.component.ts
+```
+
+```ts
+// The component's .html template is injected here.
+const templateFn = (product: Product) => html`__TEMPLATE_PLACEHOLDER__`;
+
+export class ProductCardComponent extends Component {
+  private _product: Product;
+
+  constructor(mountTarget: HTMLElement, config: Product) {
+    super({ templateFn, mountTarget, config });
+    this._product = config;
+  }
+
+  // Declares children mounted into the data-component / data-catalog placeholders below.
+  public registerChildren(): Nutin.ComponentConfig[] {
+    // Single child, matched to <div data-component="product-details">
+    const detailsComponent = {
+      selector: `product-details`,
+      factory: (el) => new ProductDetailsComponent(
+        el, 
+        { config: this._product.details },
+      )
+    };
+
+    // One child per item in _product.tags, matched to <div data-catalog="product-tags">
+    const tagsCatalog = this.createCatalogComponents({
+      selector: 'product-tags',
+      items: this._product.tags,
+      component: ProductTagsComponent,
+      elementName: 'product-tag'
+    });
+
+    return [
+      detailsComponent,
+      ...tagsCatalog
+    ];
+  }
+
+  // Referenced by the data-event attribute in the template.
+  private _goToProductPage(productId: string): void {
+    Navigation.navigateTo(`/product/${productId}`);
+  }
+}
+```
+
+```html
+<div
+  data-product-id="${product.id}"
+  data-event="click:_goToProductPage:@dataset:productId"
+  class="product-card"
+>
+  <h2 class="product-card__name">${product.name}</h2>
+  <div data-component="product-details"></div>
+  <div data-catalog="product-tags"></div>
+</div>
+```
+
+```scss
+.product-card {
+  // component styles
+}
+
+.product-card__name {
+  // element styles
+}
+```
+
+A template can also be written directly inline (skip the `.html` file and the placeholder). 
+
+Defining both an inline template and an external `.html` file, or neither, fails the build.
+
+## Options and configuration
+
+### Main file
+
+`nutin.config.js` - Main Nutin configuration and tool options. See the inline comments and [How do I configure Nutin?](https://www.nutin.dev/docs/options-and-features/configure-nutin) for details.
+
+This is where you can:
+
+- Toggle options ([Tailwind CSS](https://www.nutin.dev/docs/options-and-features/use-tailwind-css), [i18n](https://www.nutin.dev/docs/options-and-features/use-i18n), [SEO file generation](https://www.nutin.dev/docs/options-and-features/use-seo-file-generation)). 
+- Configure the builder and the built-in testing toolkit.
+
+### Specialized files
+
+- `config/seo.json` - with `generateSEOFiles` enabled. Register your routes' description, title and ogImage here.
+- `config/languages.json` - with `i18n` enabled. Register supported languages here.
+
+## Styling
+
+- Nutin uses SASS (`.scss` syntax, compatible with plain CSS) as its default styling solution.
+
+- Tailwind CSS v4 is also supported as an optional utility-first CSS layer.
+
+**Note:** Installing Tailwind CSS dependencies may print `npm warn install-scripts`. This is expected with npm 12's default install-script allowlisting and is safe to ignore.
+
+## Testing
+
+You can use any testing tool you prefer for application code.
+
+This project includes [testin-nutin](https://www.nutin.dev/docs/testing), Nutin's small testing toolkit. Nutin itself is tested exclusively with it, and the tests are included in the generated project so you can:
+- use them as executable documentation;
+- run and modify Nutin's tests when modifying its code.
+
+Run the tests with:
+
+`npm run testin-nutin`
+
+To use testin-nutin for application tests, enable:
+
+```js
+// nutin.config.js
+testinNutin: {
+  includeApp: true,
+}
+```
+*Note:* TestinNutin files are plain JavaScript and use root imports: they test the compiled output, so they aren't type-checked.
+```js
+import { MyModule } from '#root/dist/src/path/to/my-module.js';
+```
+
+## Go further
+
+- [Documentation](https://www.nutin.dev/docs)
+- [First app tutorial](https://www.nutin.dev/tutorial)
+- [Nutin website](https://www.nutin.dev)

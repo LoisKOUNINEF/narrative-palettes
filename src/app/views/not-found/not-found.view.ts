@@ -1,28 +1,32 @@
-import { AppEventBus, ComponentConfig, View } from '../../../core/index.js';
-import { ButtonComponent } from '../../components/index.js';
+import { Navigation, View, html } from '../../../core/index.js';
+import { ButtonComponent } from '../../components/common/button/button.component.js';
 
-const template = `__TEMPLATE_PLACEHOLDER__`;
+const template = html`__TEMPLATE_PLACEHOLDER__`;
 
 export class NotFoundView extends View {
   constructor() {
-    super({template});
+    super({ template, viewName: 'not-found' });
   }
 
-  childConfigs(): ComponentConfig[] {
+  public override documentTitle(): string {
+    return 'Page Not Found';
+  }
+
+  public registerChildren(): Nutin.ComponentConfig[] {
     const btnClass = 'u-bg-inherit u-font-large u-padd-y-medium u-color-prim u-italic';
     return [
-      { 
+      {
         selector: 'home',
-        factory: (el) => new ButtonComponent(el, { i18nKey: 'not-found.redirect', callback: () => this.handleHome(), className: btnClass })
+        factory: (el) => new ButtonComponent(el, { textContent: 'Back to home', callback: () => this.handleHome(), className: btnClass })
       },
     ]
   }
 
-  handleHome() {
-    AppEventBus.emit('navigate', '/');
+  private handleHome() {
+    Navigation.navigateTo('/');
   }
 
-  goToSecret() {
-    AppEventBus.emit('navigate', '/secret');
+  protected goToSecret() {
+    Navigation.navigateTo('/secret');
   }
 }

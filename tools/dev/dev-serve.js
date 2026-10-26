@@ -1,32 +1,104 @@
 #!/usr/bin/env node
 
-import { print, runCommand } from '../utils/index.js';
+import { spawn, spawnSync } from 'child_process';
+import { print, resolvePort, runCommand } from '../utils/index.js';
+
+const isWindows = process.platform === 'win32';
 
 async function startDev() {
+  console.clear();
+  print.blue('🚀 Starting Dev Environment...\n');
+
+  let port;
   try {
-    console.clear();
-    print.boldHead('🚀 Starting Dev Environment...');
+    port = resolvePort();
+  } catch (err) {
+    print.boldError(err.message);
+    process.exit(1);
+  }
 
-    await runCommand('npm', ['run', 'build']);
-
-    const { serve, watcher } = await Promise.all([
-      runCommand('npm', ['run', 'serve:only']),
-      runCommand('node', ['tools/dev/watcher.js'])
-    ]);
-
-    serve.on('close', (code) => {
-      print.error(`live-server exited with code ${code}`);
-      process.exit(code);
-    });
-    watcher.on('close', (code) => {
-      print.error(`watcher exited with code ${code}`);
-    });
+  try {
+    await runCommand('npm', ['run', 'build', '--silent']);
   } catch (err) {
     print.boldError(`Dev startup failed: ${err.message}`);
+    process.exit(1);
   }
+
+  // detached: true makes each child the leader of its own process group, so its
+  // descendants (watcher.js's own `exec('npm run build')` included) can be
+  // killed as a group below. Without this, a shutdown that doesn't cleanly propagate
+  // SIGINT down the shell layers (backgrounded, launched by a task runner, a closed
+  // terminal tab instead of Ctrl-C, ...) leaves them running as orphans — multiple
+  // stray watcher.js processes then race each other's builds.
+  // Not on Windows: there, detached children leave the console, so Ctrl-C would no
+  // longer reach them, and negative-pid group kills aren't supported — taskkill /T
+  // walks the process tree instead.
+  // Hand serve.js the already-resolved port via PORT; npm_config_port is dropped so it
+  // can't take precedence over it in the child.
+  const { npm_config_port, ...serveEnv } = process.env;
+  serveEnv.PORT = String(port);
+  // Both run node directly (no shell/npm layer) with an IPC channel, used as a relay:
+  // serve.js reports the URL it listens on (watcher.js reprints it after every rebuild),
+  // and watcher.js reports each successful rebuild (serve.js reloads open pages).
+  const stdio = ['inherit', 'inherit', 'inherit', 'ipc'];
+  const serve = spawn(process.execPath, ['tools/dev/serve.js'], { stdio, detached: !isWindows, env: serveEnv });
+  const watcher = spawn(process.execPath, ['tools/dev/watcher.js'], { stdio, detached: !isWindows });
+
+  serve.on('message', (msg) => {
+    if (msg?.type === 'server-url' && watcher.connected) watcher.send(msg);
+  });
+  watcher.on('message', (msg) => {
+    if (msg?.type === 'reload' && serve.connected) serve.send(msg);
+  });
+
+  const children = [serve, watcher];
+  let shuttingDown = false;
+
+  function killGroup(child, signal) {
+    if (!child.pid) return;
+    if (isWindows) {
+      spawnSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { stdio: 'ignore' });
+      return;
+    }
+    try {
+      process.kill(-child.pid, signal);
+    } catch {
+      // group already gone
+    }
+  }
+
+  function shutdown(signal, exitCode = 0) {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    children.forEach((child) => killGroup(child, signal));
+    process.exit(exitCode);
+  }
+
+  process.on('SIGINT', () => shutdown('SIGINT'));
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  // Closing the terminal tab/window sends SIGHUP; the detached children don't get it.
+  process.on('SIGHUP', () => shutdown('SIGTERM'));
+
+  serve.on('error', (err) => {
+    print.boldError(`dev server failed to start: ${err.message}`);
+    process.exit(1);
+  });
+  serve.on('close', (code) => {
+    if (shuttingDown) return;
+    print.error(`dev server exited with code ${code}`);
+    shutdown('SIGTERM', code ?? 1);
+  });
+  watcher.on('error', (err) => {
+    print.boldError(`watcher failed to start: ${err.message}`);
+    process.exit(1);
+  });
+  watcher.on('close', (code) => {
+    if (shuttingDown) return;
+    print.error(`watcher exited with code ${code}`);
+  });
 }
 
 startDev().catch((err) => {
   print.boldError(`Unexpected error: ${err.message}`);
-  exit(1);
+  process.exit(1);
 });
