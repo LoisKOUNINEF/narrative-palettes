@@ -16,6 +16,11 @@ export class SecretView extends View {
     return 'Secret';
   }
 
+  public override onBeforeRender() {
+    if (this._secretThemes[0])
+    ThemesService.changeCurrentTheme(this._secretThemes[0]);
+  }
+
   public registerChildren(): Nutin.ComponentConfig[] {
     return [
       {

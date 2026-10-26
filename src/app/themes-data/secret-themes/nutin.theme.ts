@@ -11,8 +11,8 @@ const fonts: IThemeFonts = {
 
 export const nutinLight: ITheme = {
   cssName: 'nutin-light',
-  title: 'nutin Light',
-  subtitle: 'nutin website, light version',
+  title: 'Nutin Light',
+  subtitle: 'Nutin website, light version',
   pitch: '',
   fonts: fonts,
   variables: {
@@ -39,8 +39,8 @@ export const nutinLight: ITheme = {
 
 export const nutinDark: ITheme = {
   cssName: 'nutin-dark',
-  title: 'nutin Dark',
-  subtitle: 'nutin website, dark version',
+  title: 'Nutin Dark',
+  subtitle: 'Nutin website, dark version',
   pitch: '',
   fonts: fonts,
   variables: {
