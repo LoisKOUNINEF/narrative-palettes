@@ -1,5 +1,5 @@
 import { themes } from '../../themes-data/themes.js';
-import { neutralLight } from '../../themes-data/themes/neutral.theme.js';
+import { neutralLight } from '../../themes-data/secret-themes/neutral.theme.js';
 import { secretThemes } from '../../themes-data/secret-themes.js';
 import { AppEventBus, Service } from '../../../core/index.js';
 

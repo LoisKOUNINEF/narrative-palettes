@@ -8,7 +8,6 @@ export * from './kaamos.theme.js';
 export * from './kaibab.theme.js';
 export * from './lotr.theme.js';
 export * from './murano.theme.js';
-export * from './neutral.theme.js';
 export * from './nineties.theme.js';
 export * from './nostromo.theme.js';
 export * from './pentelic.theme.js';

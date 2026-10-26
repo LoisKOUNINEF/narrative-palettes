@@ -9,7 +9,6 @@ import {
 	kaibabLight, kaibabDark,
 	lotrLight, lotrDark,
 	muranoLight, muranoDark,
-	neutralLight, neutralDark,
 	ninetiesLight, ninetiesDark,
 	nostromoLight, nostromoDark,
 	pentelicLight, pentelicDark,
@@ -49,5 +48,4 @@ export const themes: ITheme[] = [
 	starWarsLight, starWarsDark,
 	tresRichesHeuresLight, tresRichesHeuresDark,
 	lotrLight, lotrDark,
-	neutralLight, neutralDark,
 ];
