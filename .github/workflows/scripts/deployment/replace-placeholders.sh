@@ -7,15 +7,20 @@ replace_placeholders() {
 
   patterns=$(grep ":image-placeholder" "${SERVICE_NAME}-${STACK_NAME}".yml | sed 's/:image-placeholder.*//')
 
-  while IFS= read -r pattern; do
-    echo "Updating missing image tags with latest"
-    
-    replacement_lines=$(grep "$pattern" "$origin" | sed 's|.*:||')
+  if [ -z "$patterns" ]; then
+    echo "No missing image tags"
+    return
+  fi
 
-    if [ -n "$replacement_lines" ]; then
-      while IFS= read -r replacement_line; do
-        sed -i "s|$pattern:image-placeholder.*|$pattern:$replacement_line|g" "${SERVICE_NAME}-${STACK_NAME}".yml
-      done <<< "$replacement_lines"
+  while IFS= read -r pattern; do
+    [ -z "$pattern" ] && continue
+
+    echo "Updating missing image tag with latest for ${pattern##*image: }"
+
+    tag=$(grep -m1 -F "$pattern:" "$origin" | sed 's|.*:||')
+
+    if [ -n "$tag" ]; then
+      sed -i "s|$pattern:image-placeholder.*|$pattern:$tag|g" "${SERVICE_NAME}-${STACK_NAME}".yml
     fi
   done <<< "$patterns"
 }
