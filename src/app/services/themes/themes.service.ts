@@ -46,6 +46,12 @@ export class Themes extends Service<Themes> {
     return this._secretThemePairs;
   }
 
+  // The light or dark theme of `pairs` with this cssName (e.g. from a ?theme= query param)
+  public findTheme(pairs: IThemePair[], cssName?: string): ITheme | undefined {
+    if (!cssName) return undefined;
+    return pairs.flatMap((pair) => [pair.light, pair.dark]).find((theme) => theme.cssName === cssName);
+  }
+
   public changeCurrentTheme(theme: ITheme) {
     this._currentTheme = theme;
     AppEventBus.emit('current-theme-changed', { theme });

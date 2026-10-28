@@ -19,12 +19,12 @@ export const portfolioLight: ITheme = {
     background: '#F5F5F2',
     surface: '#E9EAE7',
     text: '#242628',
-    textMuted: '#6F7478',
+    textMuted: '#666A6E',
     primary: '#343A40',
     primaryHover: '#202428',
     secondary: '#626A70',
     secondaryHover: '#464D52',
-    accent: '#52768B',
+    accent: '#4C6E81',
     bgDisabled: '#E1E2DF',
     textDisabled: '#9A9D9E',
     success: '#39764E',
@@ -32,7 +32,7 @@ export const portfolioLight: ITheme = {
     warning: '#956A22',
     info: '#3F6E9B',
     border: '#D5D7D4',
-    borderStrong: '#B8BCBB',
+    borderStrong: '#808786',
     overlay: '#17191A99',
   }
 };
@@ -60,7 +60,7 @@ export const portfolioDark: ITheme = {
     warning: '#D8B16A',
     info: '#82B1DF',
     border: '#343A3D',
-    borderStrong: '#50585B',
+    borderStrong: '#616B6F',
     overlay: '#000000B8',
   }
 };

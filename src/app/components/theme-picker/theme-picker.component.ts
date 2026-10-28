@@ -7,6 +7,8 @@ export interface ThemePickerConfig {
   label: string;
   // Keeps the drawer, floating and radio group names unique per view
   id: string;
+  // Runs after a pick has changed the current theme
+  onPick: (theme: ITheme) => void;
 }
 
 // Matches the `medium` breakpoint (respond-to(medium) is max-width: 768px)
@@ -106,8 +108,10 @@ export class ThemePickerComponent extends Component<HTMLElement, ThemePickerConf
   private onThemeChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.matches('.theme-picker__input') || !input.checked) return;
-    const theme = this.config.pairs.flatMap((pair) => [pair.light, pair.dark]).find((t) => t.cssName === input.value);
-    if (theme) ThemesService.changeCurrentTheme(theme);
+    const theme = ThemesService.findTheme(this.config.pairs, input.value);
+    if (!theme) return;
+    ThemesService.changeCurrentTheme(theme);
+    this.config.onPick(theme);
   }
 
   // Close on pick, for pointer picks only: arrow keys also check radios (and fire
