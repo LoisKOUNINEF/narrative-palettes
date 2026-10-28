@@ -56,4 +56,14 @@ describe('HomeView ?theme=', () => {
     expect(ThemesService.currentTheme.cssName).toBe('kaamos-dark');
     expect(replaceSpy.lastCall[2]).toBe('/?theme=kaamos-dark');
   });
+
+  it('the random button picks another theme of the list', () => {
+    renderWith({ theme: 'kaamos-dark' });
+    $('.theme-picker--sidebar .theme-picker__random').click();
+    const theme = ThemesService.currentTheme;
+    expect(theme.cssName).not.toBe('kaamos-dark');
+    expect(ThemesService.findTheme(ThemesService.themePairs, theme.cssName)).toBe(theme);
+    expect($('.theme-picker--sidebar .theme-picker__input:checked').value).toBe(theme.cssName);
+    expect(replaceSpy.lastCall[2]).toBe(`/?theme=${theme.cssName}`);
+  });
 });

@@ -1,6 +1,7 @@
 import { removeOverlaysWithin } from 'a11y-elements/core';
 import { ThemesService } from '../../services/themes/themes.service.js';
 import { Component, html, raw } from '../../../core/index.js';
+import { shuffle } from '../../utils/random.js';
 
 export interface ThemePickerConfig {
   pairs: IThemePair[];
@@ -38,15 +39,19 @@ function renderGroup(config: ThemePickerConfig, location: 'sidebar' | 'drawer') 
   </a11y-radio-group>`;
 }
 
+function renderRandomButton() {
+  return html`<button type="button" class="theme-picker__random" tabindex="0">Random theme</button>`;
+}
+
 // The list is rendered twice: inline for desktop, and in a drawer opened by a
 // floating button for mobile. CSS shows one or the other (see the .scss).
 // The drawer and floating move themselves to <body> during render, before
 // data-event hydration: their events are delegated in onAfterRender.
 const templateFn = (config: ThemePickerConfig) => html`
-  <div class="theme-picker theme-picker--sidebar">${renderGroup(config, 'sidebar')}</div>
+  <div class="theme-picker theme-picker--sidebar">${renderRandomButton()}${renderGroup(config, 'sidebar')}</div>
   <a11y-drawer id="theme-drawer-${config.id}" edge="left">
     <h2 class="theme-picker__drawer-title">${config.label}</h2>
-    <div class="theme-picker theme-picker--drawer">${renderGroup(config, 'drawer')}</div>
+    <div class="theme-picker theme-picker--drawer">${renderRandomButton()}${renderGroup(config, 'drawer')}</div>
   </a11y-drawer>
   <a11y-floating id="theme-floating-${config.id}" class="theme-picker__floating" position="bottom-left" controls="theme-drawer-${config.id}">
     <button type="button" class="theme-picker__toggle" tabindex="0">
@@ -85,8 +90,10 @@ export class ThemePickerComponent extends Component<HTMLElement, ThemePickerConf
     this._drawer = document.getElementById(`theme-drawer-${this.config.id}`);
 
     this.addListener(this.element, 'change', (event) => this.onThemeChange(event));
+    this.addListener(this.element, 'click', (event) => this.onRandomClick(event));
     if (this._drawer) {
       this.addListener(this._drawer, 'change', (event) => this.onThemeChange(event));
+      this.addListener(this._drawer, 'click', (event) => this.onRandomClick(event));
       this.addListener(this._drawer, 'click', (event) => this.onDrawerClick(event as MouseEvent));
     }
     super.onAfterRender();
@@ -109,16 +116,30 @@ export class ThemePickerComponent extends Component<HTMLElement, ThemePickerConf
     const input = event.target as HTMLInputElement;
     if (!input.matches('.theme-picker__input') || !input.checked) return;
     const theme = ThemesService.findTheme(this.config.pairs, input.value);
-    if (!theme) return;
+    if (theme) this.pickTheme(theme);
+  }
+
+  // Any theme of the list but the current one
+  private onRandomClick(event: Event): void {
+    if (!(event.target as HTMLElement).closest('.theme-picker__random')) return;
+    const current = ThemesService.currentTheme;
+    const [theme] = shuffle(this.config.pairs.flatMap((pair) => [pair.light, pair.dark]).filter((t) => t !== current));
+    if (theme) this.pickTheme(theme);
+  }
+
+  private pickTheme(theme: ITheme): void {
     ThemesService.changeCurrentTheme(theme);
     this.config.onPick(theme);
   }
 
   // Close on pick, for pointer picks only: arrow keys also check radios (and fire
   // a click with detail 0), and keyboard users browse themes with them.
+  // The random button closes it either way, to show the theme it picked.
   private onDrawerClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (target.closest('.theme-picker__random')) return this.closeDrawer();
     if (event.detail === 0) return;
-    if ((event.target as HTMLElement).closest('.theme-picker__option')) this.closeDrawer();
+    if (target.closest('.theme-picker__option')) this.closeDrawer();
   }
 
   private closeDrawer(): void {

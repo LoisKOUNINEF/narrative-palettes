@@ -97,6 +97,26 @@
   white-space: nowrap;
 }
 
+// Above the cards: picks any other theme of the list
+.theme-picker__random {
+  width: 100%;
+  min-height: 3rem;
+  margin-bottom: 1rem;
+  padding: 0 1.25rem;
+  border: 2px solid $text-color;
+  border-radius: map.get($border-radius, pill);
+  background-color: $background-color;
+  color: $text-color;
+  font: inherit;
+  font-size: map.get($font-sizes, medium);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $text-color;
+    outline-offset: 2px;
+  }
+}
+
 .theme-picker__drawer-title {
   font-size: map.get($font-sizes, large);
   margin-bottom: 1rem;
