@@ -38,6 +38,6 @@
     "node": ">=24"
   },
   "dependencies": {
-    "a11y-elements": "^0.5.0"
+    "a11y-elements": "^0.6.0"
   }
 }
