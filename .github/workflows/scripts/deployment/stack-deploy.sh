@@ -3,7 +3,9 @@
 new_yaml() {
   echo "Replacing $SERVICE_NAME-$STACK_NAME yaml file"
 
-  mv "$SERVICE_NAME"-"$STACK_NAME".yml prev-"$SERVICE_NAME"-"$STACK_NAME".yml
+  if [ -f "$SERVICE_NAME"-"$STACK_NAME".yml ]; then
+    mv "$SERVICE_NAME"-"$STACK_NAME".yml prev-"$SERVICE_NAME"-"$STACK_NAME".yml
+  fi
   mv new-"$SERVICE_NAME"-"$STACK_NAME".yml "$SERVICE_NAME"-"$STACK_NAME".yml
 }
 
@@ -11,7 +13,9 @@ restore_yaml() {
   echo "Restoring previous $SERVICE_NAME-$STACK_NAME yaml file" >&2
 
   mv "$SERVICE_NAME"-"$STACK_NAME".yml new-"$SERVICE_NAME"-"$STACK_NAME".yml
-  mv prev-"$SERVICE_NAME"-"$STACK_NAME".yml "$SERVICE_NAME"-"$STACK_NAME".yml
+  if [ -f prev-"$SERVICE_NAME"-"$STACK_NAME".yml ]; then
+    mv prev-"$SERVICE_NAME"-"$STACK_NAME".yml "$SERVICE_NAME"-"$STACK_NAME".yml
+  fi
 }
 
 pull_images() {
@@ -23,7 +27,7 @@ pull_images() {
 }
 
 deploy_stack() {
-  docker stack deploy --with-registry-auth -c "$SERVICE_NAME"-"$STACK_NAME".yml "$SERVICE_NAME"-"$STACK_NAME"
+  docker stack deploy --with-registry-auth -c "$SERVICE_NAME"-"$STACK_NAME".yml "$APP_LOWER"-"$STACK_NAME"
 }
 
 stack_deploy() {
