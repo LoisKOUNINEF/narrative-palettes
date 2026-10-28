@@ -21,7 +21,7 @@ export class SecretView extends View {
     ThemesService.changeCurrentTheme(this._secretThemePairs[0].light);
   }
 
-  public registerChildren(): Nutin.ComponentConfig[] {
+  public override registerChildren(): Nutin.ComponentConfig[] {
     return [
       {
         selector: 'secret-theme-buttons',

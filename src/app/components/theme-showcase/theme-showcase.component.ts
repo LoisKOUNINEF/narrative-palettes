@@ -47,7 +47,7 @@ export class ThemeShowcaseComponent extends Component<HTMLElement, ITheme> {
     this.config = ThemesService.currentTheme;
   }
 
-  public registerChildren(): Nutin.ComponentConfig[] {
+  public override registerChildren(): Nutin.ComponentConfig[] {
     return [{
       selector: 'copy-theme-button',
       factory: (el) => new ButtonComponent(el, {

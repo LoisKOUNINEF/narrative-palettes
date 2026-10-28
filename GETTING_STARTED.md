@@ -56,6 +56,7 @@ npm run dev -- --port 3000 # serve on another port (default 9090; PORT=3000 also
 # Build
 npm run build      # build the application
 npm run build:prod # build the application for production
+npm run typecheck  # type-check only, without building
 ```
 
 ## How do I generate components, views and services?
@@ -93,7 +94,7 @@ export class ProductCardComponent extends Component {
   }
 
   // Declares children mounted into the data-component / data-catalog placeholders below.
-  public registerChildren(): Nutin.ComponentConfig[] {
+  public override registerChildren(): Nutin.ComponentConfig[] {
     // Single child, matched to <div data-component="product-details">
     const detailsComponent = {
       selector: `product-details`,

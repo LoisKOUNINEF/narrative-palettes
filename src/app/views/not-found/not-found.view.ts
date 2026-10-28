@@ -12,7 +12,7 @@ export class NotFoundView extends View {
     return 'Page Not Found';
   }
 
-  public registerChildren(): Nutin.ComponentConfig[] {
+  public override registerChildren(): Nutin.ComponentConfig[] {
     const btnClass = 'u-bg-inherit u-font-large u-padd-y-medium u-color-prim u-italic';
     return [
       {

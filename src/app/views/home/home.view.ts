@@ -16,7 +16,7 @@ export class HomeView extends View {
     return 'Narrative Palettes';
   }
 
-  public registerChildren(): Nutin.ComponentConfig[] {
+  public override registerChildren(): Nutin.ComponentConfig[] {
     return [
       {
         selector: 'home-theme-buttons',
