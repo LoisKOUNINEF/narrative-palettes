@@ -38,6 +38,8 @@ export class ThemeShowcaseComponent extends Component<HTMLElement, ITheme> {
     });
     this.config = ThemesService.defaultTheme;
     this.listenToRenderEvents(['current-theme-changed']);
+    // Subscribed after the render listener: runs once the new theme is rendered
+    this.listen('current-theme-changed', () => this.scrollToTop());
   }
 
   protected override onBeforeRender(): void {
@@ -54,6 +56,15 @@ export class ThemeShowcaseComponent extends Component<HTMLElement, ITheme> {
         className: 'copy-theme-button'
       })
     }]
+  }
+
+  // Picking a theme shows the new palette from its top: the scrolled container on
+  // desktop, the page on mobile (only when the showcase's top is out of view)
+  private scrollToTop(): void {
+    for (let el = this.element.parentElement; el && el !== document.body; el = el.parentElement) {
+      if (el.scrollTop > 0) el.scrollTop = 0;
+    }
+    if (this.element.getBoundingClientRect().top < 0) this.element.scrollIntoView({ block: 'start' });
   }
 
   private copyThemeToClipboard() {
