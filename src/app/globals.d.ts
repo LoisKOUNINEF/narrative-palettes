@@ -13,6 +13,13 @@ declare interface ITheme {
   fonts: IThemeFonts;
 }
 
+// A light theme and its dark counterpart, shown together in the theme picker
+declare interface IThemePair {
+  name: string;
+  light: ITheme;
+  dark: ITheme;
+}
+
 declare interface IThemeFonts {
   primary: IThemeFont;
   secondary: IThemeFont;

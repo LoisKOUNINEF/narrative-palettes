@@ -64,3 +64,9 @@ export const nostromoDark: ITheme = {
     overlay: '#0c0c0ad9',
   }
 };
+
+export const nostromo: IThemePair = {
+  name: 'Nostromo',
+  light: nostromoLight,
+  dark: nostromoDark,
+};

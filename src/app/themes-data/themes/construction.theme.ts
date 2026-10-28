@@ -64,3 +64,9 @@ export const constructionDark: ITheme = {
     overlay: '#0c0b09d9',
   }
 };
+
+export const construction: IThemePair = {
+  name: 'Constructivism',
+  light: constructionLight,
+  dark: constructionDark,
+};

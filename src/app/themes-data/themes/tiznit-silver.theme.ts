@@ -64,3 +64,9 @@ export const tiznitSilverDark: ITheme = {
     overlay: '#0c0806d9',
   }
 };
+
+export const tiznitSilver: IThemePair = {
+  name: 'Tiznit silver',
+  light: tiznitSilverLight,
+  dark: tiznitSilverDark,
+};

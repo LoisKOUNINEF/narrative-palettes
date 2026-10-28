@@ -16,11 +16,31 @@
   }
 }
 
-// <a11y-radio-group> wraps the options in a <fieldset class="a11y-radio-group">
+// <a11y-radio-group> wraps the cards in a <fieldset class="a11y-radio-group">
 .theme-picker .a11y-radio-group {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+// One light/dark pair: its name, then its two options
+.theme-picker__card {
+  padding: .75rem;
+  border: 1px solid rgba($text-color, .15);
+  border-radius: map.get($border-radius, large);
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.theme-picker__card-title {
+  font-size: map.get($font-sizes, medium);
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.theme-picker__card-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .5rem;
 }
 
 .theme-picker__option {

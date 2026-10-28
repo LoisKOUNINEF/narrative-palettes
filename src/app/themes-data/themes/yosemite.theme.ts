@@ -64,3 +64,9 @@ export const yosemiteDark: ITheme = {
     overlay: '#080c14d9',
   }
 };
+
+export const yosemite: IThemePair = {
+  name: 'Yosemite',
+  light: yosemiteLight,
+  dark: yosemiteDark,
+};

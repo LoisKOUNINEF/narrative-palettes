@@ -13,7 +13,7 @@ export const doomLight: ITheme = {
   cssName: 'doom-light',
   title: 'E1M1',
   subtitle: 'ID SOFTWARE DOOM (1993) · ADRIAN CARMACK · DOOM.WAD FIXED 256-COLOR PALETTE · EPISODE 1 · CORRECTED',
-  pitch: 'The Doom color palette is a fixed 256-entry lookup table designed by Adrian Carmack. Background is UAC corridor texture grey: the brownish mid-grey forming the visual ground for roughly 60% of the game\'s visible surface. Text is the near-black of door frames and shadow geometry — the darkest usable entries in the palette retain faint warmth from non-zero red and green channels. Primary is blood red: the orange-red of Doom\'s damage tint and demon splatter. Secondary is toxic green: the desaturated olive-sickly green of the waste barrels, the Cacodemon, and the radiation suit pickup — one of the most persistent hues in the episode 1 environment. Accent is plasma blue: the specific electric blue of the plasma rifle bolt, one of the most saturated entries in the entire 256-color table. The BFG9000 fires a large slow green projectile matching the toxic green of the secondary — not orange as previously stated. The plasma bolt blue and the waste-barrel green together form the authentic weapon-effects chromatic signature of the game.',
+  pitch: 'The Doom color palette is a fixed 256-entry lookup table designed by Adrian Carmack. Background is UAC corridor texture grey: the brownish mid-grey forming the visual ground for roughly 60% of the game\'s visible surface. Text is the near-black of door frames and shadow geometry — the darkest usable entries in the palette retain faint warmth from non-zero red and green channels. Primary is blood red: the orange-red of Doom\'s damage tint and demon splatter. Secondary is toxic green: the desaturated olive-sickly green of the waste barrels, the Cacodemon, and the radiation suit pickup — one of the most persistent hues in the episode 1 environment. Accent is plasma blue: the specific electric blue of the plasma rifle bolt, one of the most saturated entries in the entire 256-color table. The BFG9000 fires a large slow green projectile matching the toxic green of the secondary. The plasma bolt blue and the waste-barrel green together form the authentic weapon-effects chromatic signature of the game.',
   fonts: fonts,
   variables: {
     background: '#EAE6DE',
@@ -63,4 +63,10 @@ export const doomDark: ITheme = {
     borderStrong: '#6A6158',
     overlay: '#0e0c08d9',
   }
+};
+
+export const doom: IThemePair = {
+  name: 'Doom',
+  light: doomLight,
+  dark: doomDark,
 };

@@ -6,10 +6,10 @@ import { ThemesService } from '../../services/themes/themes.service.js';
 const template = html`__TEMPLATE_PLACEHOLDER__`;
 
 export class SecretView extends View {
-  private _secretThemes: ITheme[];
+  private _secretThemePairs: IThemePair[];
   constructor() {
     super({ template, viewName: 'secret' });
-    this._secretThemes = ThemesService.secretThemes;
+    this._secretThemePairs = ThemesService.secretThemePairs;
   }
 
   public override documentTitle(): string {
@@ -17,15 +17,15 @@ export class SecretView extends View {
   }
 
   public override onBeforeRender() {
-    if (this._secretThemes[0])
-    ThemesService.changeCurrentTheme(this._secretThemes[0]);
+    if (this._secretThemePairs[0])
+    ThemesService.changeCurrentTheme(this._secretThemePairs[0].light);
   }
 
   public registerChildren(): Nutin.ComponentConfig[] {
     return [
       {
         selector: 'secret-theme-buttons',
-        factory: (el) => new ThemePickerComponent(el, { themes: this._secretThemes, label: 'Secret themes', id: 'secret' }),
+        factory: (el) => new ThemePickerComponent(el, { pairs: this._secretThemePairs, label: 'Secret themes', id: 'secret' }),
       },
       {
         selector: 'secret-theme-current',

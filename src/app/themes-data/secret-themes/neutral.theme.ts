@@ -58,3 +58,9 @@ export const neutralDark: ITheme = {
     overlay: '#000000ad',
   }
 };
+
+export const neutral: IThemePair = {
+  name: 'Neutral',
+  light: neutralLight,
+  dark: neutralDark,
+};

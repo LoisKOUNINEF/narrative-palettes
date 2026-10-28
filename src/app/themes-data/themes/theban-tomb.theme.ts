@@ -64,3 +64,9 @@ export const thebanTombDark: ITheme = {
     overlay: '#0e0a06d9',
   }
 };
+
+export const thebanTomb: IThemePair = {
+  name: 'Theban tomb',
+  light: thebanTombLight,
+  dark: thebanTombDark,
+};

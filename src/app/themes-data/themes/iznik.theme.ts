@@ -64,3 +64,9 @@ export const iznikDark: ITheme = {
     overlay: '#0a1020d9',
   }
 };
+
+export const iznik: IThemePair = {
+  name: 'Iznik',
+  light: iznikLight,
+  dark: iznikDark,
+};

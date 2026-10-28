@@ -64,3 +64,9 @@ export const pompeianDark: ITheme = {
     overlay: '#100c08d9',
   }
 };
+
+export const pompeian: IThemePair = {
+  name: 'Pompeian',
+  light: pompeianLight,
+  dark: pompeianDark,
+};

@@ -64,3 +64,9 @@ export const bauhausDark: ITheme = {
     overlay: '#0d0b09d9',
   }
 };
+
+export const bauhaus: IThemePair = {
+  name: 'Bauhaus',
+  light: bauhausLight,
+  dark: bauhausDark,
+};

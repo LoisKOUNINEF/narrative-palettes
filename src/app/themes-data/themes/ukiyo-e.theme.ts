@@ -64,3 +64,9 @@ export const ukiyoEDark: ITheme = {
     overlay: '#090c12d9',
   }
 };
+
+export const ukiyoE: IThemePair = {
+  name: 'Ukiyo-e',
+  light: ukiyoELight,
+  dark: ukiyoEDark,
+};

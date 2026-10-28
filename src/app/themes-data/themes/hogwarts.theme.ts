@@ -64,3 +64,9 @@ export const hogwartsDark: ITheme = {
     overlay: '#0a0806d9',
   }
 };
+
+export const hogwarts: IThemePair = {
+  name: 'Hogwarts',
+  light: hogwartsLight,
+  dark: hogwartsDark,
+};

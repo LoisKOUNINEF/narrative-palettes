@@ -6,10 +6,10 @@ import { ThemesService } from '../../services/themes/themes.service.js';
 const template = html`__TEMPLATE_PLACEHOLDER__`;
 
 export class HomeView extends View {
-  private _homeThemes: ITheme[];
+  private _homeThemePairs: IThemePair[];
   constructor() {
     super({ template, viewName: 'home' });
-    this._homeThemes = ThemesService.themes;
+    this._homeThemePairs = ThemesService.themePairs;
   }
 
   public override documentTitle(): string {
@@ -20,7 +20,7 @@ export class HomeView extends View {
     return [
       {
         selector: 'home-theme-buttons',
-        factory: (el) => new ThemePickerComponent(el, { themes: this._homeThemes, label: 'Themes', id: 'home' }),
+        factory: (el) => new ThemePickerComponent(el, { pairs: this._homeThemePairs, label: 'Themes', id: 'home' }),
       },
       {
         selector: 'home-theme-current',

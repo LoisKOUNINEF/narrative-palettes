@@ -64,3 +64,9 @@ export const nutinDark: ITheme = {
     overlay: '#000000AD',
   }
 };
+
+export const nutin: IThemePair = {
+  name: 'Nutin',
+  light: nutinLight,
+  dark: nutinDark,
+};

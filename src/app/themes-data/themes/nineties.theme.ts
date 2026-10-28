@@ -64,3 +64,9 @@ export const ninetiesDark: ITheme = {
     overlay: '#0a0c10d9',
   }
 };
+
+export const nineties: IThemePair = {
+  name: 'Nineties',
+  light: ninetiesLight,
+  dark: ninetiesDark,
+};

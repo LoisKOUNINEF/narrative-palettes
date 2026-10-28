@@ -64,3 +64,9 @@ export const kaibabDark: ITheme = {
     overlay: '#0c0906d9',
   }
 };
+
+export const kaibab: IThemePair = {
+  name: 'Kaibab',
+  light: kaibabLight,
+  dark: kaibabDark,
+};

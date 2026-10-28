@@ -64,3 +64,9 @@ export const starWarsDark: ITheme = {
     overlay: '#080a10d9',
   }
 };
+
+export const starWars: IThemePair = {
+  name: 'Star Wars',
+  light: starWarsLight,
+  dark: starWarsDark,
+};

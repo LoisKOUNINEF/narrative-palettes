@@ -64,3 +64,9 @@ export const sheffieldSteelDark: ITheme = {
     overlay: '#100c08d9',
   }
 };
+
+export const sheffieldSteel: IThemePair = {
+  name: 'Sheffield steel',
+  light: sheffieldSteelLight,
+  dark: sheffieldSteelDark,
+};

@@ -64,3 +64,9 @@ export const wariDark: ITheme = {
     overlay: '#0e0906d9',
   }
 };
+
+export const wari: IThemePair = {
+  name: 'Wari',
+  light: wariLight,
+  dark: wariDark,
+};

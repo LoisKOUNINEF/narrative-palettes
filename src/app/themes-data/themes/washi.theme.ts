@@ -64,3 +64,9 @@ export const washiDark: ITheme = {
     overlay: '#0e0b08d9',
   }
 };
+
+export const washi: IThemePair = {
+  name: 'Washi',
+  light: washiLight,
+  dark: washiDark,
+};

@@ -64,3 +64,9 @@ export const muranoDark: ITheme = {
     overlay: '#0c0906d9',
   }
 };
+
+export const murano: IThemePair = {
+  name: 'Murano',
+  light: muranoLight,
+  dark: muranoDark,
+};

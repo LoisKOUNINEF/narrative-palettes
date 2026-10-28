@@ -64,3 +64,9 @@ export const portfolioDark: ITheme = {
     overlay: '#000000B8',
   }
 };
+
+export const portfolio: IThemePair = {
+  name: 'Portfolio',
+  light: portfolioLight,
+  dark: portfolioDark,
+};

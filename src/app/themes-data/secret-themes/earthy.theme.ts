@@ -64,3 +64,9 @@ export const earthyDark: ITheme = {
     overlay: '#000000B8',
   }
 };
+
+export const earthy: IThemePair = {
+  name: 'Earthy',
+  light: earthyLight,
+  dark: earthyDark,
+};

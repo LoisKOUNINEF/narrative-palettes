@@ -3,7 +3,7 @@ import { ThemesService } from '../../services/themes/themes.service.js';
 import { Component, html, raw } from '../../../core/index.js';
 
 export interface ThemePickerConfig {
-  themes: ITheme[];
+  pairs: IThemePair[];
   label: string;
   // Keeps the drawer, floating and radio group names unique per view
   id: string;
@@ -14,13 +14,25 @@ const DESKTOP_QUERY = '(min-width: 769px)';
 
 // tabindex="0" on native controls: Safari's default Tab order skips them without an explicit tabindex
 // (a radio group with it on every radio is still a single Tab stop)
+function renderOption(theme: ITheme, text: string, name: string, current: string) {
+  return html`<label class="theme-picker__option theme-${theme.cssName}">
+    <input type="radio" class="theme-picker__input" tabindex="0" name="${name}" value="${theme.cssName}" ${theme.cssName === current ? raw('checked') : ''}>
+    <span class="theme-picker__name">${text}</span>
+  </label>`;
+}
+
+// One card per pair, all in a single radio group: one Tab stop, arrow keys go through every theme
 function renderGroup(config: ThemePickerConfig, location: 'sidebar' | 'drawer') {
   const current = ThemesService.currentTheme.cssName;
+  const name = `theme-${config.id}-${location}`;
   return html`<a11y-radio-group aria-label="${config.label}">
-    ${config.themes.map((theme) => html`<label class="theme-picker__option theme-${theme.cssName}">
-      <input type="radio" class="theme-picker__input" tabindex="0" name="theme-${config.id}-${location}" value="${theme.cssName}" ${theme.cssName === current ? raw('checked') : ''}>
-      <span class="theme-picker__name">${theme.title}</span>
-    </label>`)}
+    ${config.pairs.map((pair) => html`<div class="theme-picker__card" role="group" aria-labelledby="${name}-${pair.light.cssName}">
+      <h3 class="theme-picker__card-title" id="${name}-${pair.light.cssName}">${pair.name}</h3>
+      <div class="theme-picker__card-options">
+        ${renderOption(pair.light, 'Light', name, current)}
+        ${renderOption(pair.dark, 'Dark', name, current)}
+      </div>
+    </div>`)}
   </a11y-radio-group>`;
 }
 
@@ -94,7 +106,7 @@ export class ThemePickerComponent extends Component<HTMLElement, ThemePickerConf
   private onThemeChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.matches('.theme-picker__input') || !input.checked) return;
-    const theme = this.config.themes.find((t) => t.cssName === input.value);
+    const theme = this.config.pairs.flatMap((pair) => [pair.light, pair.dark]).find((t) => t.cssName === input.value);
     if (theme) ThemesService.changeCurrentTheme(theme);
   }
 

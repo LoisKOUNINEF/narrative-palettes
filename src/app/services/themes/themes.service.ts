@@ -1,6 +1,6 @@
-import { themes } from '../../themes-data/themes.js';
+import { themePairs, themes } from '../../themes-data/themes.js';
 import { kaamosLight } from '../../themes-data/themes/kaamos.theme.js';
-import { secretThemes } from '../../themes-data/secret-themes.js';
+import { secretThemePairs, secretThemes } from '../../themes-data/secret-themes.js';
 import { AppEventBus, Service } from '../../../core/index.js';
 
 export class Themes extends Service<Themes> {
@@ -8,6 +8,8 @@ export class Themes extends Service<Themes> {
   private _defaultTheme: ITheme;
   private _currentTheme: ITheme;
   private _secretThemes: ITheme[] = [];
+  private _themePairs: IThemePair[] = [];
+  private _secretThemePairs: IThemePair[] = [];
 
   constructor() {
     super();
@@ -16,6 +18,8 @@ export class Themes extends Service<Themes> {
     this._defaultTheme = this._themes[0] || kaamosLight;
     this._currentTheme = this._defaultTheme;
     this._secretThemes = secretThemes;
+    this._themePairs = themePairs;
+    this._secretThemePairs = secretThemePairs;
   }
 
   get currentTheme(): ITheme {
@@ -34,6 +38,14 @@ export class Themes extends Service<Themes> {
     return this._secretThemes;
   }
 
+  get themePairs(): IThemePair[] {
+    return this._themePairs;
+  }
+
+  get secretThemePairs(): IThemePair[] {
+    return this._secretThemePairs;
+  }
+
   public changeCurrentTheme(theme: ITheme) {
     this._currentTheme = theme;
     AppEventBus.emit('current-theme-changed', { theme });
@@ -41,6 +53,7 @@ export class Themes extends Service<Themes> {
 
   private clear() {
     this._themes = [];
+    this._themePairs = [];
   }
 }
 

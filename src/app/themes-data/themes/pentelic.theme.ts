@@ -64,3 +64,9 @@ export const pentelicDark: ITheme = {
     overlay: '#0c0a06d9',
   }
 };
+
+export const pentelic: IThemePair = {
+  name: 'Pentelic',
+  light: pentelicLight,
+  dark: pentelicDark,
+};

@@ -64,3 +64,9 @@ export const kaamosDark: ITheme = {
     overlay: '#0a0e14d9',
   }
 };
+
+export const kaamos: IThemePair = {
+  name: 'Kaamos',
+  light: kaamosLight,
+  dark: kaamosDark,
+};

@@ -64,3 +64,9 @@ export const lotrDark: ITheme = {
     overlay: '#0c0a08d9',
   }
 };
+
+export const lotr: IThemePair = {
+  name: 'Lord of the Rings',
+  light: lotrLight,
+  dark: lotrDark,
+};

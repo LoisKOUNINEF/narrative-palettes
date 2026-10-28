@@ -64,3 +64,9 @@ export const tresRichesHeuresDark: ITheme = {
     overlay: '#100e08d9',
   }
 };
+
+export const tresRichesHeures: IThemePair = {
+  name: 'Très Riches Heures',
+  light: tresRichesHeuresLight,
+  dark: tresRichesHeuresDark,
+};

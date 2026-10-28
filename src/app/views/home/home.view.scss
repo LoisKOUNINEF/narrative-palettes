@@ -43,11 +43,13 @@
 }
 
 // Sidebar on desktop. On mobile the theme picker moves to a drawer (see theme-picker.component.scss)
+// Fixed width: sized to its content, the showcase would squeeze it and cut off the Light/Dark labels
 .home__themes-catalog {
 	align-self: flex-start;
+	flex: none;
+	width: 20rem;
 	height: 100%;
 	overflow-y: auto;
-	min-width: 0;
 	@include mixins.respond-to(medium) {
 		display: none;
 	}
@@ -72,12 +74,5 @@
 			// Room for the floating "Themes" button
 			padding-bottom: 5rem;
 		}
-	}
-}
-
-.secret__themes-catalog {
-	width: 20%;
-	.theme-picker--sidebar .a11y-radio-group {
-		grid-template-columns: minmax(0, 1fr);
 	}
 }
