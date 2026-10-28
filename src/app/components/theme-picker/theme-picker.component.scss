@@ -11,6 +11,7 @@
 
 .theme-picker--sidebar {
   padding: 2rem;
+  padding-top: 0;
   @include mixins.respond-to(medium) {
     display: none;
   }
